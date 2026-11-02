@@ -1,13 +1,344 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Jelajah bandung </title>
+    <title>Jelajah Bandung</title>
+
+    <style>
+        /* Pengaturan Dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f8f6;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #176b4d;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h2 {
+            font-size: 22px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 25px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .menu a:hover {
+            color: #c9ead8;
+        }
+
+        /* Banner */
+        .hero {
+            min-height: 350px;
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.45),
+                    rgba(0, 0, 0, 0.45)
+                ),
+                url("bandung.jpg") center/cover no-repeat;
+
+            display: flex;
+            align-items: center;
+            padding: 50px 7%;
+            color: white;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* Daftar Wisata */
+        main {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        main h2 {
+            color: #174d38;
+            margin-bottom: 10px;
+        }
+
+        .deskripsi {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* Pencarian */
+        #cari {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        #cari:focus {
+            border-color: #176b4d;
+        }
+
+        /* Tabel */
+        .tabel-container {
+            overflow-x: auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #176b4d;
+            color: white;
+            font-size: 14px;
+        }
+
+        td {
+            font-size: 14px;
+        }
+
+        tr:hover {
+            background: #f0f7f2;
+        }
+
+        /* Footer */
+        footer {
+            background: #174d38;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            line-height: 1.8;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
+        /* Tampilan HP */
+        @media (max-width: 700px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .menu {
+                gap: 20px;
+            }
+
+            .hero {
+                min-height: 280px;
+                padding: 30px 7%;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            main {
+                margin: 20px auto;
+                padding: 15px;
+            }
+
+            table {
+                min-width: 700px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>
-        hello world
-    </h1>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h2>📍 Jelajah Bandung</h2>
+
+        <div class="menu">
+            <a href="#beranda">Beranda</a>
+            <a href="#wisata">Data Wisata</a>
+        </div>
+    </nav>
+
+    <!-- Banner Bandung -->
+    <section class="hero" id="beranda">
+        <div class="hero-text">
+            <h1>Jelajahi Bandung</h1>
+
+            <p>
+                Temukan berbagai tempat wisata menarik di sekitar
+                kampus PT INTI Bandung, mulai dari wisata sejarah,
+                taman, hingga tempat rekreasi.
+            </p>
+        </div>
+    </section>
+
+    <!-- Daftar Wisata -->
+    <main id="wisata">
+        <h2>Daftar Wisata Bandung</h2>
+
+        <p class="deskripsi">
+            Informasi tempat wisata, harga tiket, dan jarak
+            dari kampus PT INTI Bandung.
+        </p>
+
+        <!-- Kolom Pencarian -->
+        <input
+            type="text"
+            id="cari"
+            placeholder="Cari nama wisata..."
+        >
+
+        <!-- Tabel Wisata -->
+        <div class="tabel-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Wisata</th>
+                        <th>Kategori</th>
+                        <th>Harga Tiket</th>
+                        <th>Jarak dari PT INTI</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tabelWisata"></tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <h3>Jelajah Bandung</h3>
+        <p>Informasi Wisata Kota Bandung</p>
+        <p>© 2026 Jelajah Bandung</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Data wisata Bandung
+        const dataWisata = [
+            {
+                nama: "Taman Tegalega",
+                kategori: "Taman",
+                harga: 0,
+                jarak: "±1,5 km"
+            },
+            {
+                nama: "Museum Sri Baduga",
+                kategori: "Museum",
+                harga: 15000,
+                jarak: "±2,2 km"
+            },
+            {
+                nama: "Alun-Alun Bandung",
+                kategori: "Ruang Publik",
+                harga: 0,
+                jarak: "±4,5 km"
+            },
+            {
+                nama: "Jalan Braga",
+                kategori: "Wisata Sejarah",
+                harga: 0,
+                jarak: "±5,5 km"
+            }
+        ];
+
+        // Menampilkan data ke tabel
+        function tampilkanData() {
+            const cari = document
+                .getElementById("cari")
+                .value.toLowerCase();
+
+            const tabel = document.getElementById("tabelWisata");
+
+            tabel.innerHTML = "";
+
+            const hasil = dataWisata.filter(data =>
+                data.nama.toLowerCase().includes(cari)
+            );
+
+            hasil.forEach((data, index) => {
+
+                const harga = data.harga === 0
+                    ? "Gratis"
+                    : "Rp " + data.harga.toLocaleString("id-ID");
+
+                tabel.innerHTML += `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td>${data.nama}</td>
+                        <td>${data.kategori}</td>
+                        <td>${harga}</td>
+                        <td>${data.jarak}</td>
+                    </tr>
+                `;
+            });
+
+            if (hasil.length === 0) {
+                tabel.innerHTML = `
+                    <tr>
+                        <td colspan="5">
+                            Wisata tidak ditemukan.
+                        </td>
+                    </tr>
+                `;
+            }
+        }
+
+        // Fitur pencarian
+        document
+            .getElementById("cari")
+            .addEventListener("input", tampilkanData);
+
+        // Menampilkan data pertama kali
+        tampilkanData();
+    </script>
+
 </body>
 </html>
