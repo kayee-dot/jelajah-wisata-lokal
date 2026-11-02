@@ -11,41 +11,76 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #f5f8f6;
-            color: #333;
+            background: #F3F6FA;
+            color: #173B61;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         /* Navbar */
         .navbar {
             background: #102D50;
             color: white;
-            padding: 18px 7%;
+            padding: 22px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            gap: 20px;
         }
 
-        .navbar h2 {
+        .logo {
             font-size: 22px;
+            font-weight: bold;
+            white-space: nowrap;
         }
 
-        .menu {
+        .nav {
             display: flex;
-            gap: 25px;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 20px;
+            flex-wrap: nowrap;
         }
 
-        .menu a {
-            color: white;
+        .nav a {
             text-decoration: none;
-            font-size: 14px;
+            color: #DCEBFA;
+            font-size: 13px;
+            white-space: nowrap;
+            transition: color 0.3s ease;
+            padding-bottom: 6px;
         }
 
-        .menu a:hover {
-            color: #c9ead8;
+        .nav a:hover,
+        .nav a.active {
+            color: white;
+            border-bottom: 2px solid #e8ecef;
+        }
+
+         /* CONTAINER */
+        .container {
+            width: 88%;
+            max-width: 1200px;
+            margin: 40px auto;
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #718096;
+            font-size: 14px;
+            line-height: 1.7;
         }
 
         /* Banner */
@@ -80,7 +115,8 @@
 
         /* Daftar Wisata */
         main {
-            max-width: 1100px;
+            width: 88%;
+            max-width: 1400px;
             margin: 40px auto;
             padding: 20px;
         }
@@ -149,63 +185,95 @@
             background: #102D50;
             color: white;
             text-align: center;
-            padding: 25px;
-            line-height: 1.8;
+            padding: 30px 15px;
+        }
+
+        footer h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
         }
 
         footer p {
-            font-size: 14px;
+            color: #DCEBFA;
+            font-size: 13px;
+            line-height: 1.7;
         }
 
-        /* Tampilan HP */
-        @media (max-width: 700px) {
+        .footer-line {
+            width: 80%;
+            max-width: 500px;
+            height: 1px;
+            background: #49627D;
+            margin: 18px auto;
+        }
+
+        .copyright {
+            font-size: 12px;
+            color: #AFC4DB;
+        }
+
+        /* Tampilan Tablet */
+        @media (max-width: 1050px) {
             .navbar {
-                flex-direction: column;
-                gap: 15px;
+                flex-wrap: wrap;
             }
 
-            .menu {
+            .nav {
                 gap: 20px;
             }
+        }
 
-            .hero {
-                min-height: 280px;
-                padding: 30px 7%;
+        /* RESPONSIVE HP */
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px 5%;
             }
 
-            .hero h1 {
-                font-size: 30px;
+            .logo {
+                font-size: 20px;
             }
 
-            .hero p {
-                font-size: 14px;
+            .nav {
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                gap: 14px;
             }
 
-            main {
-                margin: 20px auto;
-                padding: 15px;
+            nav a {
+                font-size: 12px;
+            }
+
+            .container {
+                width: 92%;
+                margin: 30px auto;
+            }
+
+            h1 {
+                font-size: 23px;
             }
 
             table {
                 min-width: 700px;
             }
         }
+            
     </style>
 </head>
 
 <body>
-
     <!-- Navbar -->
     <nav class="navbar">
         <h2>📍 Jelajah Bandung</h2>
 
-        <div class="menu">
-            <a href="#beranda">Beranda</a>
-            <a href="#sejarah">Sejarah</a>
-            <a href="#wisata">Data Wisata</a>
-            <a href="#rekomendasi">Rekomendasi</a>
-            <a href="#lokasi">Lokasi</a>
-            <a href="#kontak">Kontak</a>
+        <div class="nav">
+            <a href="beranda.html" class = "active">Beranda</a>
+            <a href="sejarah.html">Sejarah</a>
+            <a href="data_wisata.html" class = "active">Data Wisata</a>
+            <a href="rekomendasi.html">Rekomendasi</a>
+            <a href="lokasi.html">Lokasi</a>
+            <a href="kontak.html" class = "active">Kontak</a>
         </div>
     </nav>
 
@@ -227,7 +295,7 @@
         <h2>Daftar Wisata Bandung</h2>
 
         <p class="deskripsi">
-            Informasi tempat wisata, harga tiket, dan jarak
+            Informasi nama tempat wisata, harga tiket masuk, dan jarak
             dari kampus PT INTI Bandung.
         </p>
 
@@ -268,28 +336,16 @@
         // Data wisata Bandung
         const dataWisata = [
             {
-                nama: "Taman Tegalega",
-                kategori: "Taman",
-                harga: 0,
-                jarak: "±1,5 km"
+                nama: "Taman Tegalega", kategori: "Taman", harga: 0, jarak: "±1,5 km"
             },
             {
-                nama: "Museum Sri Baduga",
-                kategori: "Museum",
-                harga: 15000,
-                jarak: "±2,2 km"
+                nama: "Museum Sri Baduga", kategori: "Museum", harga: 15000, jarak: "±2,2 km"
             },
             {
-                nama: "Alun-Alun Bandung",
-                kategori: "Ruang Publik",
-                harga: 0,
-                jarak: "±4,5 km"
+                nama: "Alun-Alun Bandung", kategori: "Ruang Publik", harga: 0, jarak: "±4,5 km"
             },
             {
-                nama: "Jalan Braga",
-                kategori: "Wisata Sejarah",
-                harga: 0,
-                jarak: "±5,5 km"
+                nama: "Jalan Braga", kategori: "Wisata Sejarah", harga: 0, jarak: "±5,5 km"
             }
         ];
 
