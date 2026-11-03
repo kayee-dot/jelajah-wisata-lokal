@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami | Jelajah Bandung</title>
+
+    <!-- CSS: Mengatur tampilan website -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: #f8f7f2;
+            color: #292e28;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: white;
+        }
+
+        nav h2 {
+            color: #315c43;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 25px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #548c60;
+        }
+
+        /* Bagian utama */
+        .hero {
+            padding: 90px 8%;
+            background: linear-gradient(
+                rgba(20, 40, 28, .65),
+                rgba(20, 40, 28, .65)
+            ), url('https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=1600');
+
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* Tentang kami */
+        .about {
+            padding: 65px 10%;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about img {
+            width: 45%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .about-text h2 {
+            color: #315c43;
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            line-height: 1.8;
+            color: #666;
+            font-size: 15px;
+        }
+
+        /* Visi dan Misi */
+        .visi {
+            padding: 50px 8%;
+            background: #eaf0e8;
+            text-align: center;
+        }
+
+        .visi h2 {
+            color: #315c43;
+            margin-bottom: 25px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            flex: 1;
+            max-width: 350px;
+            box-shadow: 0 4px 15px #0000000a;
+        }
+
+        .card h3 {
+            color: #315c43;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Tombol */
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 25px;
+            background: #315c43;
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #477b59;
+        }
+
+        /* Footer */
+        footer {
+            background: #263e30;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            font-size: 14px;
+        }
+
+        /* Tampilan HP */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 7px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .about {
+                flex-direction: column;
+                padding: 40px 7%;
+            }
+
+            .about img {
+                width: 100%;
+            }
+
+            .cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR: Menu navigasi website -->
+    <nav>
+        <h2>Jelajah Bandung</h2>
+        <div>
+            <a href="index.html">Beranda</a>
+            <a href="wisata.html">Wisata</a>
+            <a href="tentang-kami.html">Tentang Kami</a>
+        </div>
+    </nav>
+
+    <!-- HERO: Judul halaman -->
+    <section class="hero">
+        <h1>Tentang Kami</h1>
+        <p>Mengenal lebih dekat Jelajah Wisata Kota Bandung.<br>
+        Temukan cerita dan keindahan Kota Kembang bersama kami.</p>
+    </section>
+
+    <!-- ABOUT: Penjelasan website -->
+    <section class="about">
+        <img src="https://tse1.mm.bing.net/th/id/OIP.d1ObghEah9jrwclOSl5TfgHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+             alt="Pemandangan Kota Bandung">
+
+        <div class="about-text">
+            <h2>Kenalan dengan Jelajah Bandung</h2>
+            <p>
+                Jelajah Bandung merupakan website informasi wisata
+                yang hadir untuk membantu masyarakat dan wisatawan
+                mengenal berbagai destinasi menarik di Kota Bandung.
+                <br><br>
+                Mulai dari wisata alam, tempat bersejarah, taman kota,
+                hingga tempat rekreasi populer. Kami ingin membuat
+                pengalaman mencari tempat wisata menjadi lebih mudah,
+                praktis, dan menyenangkan.
+            </p>
+
+            <a href="wisata.html" class="btn">Jelajahi Wisata</a>
+        </div>
+    </section>
+
+    <!-- VISI DAN MISI -->
+    <section class="visi">
+        <h2>Visi & Misi Kami</h2>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Visi Kami</h3>
+                <p>
+                    Menjadi media informasi wisata yang membantu
+                    memperkenalkan keindahan dan keunikan Kota Bandung
+                    kepada lebih banyak orang.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Misi Kami</h3>
+                <p>
+                    Menyediakan informasi destinasi wisata yang mudah
+                    dipahami, menarik, dan membantu wisatawan
+                    merencanakan perjalanan mereka.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>©️ 2026 Jelajah Bandung. Explore More, Enjoy Bandung.</p>
+    </footer>
+
+    <!-- JAVASCRIPT: Interaksi sederhana -->
+    <script>
+        // Menampilkan pesan ketika tombol wisata diklik
+        document.querySelector(".btn").addEventListener("click", function() {
+            console.log("Selamat menjelajahi wisata Kota Bandung!");
+        });
+    </script>
+
+</body>
+</html>
