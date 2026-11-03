@@ -1,16 +1,136 @@
 <!DOCTYPE html>
 <html lang="id">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Rekomendasi Wisata Bandung</title>
-        <link rel="stylesheet" href="css/rekomendasi.css">
-    </head>
-    <body>
-        <section class="wisata"
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rekomendasi Wisata Bandung</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f5ef;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .wisata {
+            max-width: 1100px;
+            margin: auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: #38563b;
+            font-size: 35px;
+            margin-bottom: 8px;
+        }
+
+        p {
+            color: #777;
+        }
+
+        input, select {
+            padding: 12px 16px;
+            margin: 10px 5px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            background: white;
+        }
+
+        input {
+            width: 280px;
+        }
+
+        .wisata-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            text-align: left;
+            box-shadow: 0 3px 10px #00000010;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card h3 {
+            color: #38563b;
+        }
+
+        .card p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .card a {
+            display: inline-block;
+            background: #526f50;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .card a:hover {
+            background: #354b34;
+        }
+
+        #pesan {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 14px;
+            }
+
+            h1 {
+                font-size: 29px;
+            }
+
+            input {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="wisata">
+
         <h1>Wisata Bandung</h1>
         <p>Temukan tempat menarik untuk liburanmu!</p>
-        <input type="text" id="cari" placeholder="Cari wisata...">
+
+        <input
+            type="text"
+            id="cari"
+            placeholder="Cari wisata..."
+        >
 
         <select id="kategori">
             <option value="Semua">Semua Kategori</option>
@@ -21,10 +141,167 @@
         </select>
 
         <div id="daftarWisata" class="wisata-list"></div>
+
     </section>
-    <script src="js/rekomendasi.js"></script>
-    </body>
+
+
+    <script>
+
+        // DATA WISATA BANDUNG
+
+        const wisata = [
+            {
+                nama: "Museum Konferensi Asia Afrika",
+                kategori: "Sejarah",
+                lokasi: "Jl. Asia Afrika",
+                foto: "https://images.unsplash.com/photo-1565060169194-19fabf63012a?auto=format&fit=crop&w=900&q=80",
+                link: "https://www.google.com/maps/search/?api=1&query=Museum+Konferensi+Asia+Afrika+Bandung"
+            },
+
+            {
+                nama: "Taman Tegalega",
+                kategori: "Taman",
+                lokasi: "Jl. Otto Iskandardinata",
+                foto: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
+                link: "https://www.google.com/maps/search/?api=1&query=Taman+Tegalega+Bandung"
+            },
+
+            {
+                nama: "Museum Geologi",
+                kategori: "Edukasi",
+                lokasi: "Jl. Diponegoro",
+                foto: "https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=900&q=80",
+                link: "https://www.google.com/maps/search/?api=1&query=Museum+Geologi+Bandung"
+            },
+
+            {
+                nama: "Saung Angklung Udjo",
+                kategori: "Budaya",
+                lokasi: "Jl. Padasuka",
+                foto: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=80",
+                link: "https://www.google.com/maps/search/?api=1&query=Saung+Angklung+Udjo+Bandung"
+            },
+
+            {
+                nama: "Alun-Alun Bandung",
+                kategori: "Taman",
+                lokasi: "Jl. Asia Afrika",
+                foto: "https://images.unsplash.com/photo-1519331379826-f10be5486c6f?auto=format&fit=crop&w=900&q=80",
+                link: "https://www.google.com/maps/search/?api=1&query=Alun+Alun+Bandung"
+            },
+
+            {
+                nama: "Museum Sri Baduga",
+                kategori: "Sejarah",
+                lokasi: "Jl. BKR",
+                foto: "https://images.unsplash.com/photo-1566127992631-137a642a90f4?auto=format&fit=crop&w=900&q=80",
+                link: "https://www.google.com/maps/search/?api=1&query=Museum+Sri+Baduga+Bandung"
+            }
+        ];
+
+
+        // MENAMPILKAN DATA WISATA
+
+        const daftar = document.getElementById("daftarWisata");
+
+        const inputCari = document.getElementById("cari");
+
+        const pilihKategori = document.getElementById("kategori");
+
+
+        function tampilkanWisata(data) {
+
+            daftar.innerHTML = "";
+
+            if (data.length === 0) {
+                daftar.innerHTML =
+                    '<p id="pesan">Wisata tidak ditemukan.</p>';
+
+                return;
+            }
+
+            data.forEach(item => {
+
+                daftar.innerHTML += `
+                    <div class="card">
+
+                        <img
+                            src="${item.foto}"
+                            alt="${item.nama}"
+                            onerror="this.src='https://placehold.co/500x300?text=Foto+Wisata'"
+                        >
+
+                        <div class="card-content">
+
+                            <h3>${item.nama}</h3>
+
+                            <p>
+                                Kategori: ${item.kategori}
+                            </p>
+
+                            <p>
+                                Lokasi: ${item.lokasi}, Bandung
+                            </p>
+
+                            <a
+                                href="${item.link}"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                Lihat Lokasi
+                            </a>
+
+                        </div>
+
+                    </div>
+                `;
+
+            });
+
+        }
+
+
+        // FITUR PENCARIAN DAN FILTER
+
+        function filterWisata() {
+
+            const kata = inputCari.value.toLowerCase().trim();
+
+            const kategoriDipilih = pilihKategori.value;
+
+            const hasil = wisata.filter(item => {
+
+                const cocokNama =
+                    item.nama.toLowerCase().includes(kata);
+
+                const cocokKategori =
+                    kategoriDipilih === "Semua" ||
+                    item.kategori === kategoriDipilih;
+
+                return cocokNama && cocokKategori;
+
+            });
+
+            tampilkanWisata(hasil);
+
+        }
+
+
+        // EVENT PENCARIAN
+
+        inputCari.addEventListener("input", filterWisata);
+
+
+        // EVENT KATEGORI
+
+        pilihKategori.addEventListener("change", filterWisata);
+
+
+        // MENAMPILKAN SEMUA WISATA
+
+        tampilkanWisata(wisata);
+
+    </script>
+
+</body>
 </html>
-
-
-
