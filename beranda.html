@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -5,9 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title> Jelajah Bandung </title>
+    <title>Jelajah Bandung</title>
 
-    <!-- CSS -->
     <style>
 
         /* RESET */
@@ -34,20 +34,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-direction: row;
-            flex-wrap: nowrap;
             gap: 20px;
         }
 
-
-        /* LOGO */
         .logo {
             font-size: 22px;
             font-weight: bold;
             white-space: nowrap;
         }
 
-        /* MENU NAVIGASI */
         nav {
             display: flex;
             align-items: center;
@@ -81,13 +76,57 @@
 
         h1 {
             font-size: 28px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
+        /* KARTU SEJARAH */
+        .sejarah-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(16, 45, 80, 0.08);
+            border-left: 5px solid #2879BB;
+        }
+
+        .sejarah-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .sejarah-icon {
+            background: #E5EDF6;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 25px;
+        }
+
+        .sejarah-header h2 {
+            font-size: 20px;
+            color: #173B61;
+            margin-bottom: 5px;
+        }
+
+        .sejarah-header p {
+            font-size: 13px;
+            color: #718096;
+        }
+
+        .sejarah-card .deskripsi {
+            font-size: 14px;
+            color: #718096;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* SUBTITLE */
         .subtitle {
             color: #718096;
             font-size: 14px;
             line-height: 1.7;
+            margin-top: 15px;
         }
 
         /* HERO / BANNER */
@@ -95,7 +134,7 @@
             background:
                 linear-gradient(
                     90deg,
-                    rgba(16, 45, 80, 0.55),
+                    rgba(16, 45, 80, 0.65),
                     rgba(16, 45, 80, 0.05)
                 ),
                 url("https://metrum.co.id/kanal/uploads/2023/08/Bandung.jpg")
@@ -220,6 +259,23 @@
                 font-size: 23px;
             }
 
+            .sejarah-card {
+                padding: 18px;
+            }
+
+        
+            .sejarah-header h2 {
+                font-size: 18px;
+            }
+
+            .sejarah-card .deskripsi {
+                font-size: 13px;
+            }
+
+            .subtitle {
+                font-size: 13px;
+            }
+
             .hero {
                 min-height: 320px;
                 padding: 25px;
@@ -244,12 +300,10 @@
     <!-- NAVBAR -->
     <header>
 
-        <!-- LOGO KIRI -->
         <div class="logo">
             📍 Jelajah Bandung
         </div>
 
-        <!-- MENU KANAN -->
         <nav>
             <a href="beranda.html" class="active">Beranda</a>
             <a href="data_wisata.html">Data Wisata</a>
@@ -261,28 +315,45 @@
 
     </header>
 
+    <!-- BERANDA -->
+    <main class="container">
 
-    
-<!-- BERANDA -->
-<main class="container">
+        <section id="beranda">
 
-    <section id="beranda">
+            <h1>Selamat Datang di Bandung !</h1>
 
-        <h1>Selamat Datang di Bandung !</h1>
+            <!-- KARTU SEJARAH KOTA BANDUNG -->
+            <div class="sejarah-card">
 
-        <p class="sejarah">
-            Kota Bandung telah dikenal sebagai kota wisata
-            sejak tahun 1920-an, ketika keindahan alam dan
-            suasana kotanya mulai menarik banyak wisatawan.
-            Seiring perkembangan zaman, Bandung semakin
-            dikenal dengan wisata sejarah, budaya, kuliner,
-            dan berbagai tempat rekreasi yang menarik.
-        </p>
+                <div class="sejarah-header">
 
-        <p class="subtitle">
-            Website informasi wisata di sekitar PT INTI,
-            Kota Bandung, Jawa Barat.
-        </p>
+                    <div class="sejarah-icon">
+                        🏛️
+                    </div>
+
+                    <div>
+                        <h2>Sejarah Kota Bandung</h2>
+                        <p>Mengenal perjalanan Kota Kembang</p>
+                    </div>
+
+                </div>
+
+                <p class="deskripsi">
+                    Kota Bandung memiliki sejarah panjang sebagai
+                    kota yang berkembang menjadi pusat pemerintahan,
+                    pendidikan, budaya, dan pariwisata. Keindahan
+                    alam serta bangunan bersejarah menjadikan
+                    Bandung sebagai salah satu tujuan wisata
+                    yang menarik di Indonesia.
+                </p>
+
+            </div>
+
+            <!-- SUBTITLE -->
+            <p class="subtitle">
+                Website informasi wisata di sekitar PT INTI,
+                Kota Bandung, Jawa Barat.
+            </p>
 
             <!-- BANNER UTAMA -->
             <div class="hero">
@@ -311,7 +382,6 @@
 
     </main>
 
-
     <!-- FOOTER -->
     <footer>
 
@@ -324,19 +394,16 @@
         <div class="footer-line"></div>
 
         <p class="copyright">
-            © 2026 Jelajah Bandung 
+            © 2026 Jelajah Bandung
         </p>
 
     </footer>
 
-
     <!-- JAVASCRIPT -->
     <script>
 
-        // Mengambil seluruh menu navigasi
         const menuNavigasi = document.querySelectorAll("nav a");
 
-        // Mengatur menu aktif
         menuNavigasi.forEach(function(menu) {
 
             menu.addEventListener("click", function() {
