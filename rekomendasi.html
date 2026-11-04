@@ -1,0 +1,248 @@
+/html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rekomendasi Wisata Bandung</title>
+/CSS
+    <style>
+      /*RESET*/
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing:border-box;
+        font-family: : Arial, sans-serif;
+      }
+
+      body{
+        background: #F3F6FA;
+        color: #173B51;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: coloumn;
+      }
+
+      /*NAVBAR*/
+      header {
+        background: #102d50;
+        color: white;
+        padding: 22px 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 20px;
+      }
+
+      /*LOGO*/
+      .logo {
+        font size: 22px;
+        font-weight: bold;
+        white-space: nowrap;
+      }
+
+      /*MENU NAVIGASI*/
+      nav {
+        display: flex;
+        align-intems: center;
+        justify-content: flex-end;
+        gap: 20px;
+        flex-wrap: nowrap;
+      }
+
+      nav a{
+        taxt-decoration:none; 
+        color: #DCEBFA;
+        font-size: 13px;
+      }
+    </style>
+</head>
+
+<body>
+
+    <section class="wisata">
+
+        <h1>Wisata Bandung</h1>
+        <p>Temukan tempat menarik untuk liburanmu!</p>
+
+        <input
+            type="text"
+            id="cari"
+            placeholder="Cari wisata..."
+        >
+
+        <select id="kategori">
+            <option value="Semua">Semua Kategori</option>
+            <option value="Sejarah">Sejarah</option>
+            <option value="Taman">Taman</option>
+            <option value="Edukasi">Edukasi</option>
+            <option value="Budaya">Budaya</option>
+        </select>
+
+        <div id="daftarWisata" class="wisata-list"></div>
+
+    </section>
+
+
+    <script>
+
+        // DATA WISATA BANDUNG
+
+        const wisata = [
+            {
+                nama: "Museum Konferensi Asia Afrika",
+                kategori: "Sejarah",
+                lokasi: "Jl. Asia Afrika",
+                foto: "https://photos.smugmug.com/Asia/Indonesia/Bandung/i-qWg6BT2/0/KMK58StgRH69Cb66xCtfJGSSwZGztKc7LswwGTGhB/L/20240428_082908-asia-african-conference-museum-L.jpg",
+                link: "https://www.google.com/maps/search/?api=1&query=Museum+Konferensi+Asia+Afrika+Bandung"
+            },
+
+            {
+                nama: "Taman Tegalega",
+                kategori: "Taman",
+                lokasi: "Jl. Otto Iskandardinata",
+                foto: "https://cdn-strapi.prod.99iddev.net/assets/fasilitas_taman_tegalega_48e3f22e6b.jpg",
+                link: "https://www.google.com/maps/search/?api=1&query=Taman+Tegalega+Bandung"
+            },
+
+            {
+                nama: "Museum Geologi",
+                kategori: "Edukasi",
+                lokasi: "Jl. Diponegoro",
+                foto: "https://museum.co.id/wp-content/uploads/2020/09/Lokasi-Museum-Geologi-Bandung-750x450-1.jpg",
+                link: "https://www.google.com/maps/search/?api=1&query=Museum+Geologi+Bandung"
+            },
+
+            {
+                nama: "Saung Angklung Udjo",
+                kategori: "Budaya",
+                lokasi: "Jl. Padasuka",
+                foto: "https://idetrips.com/wp-content/uploads/2020/08/angklung-performance.jpg",
+                link: "https://www.google.com/maps/search/?api=1&query=Saung+Angklung+Udjo+Bandung"
+            },
+
+            {
+                nama: "Alun-Alun Bandung",
+                kategori: "Taman",
+                lokasi: "Jl. Asia Afrika",
+                foto: "https://salsawisata.com/wp-content/uploads/2022/09/Alun-alun-Bandung.jpg",
+                link: "https://www.google.com/maps/search/?api=1&query=Alun+Alun+Bandung"
+            },
+
+            {
+                nama: "Museum Sri Baduga",
+                kategori: "Sejarah",
+                lokasi: "Jl. BKR",
+                foto: "https://1.bp.blogspot.com/-FA-bf62gL1w/XfN8nLr7tmI/AAAAAAAAGJU/YsxPNkZ6sSc4wX6NRqy17ec3VyNS1P_5gCNcBGAsYHQ/s1600/IMG_5098.JPG",
+                link: "https://www.google.com/maps/search/?api=1&query=Museum+Sri+Baduga+Bandung"
+            }
+        ];
+
+
+        // MENAMPILKAN DATA WISATA
+
+        const daftar = document.getElementById("daftarWisata");
+
+        const inputCari = document.getElementById("cari");
+
+        const pilihKategori = document.getElementById("kategori");
+
+
+        function tampilkanWisata(data) {
+
+            daftar.innerHTML = "";
+
+            if (data.length === 0) {
+                daftar.innerHTML =
+                    '<p id="pesan">Wisata tidak ditemukan.</p>';
+
+                return;
+            }
+
+            data.forEach(item => {
+
+                daftar.innerHTML += `
+                    <div class="card">
+
+                        <img
+                            src="${item.foto}"
+                            alt="${item.nama}"
+                            onerror="this.src='https://placehold.co/500x300?text=Foto+Wisata'"
+                        >
+
+                        <div class="card-content">
+
+                            <h3>${item.nama}</h3>
+
+                            <p>
+                                Kategori: ${item.kategori}
+                            </p>
+
+                            <p>
+                                Lokasi: ${item.lokasi}, Bandung
+                            </p>
+
+                            <a
+                                href="${item.link}"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                Lihat Lokasi
+                            </a>
+
+                        </div>
+
+                    </div>
+                `;
+
+            });
+
+        }
+
+
+        // FITUR PENCARIAN DAN FILTER
+
+        function filterWisata() {
+
+            const kata = inputCari.value.toLowerCase().trim();
+
+            const kategoriDipilih = pilihKategori.value;
+
+            const hasil = wisata.filter(item => {
+
+                const cocokNama =
+                    item.nama.toLowerCase().includes(kata);
+
+                const cocokKategori =
+                    kategoriDipilih === "Semua" ||
+                    item.kategori === kategoriDipilih;
+
+                return cocokNama && cocokKategori;
+
+            });
+
+            tampilkanWisata(hasil);
+
+        }
+
+
+        // EVENT PENCARIAN
+
+        inputCari.addEventListener("input", filterWisata);
+
+
+        // EVENT KATEGORI
+
+        pilihKategori.addEventListener("change", filterWisata);
+
+
+        // MENAMPILKAN SEMUA WISATA
+
+        tampilkanWisata(wisata);
+
+    </script>
+
+</body>
+</html>

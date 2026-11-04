@@ -22,8 +22,8 @@
             flex-direction: column;
         }
 
-        /* Navbar */
-        .navbar {
+        /* NAVBAR */
+        header {
             background: #102D50;
             color: white;
             padding: 22px 5%;
@@ -41,7 +41,7 @@
             white-space: nowrap;
         }
 
-        .nav {
+        nav {
             display: flex;
             align-items: center;
             justify-content: flex-end;
@@ -49,19 +49,19 @@
             flex-wrap: nowrap;
         }
 
-        .nav a {
+        nav a {
             text-decoration: none;
             color: #DCEBFA;
             font-size: 13px;
             white-space: nowrap;
-            transition: color 0.3s ease;
+            transition: 0.3s;
             padding-bottom: 6px;
         }
 
-        .nav a:hover,
-        .nav a.active {
+        nav a:hover,
+        nav a.active {
             color: white;
-            border-bottom: 2px solid #e8ecef;
+            border-bottom: 2px solid #65B6F0;
         }
 
          /* CONTAINER */
@@ -132,21 +132,6 @@
             line-height: 1.6;
         }
 
-        /* Pencarian */
-        #cari {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 14px;
-            outline: none;
-        }
-
-        #cari:focus {
-            border-color: #102D50;
-        }
-
         /* Tabel */
         .tabel-container {
             overflow-x: auto;
@@ -214,18 +199,18 @@
 
         /* Tampilan Tablet */
         @media (max-width: 1050px) {
-            .navbar {
+            header {
                 flex-wrap: wrap;
             }
 
-            .nav {
-                gap: 20px;
+            nav {
+                gap: 14px;
             }
         }
 
         /* RESPONSIVE HP */
         @media (max-width: 600px) {
-            .navbar {
+            header {
                 flex-direction: column;
                 align-items: flex-start;
                 padding: 20px 5%;
@@ -235,7 +220,7 @@
                 font-size: 20px;
             }
 
-            .nav {
+            nav {
                 justify-content: flex-start;
                 flex-wrap: wrap;
                 gap: 14px;
@@ -263,19 +248,25 @@
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <h2>📍 Jelajah Bandung</h2>
+    <!-- NAVBAR -->
+<header>
 
-        <div class="nav">
-            <a href="beranda.html" class = "active">Beranda</a>
-            <a href="sejarah.html">Sejarah</a>
-            <a href="data_wisata.html" class = "active">Data Wisata</a>
-            <a href="rekomendasi.html">Rekomendasi</a>
-            <a href="lokasi.html">Lokasi</a>
-            <a href="kontak.html" class = "active">Kontak</a>
-        </div>
+    <!-- LOGO KIRI -->
+    <div class="logo">
+        📍 Jelajah Bandung
+    </div>
+
+    <!-- MENU KANAN -->
+    <nav>
+        <a href="beranda.html">Beranda</a>
+        <a href="data_wisata.html" class="active">Data Wisata</a>
+        <a href="rekomendasi.html">Rekomendasi</a>
+        <a href="lokasi.html">Lokasi</a>
+        <a href="kontak.html">Kontak</a>
+        <a href="tentang-kami.html">Tentang Kami</a>
     </nav>
+
+</header>
 
     <!-- Banner Bandung -->
     <section class="hero" id="beranda">
@@ -299,13 +290,6 @@
             dari kampus PT INTI Bandung.
         </p>
 
-        <!-- Kolom Pencarian -->
-        <input
-            type="text"
-            id="cari"
-            placeholder="Cari nama wisata..."
-        >
-
         <!-- Tabel Wisata -->
         <div class="tabel-container">
             <table>
@@ -326,8 +310,8 @@
 
     <!-- Footer -->
     <footer>
-        <h3>Jelajah Bandung</h3>
-        <p>Informasi Wisata Kota Bandung</p>
+        <h3>📍Jelajah Bandung</h3>
+        <p>Jelajah Wisata Sekitar PT INTI Bandung</p>
         <p>© 2026 Jelajah Bandung</p>
     </footer>
 
@@ -351,19 +335,11 @@
 
         // Menampilkan data ke tabel
         function tampilkanData() {
-            const cari = document
-                .getElementById("cari")
-                .value.toLowerCase();
-
             const tabel = document.getElementById("tabelWisata");
 
             tabel.innerHTML = "";
 
-            const hasil = dataWisata.filter(data =>
-                data.nama.toLowerCase().includes(cari)
-            );
-
-            hasil.forEach((data, index) => {
+            dataWisata.forEach((data, index) => {
 
                 const harga = data.harga === 0
                     ? "Gratis"
@@ -379,22 +355,7 @@
                     </tr>
                 `;
             });
-
-            if (hasil.length === 0) {
-                tabel.innerHTML = `
-                    <tr>
-                        <td colspan="5">
-                            Wisata tidak ditemukan.
-                        </td>
-                    </tr>
-                `;
-            }
         }
-
-        // Fitur pencarian
-        document
-            .getElementById("cari")
-            .addEventListener("input", tampilkanData);
 
         // Menampilkan data pertama kali
         tampilkanData();
