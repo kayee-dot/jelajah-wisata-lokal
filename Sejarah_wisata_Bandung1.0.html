@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jelajahi sejarah enam tempat wisata dan budaya di Kota Bandung.">
+    <title>Jejak Bandung — Sejarah & Cerita Kota</title>
+
+    <!-- ========================= CSS START ========================= -->
+    <style>
+        :root {
+            --ink: #20352e;
+            --muted: #718078;
+            --paper: #f6f5ef;
+            --white: #fff;
+            --green: #245c49;
+            --green2: #39765d;
+            --lime: #dce9c9;
+            --line: #e6e8df;
+            --gold: #d9a85f;
+            --shadow: 0 18px 50px rgba(31, 55, 44, .09);
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+            line-height: 1.6
+        }
+
+        a {
+            color: inherit
+        }
+
+        button {
+            font: inherit;
+            cursor: pointer
+        }
+
+        .site-header {
+            padding: 22px clamp(20px, 6vw, 84px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            font-weight: 800;
+            letter-spacing: -.04em;
+            font-size: 1.1rem
+        }
+
+        .brand-mark {
+            width: 37px;
+            height: 37px;
+            border-radius: 12px;
+            background: var(--green);
+            color: white;
+            display: grid;
+            place-items: center;
+            font-size: 1.15rem
+        }
+
+        .header-note {
+            color: var(--muted);
+            font-size: .83rem
+        }
+
+        .hero {
+            padding: 48px clamp(20px, 6vw, 84px) 58px;
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 40px;
+            align-items: center
+        }
+
+        .eyebrow {
+            color: var(--green2);
+            font-size: .75rem;
+            font-weight: 800;
+            letter-spacing: .17em;
+            text-transform: uppercase
+        }
+
+        .hero h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(3rem, 6.5vw, 6rem);
+            line-height: .98;
+            letter-spacing: -.055em;
+            font-weight: 500;
+            margin: 17px 0 22px;
+            max-width: 720px
+        }
+
+        .hero h1 em {
+            color: var(--green2);
+            font-weight: 400
+        }
+
+        .hero-copy {
+            max-width: 540px;
+            color: #66756d;
+            font-size: 1.03rem
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 25px;
+            margin-top: 30px;
+            flex-wrap: wrap
+        }
+
+        .meta-item strong {
+            display: block;
+            font: 500 1.65rem Georgia, serif;
+            color: var(--green)
+        }
+
+        .meta-item span {
+            font-size: .75rem;
+            color: var(--muted)
+        }
+
+        .hero-art {
+            min-height: 340px;
+            border-radius: 28px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(145deg, #dce7d7, #a9c3a9)
+        }
+
+        .hero-art img {
+            width: 100%;
+            height: 100%;
+            min-height: 340px;
+            object-fit: cover;
+            display: block;
+            filter: saturate(.86)
+        }
+
+        .art-caption {
+            position: absolute;
+            bottom: 18px;
+            left: 18px;
+            background: rgba(255, 255, 255, .9);
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-size: .78rem;
+            font-weight: 700
+        }
+
+        main {
+            padding: 0 clamp(20px, 6vw, 84px) 80px
+        }
+
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 20px;
+            margin: 8px 0 22px
+        }
+
+        .section-head h2,
+        .chart-title {
+            font: 500 clamp(1.8rem, 3vw, 2.6rem) Georgia, serif;
+            letter-spacing: -.035em;
+            margin: 5px 0
+        }
+
+        .section-head p {
+            margin: 0;
+            color: var(--muted);
+            font-size: .9rem
+        }
+
+        .place-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px
+        }
+
+        .place-card {
+            background: white;
+            border: 1px solid var(--line);
+            border-radius: 19px;
+            overflow: hidden;
+            box-shadow: 0 7px 24px rgba(31, 55, 44, .035);
+            transition: .25s transform, .25s box-shadow
+        }
+
+        .place-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow)
+        }
+
+        .place-card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            display: block;
+            background: #dbe4d9
+        }
+
+        .card-content {
+            padding: 18px 19px 20px
+        }
+
+        .card-tag {
+            font-size: .68rem;
+            color: var(--green2);
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase
+        }
+
+        .card-content h3 {
+            font: 500 1.35rem Georgia, serif;
+            margin: 6px 0
+        }
+
+        .card-content p {
+            font-size: .82rem;
+            color: var(--muted);
+            min-height: 46px;
+            margin: 0 0 16px
+        }
+
+        .card-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .year {
+            font-size: .76rem;
+            color: #8b958e
+        }
+
+        .detail-btn,
+        .primary-btn {
+            border: 0;
+            border-radius: 10px;
+            background: var(--green);
+            color: white;
+            padding: 10px 14px;
+            font-size: .78rem;
+            font-weight: 700;
+            transition: .2s
+        }
+
+        .detail-btn:hover,
+        .primary-btn:hover {
+            background: #173f31
+        }
+
+        .story-layout {
+            margin-top: 64px;
+            display: grid;
+            grid-template-columns: .78fr 1.22fr;
+            gap: 20px;
+            align-items: stretch
+        }
+
+        .story-intro,
+        .story-panel,
+        .chart-panel {
+            background: white;
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            padding: clamp(20px, 3vw, 34px)
+        }
+
+        .story-intro {
+            background: var(--green);
+            color: #f4f4e9;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 330px
+        }
+
+        .story-intro .eyebrow {
+            color: #c9dfbf
+        }
+
+        .story-intro h2 {
+            font: 500 clamp(2rem, 4vw, 3.5rem)/1.06 Georgia, serif;
+            letter-spacing: -.04em;
+            margin: 18px 0
+        }
+
+        .story-intro p {
+            color: #d1ded4;
+            font-size: .9rem;
+            max-width: 360px
+        }
+
+        .story-count {
+            font: 500 3rem Georgia, serif;
+            color: #dce9c9
+        }
+
+        .story-panel {
+            min-height: 330px
+        }
+
+        .story-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            align-items: center
+        }
+
+        .story-top h3 {
+            font: 500 1.7rem Georgia, serif;
+            margin: 0
+        }
+
+        .story-top span {
+            font-size: .76rem;
+            color: var(--muted)
+        }
+
+        .story-location {
+            color: var(--green2);
+            font-size: .8rem;
+            margin-top: 3px
+        }
+
+        .story-image {
+            width: 100%;
+            height: 165px;
+            object-fit: cover;
+            border-radius: 14px;
+            margin: 17px 0 12px;
+            background: #e4e9e0
+        }
+
+        .story-text {
+            color: #65736b;
+            font-size: .9rem;
+            margin: 0
+        }
+
+        .story-nav {
+            display: flex;
+            gap: 9px;
+            margin-top: 20px
+        }
+
+        .story-nav button {
+            border: 1px solid var(--line);
+            background: white;
+            border-radius: 10px;
+            padding: 9px 14px;
+            color: var(--ink);
+            font-weight: 700;
+            font-size: .8rem
+        }
+
+        .story-nav button:disabled {
+            opacity: .35;
+            cursor: not-allowed
+        }
+
+        .chart-panel {
+            margin-top: 20px
+        }
+
+        .chart-heading {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            align-items: end;
+            flex-wrap: wrap
+        }
+
+        .chart-heading p {
+            font-size: .84rem;
+            color: var(--muted);
+            margin: 0
+        }
+
+        #historyChart {
+            width: 100%;
+            height: 350px;
+            margin-top: 12px
+        }
+
+        .timeline-note {
+            font-size: .75rem;
+            color: var(--muted);
+            margin: 10px 0 0
+        }
+
+        footer {
+            background: #1d382d;
+            color: #e8eee7;
+            padding: 30px clamp(20px, 6vw, 84px);
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: .8rem
+        }
+
+        footer span {
+            color: #b6c7ba
+        }
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(12, 27, 21, .58);
+            display: none;
+            place-items: center;
+            padding: 20px;
+            z-index: 20
+        }
+
+        .modal.open {
+            display: grid
+        }
+
+        .modal-box {
+            width: min(650px, 100%);
+            background: #fff;
+            border-radius: 22px;
+            overflow: hidden;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 30px 100px #10251b55
+        }
+
+        .modal-box img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block
+        }
+
+        .modal-body {
+            padding: 24px
+        }
+
+        .modal-body h2 {
+            font: 500 2rem Georgia, serif;
+            margin: 4px 0
+        }
+
+        .modal-body p {
+            color: #65736b
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px
+        }
+
+        .close-btn {
+            background: #edf1eb;
+            border: 0;
+            border-radius: 10px;
+            padding: 10px 14px;
+            font-weight: 700;
+            color: var(--ink)
+        }
+
+        /* ====================== NAVIGASI HALAMAN ====================== */
+        .nav-menu {
+            padding: 0 clamp(20px, 6vw, 84px) 18px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            flex-wrap: wrap
+        }
+
+        .nav-menu a {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--muted);
+            font-size: .82rem;
+            font-weight: 700;
+            padding: 9px 13px;
+            border-radius: 10px;
+            transition: .2s
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background: var(--green);
+            color: #fff
+        }
+
+        .blank-page {
+            min-height: 72vh;
+            padding: 35px clamp(20px, 6vw, 84px)
+        }
+
+        @media(max-width:650px) {
+            .nav-menu {
+                justify-content: flex-start;
+                gap: 2px
+            }
+
+            .nav-menu a {
+                padding: 8px 10px;
+                font-size: .76rem
+            }
+        }
+
+        @media(max-width:900px) {
+            .hero {
+                grid-template-columns: 1fr
+            }
+
+            .hero-art,
+            .hero-art img {
+                min-height: 270px
+            }
+
+            .place-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .story-layout {
+                grid-template-columns: 1fr
+            }
+        }
+
+        @media(max-width:580px) {
+            .site-header {
+                padding-top: 16px
+            }
+
+            .header-note {
+                display: none
+            }
+
+            .hero {
+                padding-top: 28px
+            }
+
+            .place-grid {
+                grid-template-columns: 1fr
+            }
+
+            .place-card img {
+                height: 210px
+            }
+
+            .section-head {
+                display: block
+            }
+
+            .section-head p {
+                margin-top: 6px
+            }
+
+            .hero-meta {
+                gap: 18px
+            }
+
+            #historyChart {
+                height: 310px
+            }
+
+            .story-top {
+                align-items: start;
+                flex-direction: column
+            }
+        }
+    </style>
+    <!-- ========================== CSS END ========================== -->
+
+    <!-- Highcharts library: loaded from official CDN -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="brand">
+            <div class="brand-mark">B</div> jejak<span style="color:#6c8d76">bandung.</span>
+        </div>
+        <div class="header-note">CATATAN KECIL TENTANG KOTA KEMBANG</div>
+    </header>
+    <nav class="nav-menu" aria-label="Navigasi utama">
+        <a href="#beranda" data-page="beranda">Beranda</a>
+        <a href="#sejarah" data-page="sejarah" class="active">Sejarah</a>
+        <a href="#data-wisata" data-page="data-wisata">Data Wisata</a>
+        <a href="#rekomendasi" data-page="rekomendasi">Rekomendasi</a>
+        <a href="#lokasi" data-page="lokasi">Lokasi</a>
+        <a href="#kontak" data-page="kontak">Kontak</a>
+    </nav>
+
+    <div id="historyPage">
+        <section class="hero">
+            <div>
+                <div class="eyebrow">Ruang cerita · Bandung, Jawa Barat</div>
+                <h1>Setiap sudut kota punya <em>cerita.</em></h1>
+                <p class="hero-copy">Dari ruang diplomasi dunia hingga panggung bambu Sunda, kenali tempat-tempat yang
+                    menyimpan jejak perjalanan Bandung. Pilih satu tempat dan temukan kisah di baliknya.</p>
+                <div class="hero-meta">
+                    <div class="meta-item"><strong>06</strong><span>Tempat pilihan</span></div>
+                    <div class="meta-item"><strong>3</strong><span>Ruang sejarah & budaya</span></div>
+                    <div class="meta-item"><strong>1</strong><span>Kota penuh cerita</span></div>
+                </div>
+            </div>
+            <div class="hero-art">
+                <img src="https://c0.wallpaperflare.com/preview/943/251/769/bandung-indonesia-street-city.jpg"
+                    alt="Suasana bangunan dan pepohonan di Bandung" onerror="this.style.display='none'">
+                <div class="art-caption">Bandung — kota dengan banyak lapisan cerita</div>
+            </div>
+        </section>
+
+        <main>
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">Jelajahi tempat</div>
+                    <h2>Enam cerita, satu kota.</h2>
+                </div>
+                <p>Klik “Baca sejarah” untuk melihat kisah lengkapnya.</p>
+            </div>
+            <section class="place-grid" id="placeGrid" aria-label="Daftar tempat wisata"></section>
+
+            <section class="story-layout">
+                <div class="story-intro">
+                    <div>
+                        <div class="eyebrow">Cerita pilihan</div>
+                        <h2>Kenali masa lalu, pahami hari ini.</h2>
+                        <p>Sejarah bukan hanya tentang tahun dan bangunan. Ia juga tentang orang, gagasan, dan
+                            kebudayaan yang membentuk sebuah kota.</p>
+                    </div>
+                    <div class="story-count" id="storyCount">01 / 06</div>
+                </div>
+                <article class="story-panel" aria-live="polite">
+                    <div class="story-top">
+                        <div>
+                            <h3 id="storyTitle">Museum Konferensi Asia Afrika</h3>
+                            <div class="story-location" id="storyLocation">Jl. Asia Afrika, Bandung</div>
+                        </div><span id="storyYear">1955 · 1980</span>
+                    </div>
+                    <img class="story-image" id="storyImage" src="" alt="">
+                    <p class="story-text" id="storyText"></p>
+                    <div class="story-nav"><button id="prevStory" type="button">← Sebelumnya</button><button
+                            id="nextStory" type="button">Selanjutnya →</button></div>
+                </article>
+            </section>
+
+            <section class="chart-panel">
+                <div class="chart-heading">
+                    <div>
+                        <div class="eyebrow">Visualisasi waktu</div>
+                        <h2 class="chart-title">Jejak dalam garis waktu.</h2>
+                        <p>Tahun penting dari tempat dan peristiwa yang memiliki catatan tanggal.</p>
+                    </div>
+                    <div class="eyebrow">Highcharts · Timeline</div>
+                </div>
+                <div id="historyChart" role="img" aria-label="Grafik garis waktu sejarah tempat di Bandung"></div>
+                <p class="timeline-note">Catatan: grafik menampilkan tahun peristiwa atau pendirian yang tercatat, bukan
+                    tahun pembangunan untuk semua lokasi. Tahun sejarah Taman Tegalega dan Alun-Alun Bandung tidak
+                    ditampilkan karena sumber tanggal pendirian yang konsisten belum dipastikan.</p>
+                <details style="margin-top:18px;color:#66756d;font-size:.82rem">
+                    <summary style="cursor:pointer;font-weight:700;color:#245c49">Lihat rujukan sejarah</summary>
+                    <ul style="padding-left:20px;line-height:2">
+                        <li><a href="https://mkaa.kemlu.go.id/halaman/Tentang-Museum-KAA" target="_blank"
+                                rel="noopener">Museum Konferensi Asia Afrika — Kementerian Luar Negeri</a></li>
+                        <li><a href="https://geologi.esdm.go.id/media-center/pendirian-gedung-museum-geologi-pada-1928"
+                                target="_blank" rel="noopener">Museum Geologi — Badan Geologi, Kementerian ESDM</a></li>
+                        <li><a href="https://angklung-udjo.co.id/heritage/history" target="_blank" rel="noopener">Saung
+                                Angklung Udjo — Sejarah & Profil</a></li>
+                        <li><a href="https://www.indonesia.travel/id/id/destination/java/west-java/museum-negeri-provinsi-jawa-barat-sri-baduga"
+                                target="_blank" rel="noopener">Museum Sri Baduga — Indonesia Travel</a></li>
+                    </ul>
+                </details>
+            </section>
+        </main>
+
+        <footer>
+            <div><strong>jejakbandung.</strong><br><span>Merawat cerita, mengenal kota.</span></div>
+            <div>Proyek informasi sejarah wisata · Bandung, Indonesia</div>
+        </footer>
+
+        <div class="modal" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <div class="modal-box">
+                <img id="modalImage" src="" alt="">
+                <div class="modal-body">
+                    <div class="eyebrow" id="modalTag">Sejarah tempat</div>
+                    <h2 id="modalTitle"></h2>
+                    <p id="modalLocation"></p>
+                    <p id="modalText"></p>
+                    <div class="modal-actions"><span class="year" id="modalYear"></span><button class="close-btn"
+                            id="closeModal" type="button">Tutup</button></div>
+                </div>
+            </div>
+        </div>
+    </div><!-- akhir halaman sejarah -->
+
+    <!-- Halaman lain sengaja masih kosong, tetapi menu tetap bisa dibuka/diklik -->
+    <div id="blankPage" class="blank-page" hidden></div>
+
+    <!-- ====================== JAVASCRIPT START ====================== -->
+    <script>
+        const places = [
+            {
+                name: "Museum Konferensi Asia Afrika", tag: "Sejarah dunia", year: "1955 · 1980", location: "Jl. Asia Afrika No. 65, Bandung",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2YcuQnChswBCn8AuXa6qrDzEBlSC2lxHA_xsdOHiv-y5ogUci8j2m-cM8&s=10",
+                short: "Tempat penting yang menyimpan jejak pertemuan negara-negara Asia dan Afrika.",
+                history: "Gedung Merdeka menjadi tempat berlangsungnya Konferensi Asia Afrika pada 18–24 April 1955. Konferensi tersebut mempertemukan negara-negara Asia dan Afrika untuk membicarakan kerja sama, kemerdekaan, dan perdamaian dunia. Gagasan pendirian museum muncul untuk mengabadikan peristiwa bersejarah itu. Museum Konferensi Asia Afrika kemudian diresmikan Presiden Soeharto pada 24 April 1980, bertepatan dengan peringatan 25 tahun konferensi."
+            },
+            {
+                name: "Taman Tegalega", tag: "Ruang publik", year: "—", location: "Jl. Otto Iskandardinata, Bandung",
+                image: "https://img.kliknusae.com/uploads/2019/05/Video-Tegallega.jpg",
+                short: "Ruang terbuka hijau yang menjadi tempat warga berolahraga dan berkegiatan.",
+                history: "Taman Tegalega dikenal sebagai kawasan lapang dan ruang terbuka publik di bagian selatan Bandung. Nama “Tegalega” lekat dengan kawasan lapang yang kemudian berkembang menjadi ruang rekreasi warga. Saat ini kawasan ini dimanfaatkan untuk aktivitas olahraga, rekreasi keluarga, dan kegiatan masyarakat. Tahun pendirian atau pembukaan awal taman tidak dicantumkan di sini karena perlu verifikasi dari arsip pemerintah kota."
+            },
+            {
+                name: "Museum Geologi", tag: "Ilmu pengetahuan", year: "1928 · 1929", location: "Jl. Diponegoro No. 57, Bandung",
+                image: "https://assets.promediateknologi.id/crop/0x0:0x0/1200x0/webp/photo/p1/79/2023/09/22/museumgeobdg-2053104401.png",
+                short: "Museum yang menyimpan koleksi batuan, mineral, fosil, dan pengetahuan bumi.",
+                history: "Gedung Museum Geologi dibangun pada 1928 oleh pemerintah Hindia Belanda sebagai Geologisch Laboratorium untuk mendukung penelitian geologi dan pertambangan. Gedung ini diresmikan pada 16 Mei 1929, bertepatan dengan penyelenggaraan Kongres Ilmu Pengetahuan Pasifik IV. Kini museum menjadi tempat belajar tentang bumi, fosil, mineral, dan kekayaan geologi Indonesia."
+            },
+            {
+                name: "Saung Angklung Udjo", tag: "Budaya Sunda", year: "1966 · 2010", location: "Jl. Padasuka No. 118, Bandung",
+                image: "https://i.pinimg.com/236x/7a/7c/e8/7a7ce86bdcc0a1375aa572331d1910fb.jpg",
+                short: "Pusat pertunjukan dan pendidikan budaya Sunda yang dikenal lewat angklung.",
+                history: "Saung Angklung Udjo didirikan pada 1966 oleh Udjo Ngalagena bersama istrinya, Uum Sumiati, di kawasan Padasuka. Tempat ini dibangun untuk melestarikan seni dan budaya Sunda, terutama angklung, sekaligus menjadi ruang pendidikan dan pertunjukan. Pada 2010, angklung diakui UNESCO sebagai Warisan Budaya Takbenda Kemanusiaan."
+            },
+            {
+                name: "Alun-Alun Bandung", tag: "Ikon kota", year: "—", location: "Jl. Asia Afrika, Bandung",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnHVG_1v7-98KnRqwl6w0thPZXTSBUYPticSFp8VQYHiZoKhP9kdAb79zF&s=10",
+                short: "Ruang publik di pusat kota yang menjadi titik berkumpul masyarakat.",
+                history: "Alun-Alun Bandung merupakan ruang terbuka yang tumbuh bersama perkembangan pusat pemerintahan dan kehidupan sosial kota. Dalam tradisi tata kota di Pulau Jawa, alun-alun umumnya berada di depan pusat pemerintahan dan menjadi tempat berkumpul, upacara, serta kegiatan masyarakat. Kawasan ini terus mengalami penataan dan perubahan fungsi, namun tetap menjadi salah satu ruang publik paling dikenal di Bandung. Tahun pembentukan awalnya tidak dipastikan dalam halaman ini."
+            },
+            {
+                name: "Museum Sri Baduga", tag: "Warisan Jawa Barat", year: "1974 · 1980", location: "Jl. BKR No. 185, Bandung",
+                image: "https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=1000&q=80",
+                short: "Museum yang mengenalkan sejarah alam, budaya, dan kehidupan masyarakat Jawa Barat.",
+                history: "Museum Sri Baduga dirintis pada 1974 dengan memanfaatkan bangunan bekas Kantor Kawedanan Tegallega. Museum ini diresmikan pada 5 Juni 1980 sebagai Museum Negeri Provinsi Jawa Barat. Pada 1990, namanya menjadi Museum Negeri Provinsi Jawa Barat Sri Baduga, mengambil nama Sri Baduga Maharaja, raja Pajajaran."
+            }
+        ];
+
+        const grid = document.getElementById("placeGrid");
+        let activeIndex = 0;
+
+        function renderCards() {
+            grid.innerHTML = places.map((p, i) => `
+  <article class="place-card">
+   <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.opacity='.25'">
+   <div class="card-content">
+    <div class="card-tag">${p.tag}</div>
+    <h3>${p.name}</h3>
+    <p>${p.short}</p>
+    <div class="card-bottom"><span class="year">${p.year}</span><button class="detail-btn" data-index="${i}">Baca sejarah ↗</button></div>
+   </div>
+  </article>`).join("");
+            grid.querySelectorAll(".detail-btn").forEach(btn => btn.addEventListener("click", () => openDetail(Number(btn.dataset.index))));
+        }
+
+        function showStory(index) {
+            activeIndex = index;
+            const p = places[index];
+            document.getElementById("storyTitle").textContent = p.name;
+            document.getElementById("storyLocation").textContent = p.location;
+            document.getElementById("storyYear").textContent = p.year;
+            document.getElementById("storyImage").src = p.image;
+            document.getElementById("storyImage").alt = p.name;
+            document.getElementById("storyText").textContent = p.history;
+            document.getElementById("storyCount").textContent = String(index + 1).padStart(2, "0") + " / 06";
+            document.getElementById("prevStory").disabled = index === 0;
+            document.getElementById("nextStory").disabled = index === places.length - 1;
+        }
+        document.getElementById("prevStory").addEventListener("click", () => showStory(Math.max(0, activeIndex - 1)));
+        document.getElementById("nextStory").addEventListener("click", () => showStory(Math.min(places.length - 1, activeIndex + 1)));
+
+        function openDetail(index) {
+            const p = places[index];
+            document.getElementById("modalImage").src = p.image;
+            document.getElementById("modalImage").alt = p.name;
+            document.getElementById("modalTitle").textContent = p.name;
+            document.getElementById("modalLocation").textContent = p.location;
+            document.getElementById("modalText").textContent = p.history;
+            document.getElementById("modalYear").textContent = p.year;
+            document.getElementById("modalTag").textContent = p.tag;
+            document.getElementById("detailModal").classList.add("open");
+            document.body.style.overflow = "hidden";
+        }
+        function closeDetail() {
+            document.getElementById("detailModal").classList.remove("open");
+            document.body.style.overflow = "";
+        }
+        document.getElementById("closeModal").addEventListener("click", closeDetail);
+        document.getElementById("detailModal").addEventListener("click", e => { if (e.target.id === "detailModal") closeDetail() });
+        document.addEventListener("keydown", e => { if (e.key === "Escape") closeDetail() });
+
+        renderCards();
+        showStory(0);
+
+        // ====================== HIGHCHART START ======================
+        if (window.Highcharts) {
+            Highcharts.chart("historyChart", {
+                chart: {
+                    type: "column",
+                    backgroundColor: "transparent",
+                    style: {
+                        fontFamily: "Inter, system-ui, sans-serif"
+                    },
+                    spacing: [18, 10, 15, 5]
+                },
+
+                title: {
+                    text: null
+                },
+
+                xAxis: {
+                    categories: [
+                        "Museum Geologi",
+                        "Museum Geologi",
+                        "Konferensi Asia Afrika",
+                        "Saung Angklung Udjo",
+                        "Museum Sri Baduga",
+                        "Museum KAA",
+                        "Museum Sri Baduga",
+                        "Angklung UNESCO"
+                    ],
+                    title: {
+                        text: "Tempat / Peristiwa"
+                    },
+                    labels: {
+                        rotation: -35,
+                        style: {
+                            color: "#718078",
+                            fontSize: "10px"
+                        }
+                    },
+                    lineColor: "#dfe5dc"
+                },
+
+                yAxis: {
+                    min: 1920,
+                    max: 2020,
+                    tickInterval: 20,
+                    title: {
+                        text: "Tahun"
+                    },
+                    gridLineColor: "#edf0e9",
+                    labels: {
+                        style: {
+                            color: "#718078"
+                        }
+                    }
+                },
+
+                legend: {
+                    enabled: false
+                },
+
+                tooltip: {
+                    useHTML: true,
+                    formatter: function () {
+                        return `
+                    <b>${this.point.place}</b><br>
+                    ${this.point.event}<br>
+                    Tahun: <b>${this.y}</b>
+                `;
+                    }
+                },
+
+                plotOptions: {
+                    column: {
+                        color: "#39765d",
+                        borderRadius: 5,
+                        borderWidth: 0,
+                        pointPadding: 0.12,
+                        groupPadding: 0.12,
+                        dataLabels: {
+                            enabled: true,
+                            format: "{y}",
+                            style: {
+                                fontSize: "10px",
+                                fontWeight: "600",
+                                textOutline: "none",
+                                color: "#52665a"
+                            }
+                        }
+                    }
+                },
+
+                series: [{
+                    name: "Tahun Sejarah",
+                    data: [
+                        {
+                            y: 1928,
+                            place: "Museum Geologi",
+                            event: "Pembangunan gedung dimulai"
+                        },
+                        {
+                            y: 1929,
+                            place: "Museum Geologi",
+                            event: "Gedung diresmikan"
+                        },
+                        {
+                            y: 1955,
+                            place: "Konferensi Asia Afrika",
+                            event: "Konferensi Asia Afrika berlangsung"
+                        },
+                        {
+                            y: 1966,
+                            place: "Saung Angklung Udjo",
+                            event: "Saung Angklung Udjo didirikan"
+                        },
+                        {
+                            y: 1974,
+                            place: "Museum Sri Baduga",
+                            event: "Museum mulai dirintis"
+                        },
+                        {
+                            y: 1980,
+                            place: "Museum Konferensi Asia Afrika",
+                            event: "Museum KAA diresmikan"
+                        },
+                        {
+                            y: 1980,
+                            place: "Museum Sri Baduga",
+                            event: "Museum diresmikan"
+                        },
+                        {
+                            y: 2010,
+                            place: "Saung Angklung Udjo",
+                            event: "Angklung diakui UNESCO sebagai Warisan Budaya Takbenda"
+                        }
+                    ]
+                }],
+
+                credits: {
+                    enabled: false
+                }
+            });
+        } else {
+            document.getElementById("historyChart").innerHTML =
+                "<p>Grafik memerlukan koneksi internet untuk memuat Highcharts.</p>";
+        }
+        // ======================= HIGHCHART END =======================
+
+        // ====================== NAVIGASI HALAMAN START ======================
+        // Semua menu berjalan dalam satu file HTML menggunakan URL hash.
+        // Halaman Sejarah menampilkan konten utama; menu lain masih kosong.
+        const pageNames = ["beranda", "sejarah", "data-wisata", "rekomendasi", "lokasi", "kontak"];
+        function showPage(page) {
+            if (!pageNames.includes(page)) page = "sejarah";
+            const isHistory = page === "sejarah";
+            document.getElementById("historyPage").hidden = !isHistory;
+            document.getElementById("blankPage").hidden = isHistory;
+            document.querySelectorAll(".nav-menu a").forEach(link => {
+                link.classList.toggle("active", link.dataset.page === page);
+            });
+            const titles = { "beranda": "Beranda", "sejarah": "Sejarah", "data-wisata": "Data Wisata", "rekomendasi": "Rekomendasi", "lokasi": "Lokasi", "kontak": "Kontak" };
+            document.title = "Jejak Bandung — " + titles[page];
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+        function handlePageRoute() { showPage((window.location.hash || "#sejarah").slice(1)); }
+        window.addEventListener("hashchange", handlePageRoute);
+        handlePageRoute();
+        // ======================= NAVIGASI HALAMAN END =======================
+    </script>
+    <!-- ======================= JAVASCRIPT END ======================= -->
+</body>
+
+</html>
