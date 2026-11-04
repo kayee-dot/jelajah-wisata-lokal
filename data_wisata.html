@@ -135,8 +135,8 @@
         <h2>Daftar Wisata Bandung</h2>
 
         <p class="deskripsi">
-            Informasi nama tempat wisata, harga tiket masuk, dan jarak
-            dari kampus PT INTI Bandung.
+            Informasi nama tempat wisata, harga tiket masuk, dan lokasi
+            wisata di Bandung.
         </p>
 
         <!-- Tabel Wisata -->
@@ -148,7 +148,7 @@
                         <th>Nama Wisata</th>
                         <th>Kategori</th>
                         <th>Harga Tiket</th>
-                        <th>Jarak dari PT INTI</th>
+                        <th>Lokasi</th>
                     </tr>
                 </thead>
 
@@ -169,17 +169,23 @@
         // Data wisata Bandung
         const dataWisata = [
             {
-                nama: "Taman Tegalega", kategori: "Taman", harga: 0, jarak: "±1,5 km"
+                nama: "Taman Tegalega", kategori: "Taman", harga: 0
             },
             {
-                nama: "Museum Sri Baduga", kategori: "Museum", harga: 15000, jarak: "±2,2 km"
+                nama: "Museum Konferensi Asia Afrika", kategori: "Museum", harga:0
             },
             {
-                nama: "Alun-Alun Bandung", kategori: "Ruang Publik", harga: 0, jarak: "±4,5 km"
+                nama: "Alun-Alun Bandung", kategori: "Ruang Publik", harga: 0
             },
             {
-                nama: "Jalan Braga", kategori: "Wisata Sejarah", harga: 0, jarak: "±5,5 km"
-            }
+                nama: "Saung Angklung Udjo", kategori: "Wisata Budaya", harga: "60.000 - 85.000"
+            },
+            {
+                nama: "Museum Sri Baduga", kategori: "Museum", harga: "2000 - 3000"
+            },
+            {
+                nama: "Museum Geologi", kategori: "Museum", harga: "3000 - 5000"
+            },
         ];
 
         // Menampilkan data ke tabel
@@ -193,6 +199,8 @@
                 const harga = data.harga === 0
                     ? "Gratis"
                     : "Rp " + data.harga.toLocaleString("id-ID");
+                const urlLokasi = "https://www.google.com/maps/search/?api=1&query="
+                    + encodeURIComponent(data.nama + ", Bandung");
 
                 tabel.innerHTML += `
                     <tr>
@@ -200,7 +208,7 @@
                         <td>${data.nama}</td>
                         <td>${data.kategori}</td>
                         <td>${harga}</td>
-                        <td>${data.jarak}</td>
+                        <td><a href="${urlLokasi}" target="_blank" rel="noopener noreferrer">Lihat Lokasi</a></td>
                     </tr>
                 `;
             });
