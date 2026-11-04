@@ -5,370 +5,303 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rekomendasi Wisata Bandung</title>
 
-<style>
-
-    /* RESET */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: Arial, sans-serif;
-    }
-
-    body {
-        background: #F3F6FA;
-        color: #173B61;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-    }
-
-    /* NAVBAR */
-    header {
-        background: #102D50;
-        color: white;
-        padding: 22px 5%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        gap: 20px;
-    }
-
-    /* LOGO */
-    .logo {
-        font-size: 22px;
-        font-weight: bold;
-        white-space: nowrap;
-    }
-
-    /* MENU NAVIGASI */
-    nav {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 20px;
-        flex-wrap: nowrap;
-    }
-
-    nav a {
-        text-decoration: none;
-        color: #DCEBFA;
-        font-size: 13px;
-        white-space: nowrap;
-        transition: 0.3s;
-        padding-bottom: 6px;
-    }
-
-    nav a:hover,
-    nav a.active {
-        color: white;
-        border-bottom: 2px solid #65B6F0;
-    }
-
-    /* CONTAINER */
-    .container {
-        width: 88%;
-        max-width: 1200px;
-        margin: 40px auto;
-        flex: 1;
-    }
-
-    h1 {
-        font-size: 28px;
-        margin-bottom: 10px;
-    }
-
-    .subtitle {
-        color: #718096;
-        font-size: 14px;
-        line-height: 1.7;
-    }
-
-    /* HERO / BANNER */
-    .hero {
-        background:
-            linear-gradient(
-                90deg,
-                rgba(16, 45, 80, 0.55),
-                rgba(16, 45, 80, 0.05)
-            ),
-            url("https://th.bing.com/th/id/OIP.4qvh_GRvlZNuWjh-kyr5CwHaE8?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3")
-            center/cover no-repeat;
-
-        min-height: 380px;
-        border-radius: 15px;
-        margin-top: 25px;
-        padding: 50px;
-        display: flex;
-        align-items: center;
-        color: white;
-    }
-
-    .hero-content {
-        max-width: 550px;
-    }
-
-    .hero h2 {
-        font-size: 38px;
-        margin-bottom: 15px;
-    }
-
-    .hero p {
-        font-size: 15px;
-        line-height: 1.8;
-        color: #E5EDF6;
-    }
-
-    /* TOMBOL */
-    .btn {
-        display: inline-block;
-        background: #2879BB;
-        color: white;
-        text-decoration: none;
-        padding: 13px 25px;
-        border-radius: 7px;
-        margin-top: 22px;
-        font-size: 14px;
-        transition: 0.3s;
-        border: none;
-        cursor: pointer;
-    }
-
-    .btn:hover {
-        background: #1B5D95;
-        transform: translateY(-2px);
-    }
-
-    /* PENCARIAN DAN KATEGORI */
-    .filter {
-        display: flex;
-        gap: 15px;
-        margin: 25px 0;
-    }
-
-    .filter input,
-    .filter select {
-        padding: 12px;
-        border: 1px solid #CBD5E0;
-        border-radius: 7px;
-        font-size: 14px;
-        outline: none;
-    }
-
-    .filter input {
-        width: 70%;
-    }
-
-    .filter select {
-        width: 30%;
-    }
-
-    /* DAFTAR WISATA */
-    .wisata-list {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
-    }
-
-    /* KARTU WISATA */
-    .card {
-        background: white;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-        transition: 0.3s;
-    }
-
-    .card:hover {
-        transform: translateY(-5px);
-    }
-
-    .card img {
-        width: 100%;
-        height: 190px;
-        object-fit: cover;
-    }
-
-    .card-content {
-        padding: 18px;
-    }
-
-    .card-content h3 {
-        font-size: 18px;
-        margin-bottom: 10px;
-    }
-
-    .card-content p {
-        color: #718096;
-        font-size: 13px;
-        line-height: 1.7;
-    }
-
-    .label {
-        display: inline-block;
-        background: #E1F0FC;
-        color: #2879BB;
-        padding: 5px 10px;
-        border-radius: 5px;
-        font-size: 12px;
-        margin-top: 10px;
-    }
-
-    .deskripsi {
-        margin-top: 12px;
-        color: #4A5568 !important;
-        font-size: 14px !important;
-    }
-
-    .card .btn {
-        margin-top: 15px;
-        padding: 10px 15px;
-    }
-
-    /* PESAN PENCARIAN */
-    #pesan {
-        color: #718096;
-        font-size: 14px;
-    }
-
-    /* INFORMASI WISATA*/
-    .info-wisata {
-        margin-top: 12px;
-        padding: 10px;
-        background: #F3F6FA;
-        border-radius: 7px;
-    }
-    .info-wisata p {
-        font-size: 13px;
-        color: #4A5568;
-        line-height: 1.8;
-    }
-    .info-wisata strong {
-        color: #173B61;
-    }
-    .deskripsi {
-        margin-top: 12px;
-        color: #4A5568 !important;
-        font-size: 14px !important;
-    }
-
-
-    /* FOOTER */
-    footer {
-        background: #102D50;
-        color: white;
-        text-align: center;
-        padding: 30px 15px;
-    }
-
-    footer h3 {
-        font-size: 20px;
-        margin-bottom: 10px;
-    }
-
-    footer p {
-        color: #DCEBFA;
-        font-size: 13px;
-        line-height: 1.7;
-    }
-
-    .footer-line {
-        width: 80%;
-        max-width: 500px;
-        height: 1px;
-        background: #49627D;
-        margin: 18px auto;
-    }
-
-    .copyright {
-        font-size: 12px;
-        color: #AFC4DB;
-    }
-
-    /* RESPONSIVE TABLET */
-    @media (max-width: 1050px) {
-
-        header {
-            flex-wrap: wrap;
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
 
-        nav {
-            gap: 14px;
-        }
-
-        .wisata-list {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    /* RESPONSIVE HP */
-    @media (max-width: 600px) {
-
-        header {
+        body {
+            background: #F3F6FA;
+            color: #173B61;
+            min-height: 100vh;
+            display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            padding: 20px 5%;
         }
 
+        /* NAVBAR */
+        header {
+            background: #102D50;
+            color: white;
+            padding: 22px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            gap: 20px;
+        }
+
+        /* LOGO */
         .logo {
-            font-size: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            white-space: nowrap;
         }
 
+        /* MENU NAVIGASI */
         nav {
-            justify-content: flex-start;
-            flex-wrap: wrap;
-            gap: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 20px;
+            flex-wrap: nowrap;
         }
 
         nav a {
-            font-size: 12px;
+            text-decoration: none;
+            color: #DCEBFA;
+            font-size: 13px;
+            white-space: nowrap;
+            transition: 0.3s;
+            padding-bottom: 6px;
         }
 
+        nav a:hover,
+        nav a.active {
+            color: white;
+            border-bottom: 2px solid #65B6F0;
+        }
+
+        /* CONTAINER */
         .container {
-            width: 92%;
-            margin: 30px auto;
+            width: 88%;
+            max-width: 1200px;
+            margin: 40px auto;
+            flex: 1;
         }
 
         h1 {
-            font-size: 23px;
+            font-size: 28px;
+            margin-bottom: 10px;
         }
 
-        .hero {
-            min-height: 320px;
-            padding: 25px;
+        .subtitle {
+            color: #718096;
+            font-size: 14px;
+            line-height: 1.7;
         }
 
-        .hero h2 {
-            font-size: 27px;
+        /* TOMBOL */
+        .btn {
+            display: inline-block;
+            background: #2879BB;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 7px;
+            margin-top: 15px;
+            font-size: 14px;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
         }
 
-        .hero p {
-            font-size: 13px;
+        .btn:hover {
+            background: #1B5D95;
+            transform: translateY(-2px);
         }
 
-        .wisata-list {
-            grid-template-columns: 1fr;
-        }
-
+        /* PENCARIAN DAN KATEGORI */
         .filter {
-            flex-direction: column;
+            display: flex;
+            gap: 15px;
+            margin: 25px 0;
         }
 
         .filter input,
         .filter select {
-            width: 100%;
+            padding: 12px;
+            border: 1px solid #CBD5E0;
+            border-radius: 7px;
+            font-size: 14px;
+            outline: none;
         }
-    }
 
-</style>
+        .filter input {
+            width: 70%;
+        }
+
+        .filter select {
+            width: 30%;
+        }
+
+        /* DAFTAR WISATA */
+        .wisata-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        /* KARTU WISATA */
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-content h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .card-content p {
+            color: #718096;
+            font-size: 13px;
+            line-height: 1.7;
+            margin-top: 8px;
+        }
+
+        .label {
+            display: inline-block;
+            background: #E1F0FC;
+            color: #2879BB;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            margin-top: 10px;
+            align-self: flex-start;
+        }
+
+        .deskripsi {
+            margin-top: 12px !important;
+            color: #4A5568 !important;
+            font-size: 14px !important;
+            background: #F8FAFC;
+            padding: 10px;
+            border-radius: 6px;
+        }
+
+        /* PESAN PENCARIAN */
+        #pesan {
+            color: #718096;
+            font-size: 14px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #102D50;
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+            margin-top: 40px;
+        }
+
+        footer h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            color: #DCEBFA;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .footer-line {
+            width: 80%;
+            max-width: 500px;
+            height: 1px;
+            background: #49627D;
+            margin: 18px auto;
+        }
+
+        .copyright {
+            font-size: 12px;
+            color: #AFC4DB;
+        }
+
+        /* RESPONSIVE TABLET */
+        @media (max-width: 1050px) {
+            header {
+                flex-wrap: wrap;
+            }
+
+            nav {
+                gap: 14px;
+            }
+
+            .wisata-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* RESPONSIVE HP */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px 5%;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            nav {
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                gap: 14px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .container {
+                width: 92%;
+                margin: 30px auto;
+            }
+
+            h1 {
+                font-size: 23px;
+            }
+
+            .wisata-list {
+                grid-template-columns: 1fr;
+            }
+
+            .filter {
+                flex-direction: column;
+            }
+
+            .filter input,
+            .filter select {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
     <!-- NAVBAR -->
     <header>
+        <div class="logo">Wisata Bandung</div>
         <nav>
             <a href="index.html">Beranda</a>
             <a href="sejarah.html">Sejarah</a>
@@ -391,7 +324,6 @@
 
         <!-- PENCARIAN -->
         <div class="filter">
-
             <input
                 type="text"
                 id="cari"
@@ -405,7 +337,6 @@
                 <option value="Edukasi">Edukasi</option>
                 <option value="Budaya">Budaya</option>
             </select>
-
         </div>
 
         <!-- DAFTAR WISATA -->
@@ -415,28 +346,17 @@
 
     <!-- FOOTER -->
     <footer>
-
         <h3>Wisata Bandung</h3>
-
-        <p>
-            Jelajahi keindahan dan keunikan wisata Kota Bandung.
-        </p>
-
+        <p>Jelajahi keindahan dan keunikan wisata Kota Bandung.</p>
         <div class="footer-line"></div>
-
         <p class="copyright">
             © 2026 Jelajah Bandung | Jelajah Wisata Sekitar PT.INTI Bandung
         </p>
-
     </footer>
 
-
 <script>
-
     // DATA WISATA BANDUNG
-
     const wisata = [
-
         {
             nama: "Museum Konferensi Asia Afrika",
             kategori: "Sejarah",
@@ -446,7 +366,6 @@
             foto: "https://photos.smugmug.com/Asia/Indonesia/Bandung/i-qWg6BT2/0/KMK58StgRH69Cb66xCtfJGSSwZGztKc7LswwGTGhB/L/20240428_082908-asia-african-conference-museum-L.jpg",
             deskripsi: "Museum ini menyimpan sejarah Konferensi Asia Afrika tahun 1955. Pengunjung dapat melihat berbagai dokumentasi dan peninggalan sejarah perjuangan negara-negara Asia dan Afrika."
         },
-
         {
             nama: "Taman Tegalega",
             kategori: "Taman",
@@ -456,7 +375,6 @@
             foto: "https://cdn-strapi.prod.99iddev.net/assets/fasilitas_taman_tegalega_48e3f22e6b.jpg",
             deskripsi: "Taman Tegalega merupakan ruang terbuka hijau di Bandung yang cocok untuk bersantai, berolahraga, dan menikmati suasana taman bersama keluarga."
         },
-
         {
             nama: "Museum Geologi",
             kategori: "Edukasi",
@@ -466,17 +384,15 @@
             foto: "https://museum.co.id/wp-content/uploads/2020/09/Lokasi-Museum-Geologi-Bandung-750x450-1.jpg",
             deskripsi: "Museum Geologi memiliki koleksi batuan, mineral, fosil, dan informasi tentang perkembangan bumi. Tempat ini cocok untuk wisata edukasi."
         },
-
         {
             nama: "Saung Angklung Udjo",
             kategori: "Budaya",
             lokasi: "Jl. Padasuka",
             jam: "08.00-17.00 WIB. Pertunjukan reguler umumnya pukul 15.30-17.00 WIB.",
-            htm: "Pelajar Rp60.00, dewasa Rp85.000",
+            htm: "Pelajar Rp60.000, dewasa Rp85.000",
             foto: "https://idetrips.com/wp-content/uploads/2020/08/angklung-performance.jpg",
             deskripsi: "Tempat wisata budaya yang memperkenalkan alat musik tradisional angklung melalui pertunjukan musik, tarian, dan kegiatan budaya Sunda."
         },
-
         {
             nama: "Alun-Alun Bandung",
             kategori: "Taman",
@@ -486,162 +402,93 @@
             foto: "https://salsawisata.com/wp-content/uploads/2022/09/Alun-alun-Bandung.jpg",
             deskripsi: "Alun-Alun Bandung merupakan tempat populer di pusat kota dengan area rumput sintetis. Pengunjung dapat bersantai dan menikmati suasana pusat kota."
         },
-
         {
             nama: "Museum Sri Baduga",
             kategori: "Sejarah",
             lokasi: "Jl. BKR",
-            jam: "Selasa-Jumat: 08.00-16.00 WIB. Sabtu-Minggu: 18.00-14.00 WIB. Senin dan hari libur nasional tutup.",
+            jam: "Selasa-Jumat: 08.00-16.00 WIB. Sabtu-Minggu: 08.00-14.00 WIB. Senin dan hari libur nasional tutup.",
             htm: "Pelajar Rp2.000, dewasa Rp3.000",
             foto: "https://1.bp.blogspot.com/-FA-bf62gL1w/XfN8nLr7tmI/AAAAAAAAGJU/YsxPNkZ6sSc4wX6NRqy17ec3VyNS1P_5gCNcBGAsYHQ/s1600/IMG_5098.JPG",
             deskripsi: "Museum Sri Baduga menyimpan berbagai koleksi sejarah dan kebudayaan Jawa Barat, mulai dari benda peninggalan masa lampau hingga kesenian tradisional."
         }
-
     ];
 
-
     // MENGAMBIL ELEMEN HTML
-
     const daftar = document.getElementById("daftarWisata");
     const inputCari = document.getElementById("cari");
     const pilihKategori = document.getElementById("kategori");
 
-
     // MENAMPILKAN DATA WISATA
-
     function tampilkanWisata(data) {
-
         daftar.innerHTML = "";
 
         if (data.length === 0) {
-
-            daftar.innerHTML =
-                '<p id="pesan">Wisata tidak ditemukan.</p>';
-
+            daftar.innerHTML = '<p id="pesan">Wisata tidak ditemukan.</p>';
             return;
         }
 
         data.forEach((item, index) => {
-
             daftar.innerHTML += `
-
                 <div class="card">
-
-                    <img
-                        src="${item.foto}"
+                    <img 
+                        src="${item.foto}" 
                         alt="${item.nama}"
                         onerror="this.src='https://placehold.co/500x300?text=Foto+Wisata'"
                     >
-
                     <div class="card-content">
-
                         <h3>${item.nama}</h3>
-
-                        <p>
-                            Lokasi: ${item.lokasi}, Bandung
+                        <p><strong>📍 Lokasi:</strong> ${item.lokasi}, Bandung</p>
+                        <span class="label">${item.kategori}</span>
+                        <p><strong>🕒 Jam Operasional:</strong><br>${item.jam}</p>
+                        <p><strong>🎟️ HTM:</strong><br>${item.htm}</p>
+                        
+                        <p class="deskripsi" id="deskripsi-${index}" style="display: none;">
+                            ${item.deskripsi}
                         </p>
 
-                        <span class="label">
-                            ${item.kategori}
-                        </span>
-
-                        <p
-                           <strong>🕒 Jam Operasional:</strong><br>
-                           ${item.jam}
-                        </p>
-
-                        <p>
-                            <strong>🎟️ HTM: </strong><br>
-                            ${item.htm}
-                        </p>
-                     </div>
-                     <p>
-                        class="deskripsi"
-                        id="deskripsi-${index}"
-                        style="display:one;"
-                        >
-                        ${item.deskripsi}
-                    </p>
-
-                        <button
-                            class="btn"
+                        <button 
+                            class="btn" 
                             onclick="lihatDeskripsi(${index})"
                         >
                             Lihat Deskripsi
                         </button>
-
                     </div>
-
                 </div>
-
             `;
-
         });
-
     }
 
-
-    // TOMBOL DESKRIPSI
-
+    // TOMBOL TOGGLE DESKRIPSI
     function lihatDeskripsi(index) {
-
-        const teks = document.getElementById(
-            "deskripsi-" + index
-        );
-
-        if (teks.style.display === "none") {
-
+        const teks = document.getElementById("deskripsi-" + index);
+        if (teks.style.display === "none" || teks.style.display === "") {
             teks.style.display = "block";
-
         } else {
-
             teks.style.display = "none";
-
         }
-
     }
-
 
     // FITUR PENCARIAN DAN FILTER
-
     function filterWisata() {
-
         const kata = inputCari.value.toLowerCase().trim();
-
         const kategoriDipilih = pilihKategori.value;
 
         const hasil = wisata.filter(item => {
-
-            const cocokNama =
-                item.nama.toLowerCase().includes(kata);
-
-            const cocokKategori =
-                kategoriDipilih === "Semua" ||
-                item.kategori === kategoriDipilih;
+            const cocokNama = item.nama.toLowerCase().includes(kata);
+            const cocokKategori = kategoriDipilih === "Semua" || item.kategori === kategoriDipilih;
 
             return cocokNama && cocokKategori;
-
         });
 
         tampilkanWisata(hasil);
-
     }
 
-
-    // EVENT PENCARIAN
-
+    // EVENT LISTENERS
     inputCari.addEventListener("input", filterWisata);
-
-
-    // EVENT KATEGORI
-
     pilihKategori.addEventListener("change", filterWisata);
 
-
-    // MENAMPILKAN SEMUA WISATA
-
+    // INISIALISASI
     tampilkanWisata(wisata);
-
 </script>
 
 </body>
