@@ -1,31 +1,32 @@
-/html
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rekomendasi Wisata Bandung</title>
-/CSS
-    <style>
-      /*RESET*/
-      *{
+
+<style>
+
+    /* RESET */
+    * {
         margin: 0;
         padding: 0;
-        box-sizing:border-box;
-        font-family: : Arial, sans-serif;
-      }
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
 
-      body{
+    body {
         background: #F3F6FA;
-        color: #173B51;
+        color: #173B61;
         min-height: 100vh;
         display: flex;
-        flex-direction: coloumn;
-      }
+        flex-direction: column;
+    }
 
-      /*NAVBAR*/
-      header {
-        background: #102d50;
+    /* NAVBAR */
+    header {
+        background: #102D50;
         color: white;
         padding: 22px 5%;
         display: flex;
@@ -34,215 +35,572 @@
         flex-direction: row;
         flex-wrap: nowrap;
         gap: 20px;
-      }
+    }
 
-      /*LOGO*/
-      .logo {
-        font size: 22px;
+    /* LOGO */
+    .logo {
+        font-size: 22px;
         font-weight: bold;
         white-space: nowrap;
-      }
+    }
 
-      /*MENU NAVIGASI*/
-      nav {
+    /* MENU NAVIGASI */
+    nav {
         display: flex;
-        align-intems: center;
+        align-items: center;
         justify-content: flex-end;
         gap: 20px;
         flex-wrap: nowrap;
-      }
+    }
 
-      nav a{
-        taxt-decoration:none; 
+    nav a {
+        text-decoration: none;
         color: #DCEBFA;
         font-size: 13px;
-      }
-    </style>
+        white-space: nowrap;
+        transition: 0.3s;
+        padding-bottom: 6px;
+    }
+
+    nav a:hover,
+    nav a.active {
+        color: white;
+        border-bottom: 2px solid #65B6F0;
+    }
+
+    /* CONTAINER */
+    .container {
+        width: 88%;
+        max-width: 1200px;
+        margin: 40px auto;
+        flex: 1;
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .subtitle {
+        color: #718096;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    /* HERO / BANNER */
+    .hero {
+        background:
+            linear-gradient(
+                90deg,
+                rgba(16, 45, 80, 0.55),
+                rgba(16, 45, 80, 0.05)
+            ),
+            url("https://th.bing.com/th/id/OIP.4qvh_GRvlZNuWjh-kyr5CwHaE8?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3")
+            center/cover no-repeat;
+
+        min-height: 380px;
+        border-radius: 15px;
+        margin-top: 25px;
+        padding: 50px;
+        display: flex;
+        align-items: center;
+        color: white;
+    }
+
+    .hero-content {
+        max-width: 550px;
+    }
+
+    .hero h2 {
+        font-size: 38px;
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 15px;
+        line-height: 1.8;
+        color: #E5EDF6;
+    }
+
+    /* TOMBOL */
+    .btn {
+        display: inline-block;
+        background: #2879BB;
+        color: white;
+        text-decoration: none;
+        padding: 13px 25px;
+        border-radius: 7px;
+        margin-top: 22px;
+        font-size: 14px;
+        transition: 0.3s;
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background: #1B5D95;
+        transform: translateY(-2px);
+    }
+
+    /* PENCARIAN DAN KATEGORI */
+    .filter {
+        display: flex;
+        gap: 15px;
+        margin: 25px 0;
+    }
+
+    .filter input,
+    .filter select {
+        padding: 12px;
+        border: 1px solid #CBD5E0;
+        border-radius: 7px;
+        font-size: 14px;
+        outline: none;
+    }
+
+    .filter input {
+        width: 70%;
+    }
+
+    .filter select {
+        width: 30%;
+    }
+
+    /* DAFTAR WISATA */
+    .wisata-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    /* KARTU WISATA */
+    .card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card img {
+        width: 100%;
+        height: 190px;
+        object-fit: cover;
+    }
+
+    .card-content {
+        padding: 18px;
+    }
+
+    .card-content h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .card-content p {
+        color: #718096;
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .label {
+        display: inline-block;
+        background: #E1F0FC;
+        color: #2879BB;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 12px;
+        margin-top: 10px;
+    }
+
+    .deskripsi {
+        margin-top: 12px;
+        color: #4A5568 !important;
+        font-size: 14px !important;
+    }
+
+    .card .btn {
+        margin-top: 15px;
+        padding: 10px 15px;
+    }
+
+    /* PESAN PENCARIAN */
+    #pesan {
+        color: #718096;
+        font-size: 14px;
+    }
+
+    /* FOOTER */
+    footer {
+        background: #102D50;
+        color: white;
+        text-align: center;
+        padding: 30px 15px;
+    }
+
+    footer h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    footer p {
+        color: #DCEBFA;
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .footer-line {
+        width: 80%;
+        max-width: 500px;
+        height: 1px;
+        background: #49627D;
+        margin: 18px auto;
+    }
+
+    .copyright {
+        font-size: 12px;
+        color: #AFC4DB;
+    }
+
+    /* RESPONSIVE TABLET */
+    @media (max-width: 1050px) {
+
+        header {
+            flex-wrap: wrap;
+        }
+
+        nav {
+            gap: 14px;
+        }
+
+        .wisata-list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    /* RESPONSIVE HP */
+    @media (max-width: 600px) {
+
+        header {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px 5%;
+        }
+
+        .logo {
+            font-size: 20px;
+        }
+
+        nav {
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        nav a {
+            font-size: 12px;
+        }
+
+        .container {
+            width: 92%;
+            margin: 30px auto;
+        }
+
+        h1 {
+            font-size: 23px;
+        }
+
+        .hero {
+            min-height: 320px;
+            padding: 25px;
+        }
+
+        .hero h2 {
+            font-size: 27px;
+        }
+
+        .hero p {
+            font-size: 13px;
+        }
+
+        .wisata-list {
+            grid-template-columns: 1fr;
+        }
+
+        .filter {
+            flex-direction: column;
+        }
+
+        .filter input,
+        .filter select {
+            width: 100%;
+        }
+    }
+
+</style>
 </head>
 
 <body>
 
-    <section class="wisata">
+    <!-- NAVBAR -->
+    <header>
+        <nav>
+            <a href="index.html">Beranda</a>
+            <a href="sejarah.html">Sejarah</a>
+            <a href="data-wisata.html">Data Wisata</a>
+            <a href="rekomendasi.html" class="active">Rekomendasi</a>
+            <a href="lokasi.html">Lokasi</a>
+            <a href="kontak.html">Kontak</a>
+        </nav>
+    </header>
 
-        <h1>Wisata Bandung</h1>
-        <p>Temukan tempat menarik untuk liburanmu!</p>
+    <!-- KONTEN REKOMENDASI -->
+    <section class="container">
 
-        <input
-            type="text"
-            id="cari"
-            placeholder="Cari wisata..."
-        >
+        <h1>Rekomendasi Wisata Bandung</h1>
 
-        <select id="kategori">
-            <option value="Semua">Semua Kategori</option>
-            <option value="Sejarah">Sejarah</option>
-            <option value="Taman">Taman</option>
-            <option value="Edukasi">Edukasi</option>
-            <option value="Budaya">Budaya</option>
-        </select>
+        <p class="subtitle">
+            Temukan berbagai tempat wisata menarik di Kota Bandung
+            untuk mengisi waktu liburanmu!
+        </p>
 
+        <!-- PENCARIAN -->
+        <div class="filter">
+
+            <input
+                type="text"
+                id="cari"
+                placeholder="Cari tempat wisata..."
+            >
+
+            <select id="kategori">
+                <option value="Semua">Semua Kategori</option>
+                <option value="Sejarah">Sejarah</option>
+                <option value="Taman">Taman</option>
+                <option value="Edukasi">Edukasi</option>
+                <option value="Budaya">Budaya</option>
+            </select>
+
+        </div>
+
+        <!-- DAFTAR WISATA -->
         <div id="daftarWisata" class="wisata-list"></div>
 
     </section>
 
+    <!-- FOOTER -->
+    <footer>
 
-    <script>
+        <h3>Wisata Bandung</h3>
 
-        // DATA WISATA BANDUNG
+        <p>
+            Jelajahi keindahan dan keunikan wisata Kota Bandung.
+        </p>
 
-        const wisata = [
-            {
-                nama: "Museum Konferensi Asia Afrika",
-                kategori: "Sejarah",
-                lokasi: "Jl. Asia Afrika",
-                foto: "https://photos.smugmug.com/Asia/Indonesia/Bandung/i-qWg6BT2/0/KMK58StgRH69Cb66xCtfJGSSwZGztKc7LswwGTGhB/L/20240428_082908-asia-african-conference-museum-L.jpg",
-                link: "https://www.google.com/maps/search/?api=1&query=Museum+Konferensi+Asia+Afrika+Bandung"
-            },
+        <div class="footer-line"></div>
 
-            {
-                nama: "Taman Tegalega",
-                kategori: "Taman",
-                lokasi: "Jl. Otto Iskandardinata",
-                foto: "https://cdn-strapi.prod.99iddev.net/assets/fasilitas_taman_tegalega_48e3f22e6b.jpg",
-                link: "https://www.google.com/maps/search/?api=1&query=Taman+Tegalega+Bandung"
-            },
+        <p class="copyright">
+            © 2026 Wisata Bandung | All Rights Reserved
+        </p>
 
-            {
-                nama: "Museum Geologi",
-                kategori: "Edukasi",
-                lokasi: "Jl. Diponegoro",
-                foto: "https://museum.co.id/wp-content/uploads/2020/09/Lokasi-Museum-Geologi-Bandung-750x450-1.jpg",
-                link: "https://www.google.com/maps/search/?api=1&query=Museum+Geologi+Bandung"
-            },
-
-            {
-                nama: "Saung Angklung Udjo",
-                kategori: "Budaya",
-                lokasi: "Jl. Padasuka",
-                foto: "https://idetrips.com/wp-content/uploads/2020/08/angklung-performance.jpg",
-                link: "https://www.google.com/maps/search/?api=1&query=Saung+Angklung+Udjo+Bandung"
-            },
-
-            {
-                nama: "Alun-Alun Bandung",
-                kategori: "Taman",
-                lokasi: "Jl. Asia Afrika",
-                foto: "https://salsawisata.com/wp-content/uploads/2022/09/Alun-alun-Bandung.jpg",
-                link: "https://www.google.com/maps/search/?api=1&query=Alun+Alun+Bandung"
-            },
-
-            {
-                nama: "Museum Sri Baduga",
-                kategori: "Sejarah",
-                lokasi: "Jl. BKR",
-                foto: "https://1.bp.blogspot.com/-FA-bf62gL1w/XfN8nLr7tmI/AAAAAAAAGJU/YsxPNkZ6sSc4wX6NRqy17ec3VyNS1P_5gCNcBGAsYHQ/s1600/IMG_5098.JPG",
-                link: "https://www.google.com/maps/search/?api=1&query=Museum+Sri+Baduga+Bandung"
-            }
-        ];
+    </footer>
 
 
-        // MENAMPILKAN DATA WISATA
+<script>
 
-        const daftar = document.getElementById("daftarWisata");
+    // DATA WISATA BANDUNG
 
-        const inputCari = document.getElementById("cari");
+    const wisata = [
 
-        const pilihKategori = document.getElementById("kategori");
+        {
+            nama: "Museum Konferensi Asia Afrika",
+            kategori: "Sejarah",
+            lokasi: "Jl. Asia Afrika",
+            foto: "https://photos.smugmug.com/Asia/Indonesia/Bandung/i-qWg6BT2/0/KMK58StgRH69Cb66xCtfJGSSwZGztKc7LswwGTGhB/L/20240428_082908-asia-african-conference-museum-L.jpg",
+            deskripsi: "Museum ini menyimpan sejarah Konferensi Asia Afrika tahun 1955. Pengunjung dapat melihat berbagai dokumentasi dan peninggalan sejarah perjuangan negara-negara Asia dan Afrika."
+        },
+
+        {
+            nama: "Taman Tegalega",
+            kategori: "Taman",
+            lokasi: "Jl. Otto Iskandardinata",
+            foto: "https://cdn-strapi.prod.99iddev.net/assets/fasilitas_taman_tegalega_48e3f22e6b.jpg",
+            deskripsi: "Taman Tegalega merupakan ruang terbuka hijau di Bandung yang cocok untuk bersantai, berolahraga, dan menikmati suasana taman bersama keluarga."
+        },
+
+        {
+            nama: "Museum Geologi",
+            kategori: "Edukasi",
+            lokasi: "Jl. Diponegoro",
+            foto: "https://museum.co.id/wp-content/uploads/2020/09/Lokasi-Museum-Geologi-Bandung-750x450-1.jpg",
+            deskripsi: "Museum Geologi memiliki koleksi batuan, mineral, fosil, dan informasi tentang perkembangan bumi. Tempat ini cocok untuk wisata edukasi."
+        },
+
+        {
+            nama: "Saung Angklung Udjo",
+            kategori: "Budaya",
+            lokasi: "Jl. Padasuka",
+            foto: "https://idetrips.com/wp-content/uploads/2020/08/angklung-performance.jpg",
+            deskripsi: "Tempat wisata budaya yang memperkenalkan alat musik tradisional angklung melalui pertunjukan musik, tarian, dan kegiatan budaya Sunda."
+        },
+
+        {
+            nama: "Alun-Alun Bandung",
+            kategori: "Taman",
+            lokasi: "Jl. Asia Afrika",
+            foto: "https://salsawisata.com/wp-content/uploads/2022/09/Alun-alun-Bandung.jpg",
+            deskripsi: "Alun-Alun Bandung merupakan tempat populer di pusat kota dengan area rumput sintetis. Pengunjung dapat bersantai dan menikmati suasana pusat kota."
+        },
+
+        {
+            nama: "Museum Sri Baduga",
+            kategori: "Sejarah",
+            lokasi: "Jl. BKR",
+            foto: "https://1.bp.blogspot.com/-FA-bf62gL1w/XfN8nLr7tmI/AAAAAAAAGJU/YsxPNkZ6sSc4wX6NRqy17ec3VyNS1P_5gCNcBGAsYHQ/s1600/IMG_5098.JPG",
+            deskripsi: "Museum Sri Baduga menyimpan berbagai koleksi sejarah dan kebudayaan Jawa Barat, mulai dari benda peninggalan masa lampau hingga kesenian tradisional."
+        }
+
+    ];
 
 
-        function tampilkanWisata(data) {
+    // MENGAMBIL ELEMEN HTML
 
-            daftar.innerHTML = "";
+    const daftar = document.getElementById("daftarWisata");
+    const inputCari = document.getElementById("cari");
+    const pilihKategori = document.getElementById("kategori");
 
-            if (data.length === 0) {
-                daftar.innerHTML =
-                    '<p id="pesan">Wisata tidak ditemukan.</p>';
 
-                return;
-            }
+    // MENAMPILKAN DATA WISATA
 
-            data.forEach(item => {
+    function tampilkanWisata(data) {
 
-                daftar.innerHTML += `
-                    <div class="card">
+        daftar.innerHTML = "";
 
-                        <img
-                            src="${item.foto}"
-                            alt="${item.nama}"
-                            onerror="this.src='https://placehold.co/500x300?text=Foto+Wisata'"
+        if (data.length === 0) {
+
+            daftar.innerHTML =
+                '<p id="pesan">Wisata tidak ditemukan.</p>';
+
+            return;
+        }
+
+        data.forEach((item, index) => {
+
+            daftar.innerHTML += `
+
+                <div class="card">
+
+                    <img
+                        src="${item.foto}"
+                        alt="${item.nama}"
+                        onerror="this.src='https://placehold.co/500x300?text=Foto+Wisata'"
+                    >
+
+                    <div class="card-content">
+
+                        <h3>${item.nama}</h3>
+
+                        <p>
+                            Lokasi: ${item.lokasi}, Bandung
+                        </p>
+
+                        <span class="label">
+                            ${item.kategori}
+                        </span>
+
+                        <p
+                            class="deskripsi"
+                            id="deskripsi-${index}"
+                            style="display:none;"
                         >
+                            ${item.deskripsi}
+                        </p>
 
-                        <div class="card-content">
-
-                            <h3>${item.nama}</h3>
-
-                            <p>
-                                Kategori: ${item.kategori}
-                            </p>
-
-                            <p>
-                                Lokasi: ${item.lokasi}, Bandung
-                            </p>
-
-                            <a
-                                href="${item.link}"
-                                target="_blank"
-                                rel="noopener"
-                            >
-                                Lihat Lokasi
-                            </a>
-
-                        </div>
+                        <button
+                            class="btn"
+                            onclick="lihatDeskripsi(${index})"
+                        >
+                            Lihat Deskripsi
+                        </button>
 
                     </div>
-                `;
 
-            });
+                </div>
 
-        }
+            `;
+
+        });
+
+    }
 
 
-        // FITUR PENCARIAN DAN FILTER
+    // TOMBOL DESKRIPSI
 
-        function filterWisata() {
+    function lihatDeskripsi(index) {
 
-            const kata = inputCari.value.toLowerCase().trim();
+        const teks = document.getElementById(
+            "deskripsi-" + index
+        );
 
-            const kategoriDipilih = pilihKategori.value;
+        if (teks.style.display === "none") {
 
-            const hasil = wisata.filter(item => {
+            teks.style.display = "block";
 
-                const cocokNama =
-                    item.nama.toLowerCase().includes(kata);
+        } else {
 
-                const cocokKategori =
-                    kategoriDipilih === "Semua" ||
-                    item.kategori === kategoriDipilih;
-
-                return cocokNama && cocokKategori;
-
-            });
-
-            tampilkanWisata(hasil);
+            teks.style.display = "none";
 
         }
 
-
-        // EVENT PENCARIAN
-
-        inputCari.addEventListener("input", filterWisata);
+    }
 
 
-        // EVENT KATEGORI
+    // FITUR PENCARIAN DAN FILTER
 
-        pilihKategori.addEventListener("change", filterWisata);
+    function filterWisata() {
+
+        const kata = inputCari.value.toLowerCase().trim();
+
+        const kategoriDipilih = pilihKategori.value;
+
+        const hasil = wisata.filter(item => {
+
+            const cocokNama =
+                item.nama.toLowerCase().includes(kata);
+
+            const cocokKategori =
+                kategoriDipilih === "Semua" ||
+                item.kategori === kategoriDipilih;
+
+            return cocokNama && cocokKategori;
+
+        });
+
+        tampilkanWisata(hasil);
+
+    }
 
 
-        // MENAMPILKAN SEMUA WISATA
+    // EVENT PENCARIAN
 
-        tampilkanWisata(wisata);
+    inputCari.addEventListener("input", filterWisata);
 
-    </script>
+
+    // EVENT KATEGORI
+
+    pilihKategori.addEventListener("change", filterWisata);
+
+
+    // MENAMPILKAN SEMUA WISATA
+
+    tampilkanWisata(wisata);
+
+</script>
 
 </body>
 </html>
+```
