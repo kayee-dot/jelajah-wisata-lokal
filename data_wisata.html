@@ -132,21 +132,6 @@
             line-height: 1.6;
         }
 
-        /* Pencarian */
-        #cari {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 14px;
-            outline: none;
-        }
-
-        #cari:focus {
-            border-color: #102D50;
-        }
-
         /* Tabel */
         .tabel-container {
             overflow-x: auto;
@@ -274,11 +259,11 @@
     <!-- MENU KANAN -->
     <nav>
         <a href="beranda.html">Beranda</a>
-        <a href="sejarah.html">Sejarah</a>
         <a href="data_wisata.html" class="active">Data Wisata</a>
         <a href="rekomendasi.html">Rekomendasi</a>
         <a href="lokasi.html">Lokasi</a>
         <a href="kontak.html">Kontak</a>
+        <a href="tentang-kami.html">Tentang Kami</a>
     </nav>
 
 </header>
@@ -304,13 +289,6 @@
             Informasi nama tempat wisata, harga tiket masuk, dan jarak
             dari kampus PT INTI Bandung.
         </p>
-
-        <!-- Kolom Pencarian -->
-        <input
-            type="text"
-            id="cari"
-            placeholder="Cari nama wisata..."
-        >
 
         <!-- Tabel Wisata -->
         <div class="tabel-container">
@@ -357,19 +335,11 @@
 
         // Menampilkan data ke tabel
         function tampilkanData() {
-            const cari = document
-                .getElementById("cari")
-                .value.toLowerCase();
-
             const tabel = document.getElementById("tabelWisata");
 
             tabel.innerHTML = "";
 
-            const hasil = dataWisata.filter(data =>
-                data.nama.toLowerCase().includes(cari)
-            );
-
-            hasil.forEach((data, index) => {
+            dataWisata.forEach((data, index) => {
 
                 const harga = data.harga === 0
                     ? "Gratis"
@@ -385,22 +355,7 @@
                     </tr>
                 `;
             });
-
-            if (hasil.length === 0) {
-                tabel.innerHTML = `
-                    <tr>
-                        <td colspan="5">
-                            Wisata tidak ditemukan.
-                        </td>
-                    </tr>
-                `;
-            }
         }
-
-        // Fitur pencarian
-        document
-            .getElementById("cari")
-            .addEventListener("input", tampilkanData);
 
         // Menampilkan data pertama kali
         tampilkanData();
