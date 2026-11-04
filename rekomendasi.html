@@ -442,6 +442,7 @@
             kategori: "Sejarah",
             lokasi: "Jl. Asia Afrika",
             jam: "Rabu, Kamis, Sabtu: 09.00-12.00 & 13.00-15.00. Jumat: 09.00-11.30 & 13.30-15.30. Hari lainnya tutup.",
+            htm: "Gratis",
             foto: "https://photos.smugmug.com/Asia/Indonesia/Bandung/i-qWg6BT2/0/KMK58StgRH69Cb66xCtfJGSSwZGztKc7LswwGTGhB/L/20240428_082908-asia-african-conference-museum-L.jpg",
             deskripsi: "Museum ini menyimpan sejarah Konferensi Asia Afrika tahun 1955. Pengunjung dapat melihat berbagai dokumentasi dan peninggalan sejarah perjuangan negara-negara Asia dan Afrika."
         },
@@ -451,6 +452,7 @@
             kategori: "Taman",
             lokasi: "Jl. Otto Iskandardinata",
             jam: "Setiap Hari: 06.00-18.00 WIB.",
+            htm: "Rp2.000/orang",
             foto: "https://cdn-strapi.prod.99iddev.net/assets/fasilitas_taman_tegalega_48e3f22e6b.jpg",
             deskripsi: "Taman Tegalega merupakan ruang terbuka hijau di Bandung yang cocok untuk bersantai, berolahraga, dan menikmati suasana taman bersama keluarga."
         },
@@ -460,6 +462,7 @@
             kategori: "Edukasi",
             lokasi: "Jl. Diponegoro",
             jam: "Senin-Kamis: 09.00-15.00 WIB. Sabtu-Minggu: 09.00-14.00 WIB. Jumat dan hari libur nasional tutup.",
+            htm: "Pelajar Rp3.000, umum Rp5.000",
             foto: "https://museum.co.id/wp-content/uploads/2020/09/Lokasi-Museum-Geologi-Bandung-750x450-1.jpg",
             deskripsi: "Museum Geologi memiliki koleksi batuan, mineral, fosil, dan informasi tentang perkembangan bumi. Tempat ini cocok untuk wisata edukasi."
         },
@@ -468,6 +471,8 @@
             nama: "Saung Angklung Udjo",
             kategori: "Budaya",
             lokasi: "Jl. Padasuka",
+            jam: "08.00-17.00 WIB. Pertunjukan reguler umumnya pukul 15.30-17.00 WIB.",
+            htm: "Pelajar Rp60.00, dewasa Rp85.000",
             foto: "https://idetrips.com/wp-content/uploads/2020/08/angklung-performance.jpg",
             deskripsi: "Tempat wisata budaya yang memperkenalkan alat musik tradisional angklung melalui pertunjukan musik, tarian, dan kegiatan budaya Sunda."
         },
@@ -476,6 +481,8 @@
             nama: "Alun-Alun Bandung",
             kategori: "Taman",
             lokasi: "Jl. Asia Afrika",
+            jam: "Setiap hari: 08.00-16.00 WIB.",
+            htm: "Gratis",
             foto: "https://salsawisata.com/wp-content/uploads/2022/09/Alun-alun-Bandung.jpg",
             deskripsi: "Alun-Alun Bandung merupakan tempat populer di pusat kota dengan area rumput sintetis. Pengunjung dapat bersantai dan menikmati suasana pusat kota."
         },
@@ -484,6 +491,8 @@
             nama: "Museum Sri Baduga",
             kategori: "Sejarah",
             lokasi: "Jl. BKR",
+            jam: "Selasa-Jumat: 08.00-16.00 WIB. Sabtu-Minggu: 18.00-14.00 WIB. Senin dan hari libur nasional tutup.",
+            htm: "Pelajar Rp2.000, dewasa Rp3.000",
             foto: "https://1.bp.blogspot.com/-FA-bf62gL1w/XfN8nLr7tmI/AAAAAAAAGJU/YsxPNkZ6sSc4wX6NRqy17ec3VyNS1P_5gCNcBGAsYHQ/s1600/IMG_5098.JPG",
             deskripsi: "Museum Sri Baduga menyimpan berbagai koleksi sejarah dan kebudayaan Jawa Barat, mulai dari benda peninggalan masa lampau hingga kesenian tradisional."
         }
@@ -537,12 +546,22 @@
                         </span>
 
                         <p
-                            class="deskripsi"
-                            id="deskripsi-${index}"
-                            style="display:none;"
-                        >
-                            ${item.deskripsi}
+                           <strong>🕒 Jam Operasional:</strong><br>
+                           ${item.jam}
                         </p>
+
+                        <p>
+                            <strong>🎟️ HTM: </strong><br>
+                            ${item.htm}
+                        </p>
+                     </div>
+                     <p>
+                        class="deskripsi"
+                        id="deskripsi-${index}"
+                        style="display:one;"
+                        >
+                        ${item.deskripsi}
+                    </p>
 
                         <button
                             class="btn"
