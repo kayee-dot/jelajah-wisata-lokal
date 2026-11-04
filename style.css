@@ -1,226 +1,322 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
 
+body {
+    background: #F3F6FA;
+    color: #173B61;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 
-        /* RESET */
-        * {
+/* NAVBAR */
+header {
+    background: #102D50;
+    color: white;
+    padding: 22px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+
+/* LOGO */
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* MENU NAVIGASI */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    flex-wrap: nowrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: #DCEBFA;
+    font-size: 13px;
+    white-space: nowrap;
+    transition: 0.3s;
+    padding-bottom: 6px;
+}
+
+nav a:hover,
+nav a.active {
+    color: white;
+    border-bottom: 2px solid #65B6F0;
+}
+
+/* CONTAINER */
+.container {
+    width: 88%;
+    max-width: 1200px;
+    margin: 40px auto;
+    flex: 1;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #718096;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* HERO / BANNER */
+.hero {
+    background:
+        linear-gradient(90deg,
+            rgba(16, 45, 80, 0.90),
+            rgba(16, 45, 80, 0.30)),
+        url("bandung.jpg") center/cover no-repeat;
+
+    min-height: 380px;
+    border-radius: 15px;
+    margin-top: 25px;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.hero-content {
+    max-width: 550px;
+}
+
+.hero h2 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #E5EDF6;
+}
+
+/* TOMBOL */
+.btn {
+    display: inline-block;
+    background: #2879BB;
+    color: white;
+    text-decoration: none;
+    padding: 13px 25px;
+    border-radius: 7px;
+    margin-top: 22px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #1B5D95;
+    transform: translateY(-2px);
+}
+
+/* FOOTER */
+footer {
+    background: #102D50;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+footer h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: #DCEBFA;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.footer-line {
+    width: 80%;
+    max-width: 500px;
+    height: 1px;
+    background: #49627D;
+    margin: 18px auto;
+}
+
+.copyright {
+    font-size: 12px;
+    color: #AFC4DB;
+}
+
+/* RESPONSIVE TABLET */
+@media (max-width: 1050px) {
+
+    header {
+        flex-wrap: wrap;
+    }
+
+    nav {
+        gap: 14px;
+    }
+
+}
+
+/* RESPONSIVE HP */
+@media (max-width: 600px) {
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 5%;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    nav {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .container {
+        width: 92%;
+        margin: 30px auto;
+    }
+
+    h1 {
+        font-size: 23px;
+    }
+
+    .hero {
+        min-height: 320px;
+        padding: 25px;
+    }
+
+    .hero h2 {
+        font-size: 27px;
+    }
+
+    .hero p {
+        font-size: 13px;
+    }
+
+}
+
+        .contact-panel {
+            overflow: hidden;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-panel-heading {
             margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background: #F3F6FA;
-            color: #173B61;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* NAVBAR */
-        header {
+            padding: 18px 20px;
             background: #102D50;
             color: white;
-            padding: 22px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            gap: 20px;
         }
 
-        /* LOGO */
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-            white-space: nowrap;
+        .contact-table {
+            width: 100%;
+            border-collapse: collapse;
         }
 
-        /* MENU NAVIGASI */
-        nav {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            gap: 20px;
-            flex-wrap: nowrap;
+        .contact-table th,
+        .contact-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
         }
 
-        nav a {
-            text-decoration: none;
-            color: #DCEBFA;
-            font-size: 13px;
-            white-space: nowrap;
-            transition: 0.3s;
-            padding-bottom: 6px;
-        }
-
-        nav a:hover,
-        nav a.active {
-            color: white;
-            border-bottom: 2px solid #65B6F0;
-        }
-
-        /* CONTAINER */
-        .container {
-            width: 88%;
-            max-width: 1200px;
-            margin: 40px auto;
-            flex: 1;
-        }
-
-        h1 {
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            color: #718096;
-            font-size: 14px;
-            line-height: 1.7;
-        }
-
-        /* HERO / BANNER */
-        .hero {
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(16, 45, 80, 0.90),
-                    rgba(16, 45, 80, 0.30)
-                ),
-                url("bandung.jpg")
-                center/cover no-repeat;
-
-            min-height: 380px;
-            border-radius: 15px;
-            margin-top: 25px;
-            padding: 50px;
-            display: flex;
-            align-items: center;
-            color: white;
-        }
-
-        .hero-content {
-            max-width: 550px;
-        }
-
-        .hero h2 {
-            font-size: 38px;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            font-size: 15px;
-            line-height: 1.8;
-            color: #E5EDF6;
-        }
-
-        /* TOMBOL */
-        .btn {
-            display: inline-block;
-            background: #2879BB;
-            color: white;
-            text-decoration: none;
-            padding: 13px 25px;
-            border-radius: 7px;
-            margin-top: 22px;
-            font-size: 14px;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: #1B5D95;
-            transform: translateY(-2px);
-        }
-
-        /* FOOTER */
-        footer {
+        .contact-table th {
             background: #102D50;
             color: white;
-            text-align: center;
-            padding: 30px 15px;
+            font-size: 14px;
         }
 
-        footer h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
+        .contact-table td {
+            font-size: 14px;
         }
 
-        footer p {
-            color: #DCEBFA;
-            font-size: 13px;
-            line-height: 1.7;
+        .contact-info-type {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
         }
 
-        .footer-line {
-            width: 80%;
-            max-width: 500px;
-            height: 1px;
-            background: #49627D;
-            margin: 18px auto;
+        .contact-info-icon {
+            display: grid;
+            width: 36px;
+            height: 36px;
+            flex: 0 0 36px;
+            place-items: center;
+            border-radius: 8px;
+            background: #EAF2FA;
+            color: #102D50;
         }
 
-        .copyright {
-            font-size: 12px;
-            color: #AFC4DB;
+        .contact-info-icon svg {
+            width: 19px;
+            height: 19px;
+            fill: none;
+            stroke: currentColor;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 1.8;
         }
 
-        /* RESPONSIVE TABLET */
-        @media (max-width: 1050px) {
-
-            header {
-                flex-wrap: wrap;
-            }
-
-            nav {
-                gap: 14px;
-            }
-
+        .contact-table tr:hover {
+            background: #f0f7f2;
         }
 
-        /* RESPONSIVE HP */
+        .contact-form {
+            padding: 24px;
+        }
+
+        .contact-form .form-control {
+            border-color: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        .contact-form .form-control:focus {
+            border-color: #2879BB;
+            box-shadow: 0 0 0 0.2rem rgba(40, 121, 187, 0.2);
+        }
+
+        .btn-contact {
+            padding: 12px;
+            border: 0;
+            border-radius: 4px;
+            background: #102D50;
+            color: white;
+        }
+
+        .btn-contact:hover {
+            background: #173B61;
+            color: white;
+        }
+
         @media (max-width: 600px) {
-
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 20px 5%;
+            .contact-form {
+                padding: 20px;
             }
-
-            .logo {
-                font-size: 20px;
-            }
-
-            nav {
-                justify-content: flex-start;
-                flex-wrap: wrap;
-                gap: 14px;
-            }
-
-            nav a {
-                font-size: 12px;
-            }
-
-            .container {
-                width: 92%;
-                margin: 30px auto;
-            }
-
-            h1 {
-                font-size: 23px;
-            }
-
-            .hero {
-                min-height: 320px;
-                padding: 25px;
-            }
-
-            .hero h2 {
-                font-size: 27px;
-            }
-
-            .hero p {
-                font-size: 13px;
-            }
-
         }
-
