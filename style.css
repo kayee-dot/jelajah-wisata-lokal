@@ -14,6 +14,12 @@ body {
     flex-direction: column;
 }
 
+body.contact-page {
+    background:
+        linear-gradient(rgba(243, 246, 250, 0.72), rgba(243, 246, 250, 0.82)),
+        url("https://www.cifo.co.id/assets/uploads/media-uploader/bandung1731374574.jpg") center / cover fixed no-repeat;
+}
+
 /* NAVBAR */
 header {
     background: #102D50;
