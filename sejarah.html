@@ -5,134 +5,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sejarah Kota Bandung</title>
+    <link rel="stylesheet" href="style.css">
 
-    <!-- ================= CSS ================= -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
 
-        body {
-            color: #536174;
-            background: #f1f5f9;
+       body {
             background-image:
-                linear-gradient(
-                    rgba(255,255,255,0.75),
-                    rgba(255,255,255,0.75)
-                ),
+                linear-gradient(rgba(243, 246, 250, 0.88), rgba(243, 246, 250, 0.88)),
                 url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzyMlenIjLYSxYvCejnQ-YrucgI2zxVYMthr2WRwu4QA&s=10");
-            background-size: cover;
             background-position: center;
+            background-size: cover;
             background-attachment: fixed;
-        }
-
-        /* NAVBAR */
-        header {
-            background: #102d50;
-            color: white;
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 18px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        nav a:hover,
-        nav .active {
-            color: #72c8f2;
-            border-bottom: 2px solid #72c8f2;
-            padding-bottom: 7px;
         }
 
         /* JUDUL */
         .judul {
             text-align: center;
-            padding: 45px 15px 20px;
+            padding: 40px 15px;
         }
 
         .judul h1 {
-            font-size: 32px;
-            margin-bottom: 12px;
             color: #344b68;
+            margin-bottom: 10px;
         }
 
-        .judul p {
-            color: #666;
-            line-height: 1.7;
-        }
-
-        /* CONTAINER */
+        /* KONTEN */
         .container {
             width: 90%;
-            max-width: 1200px;
+            max-width: 1100px;
             margin: auto;
         }
 
-        /* CARD */
-        .card {
-            background: rgba(255,255,255,0.95);
-            padding: 30px;
-            margin: 25px 0;
-            border-radius: 15px;
+        .card, .timeline {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
             border-left: 5px solid #5688ad;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+            box-shadow: 0 2px 8px #00000015;
         }
 
-        .card h2 {
-            margin-bottom: 15px;
+        .card h2, .timeline h2 {
             color: #344b68;
+            margin-bottom: 15px;
         }
 
-        .card p {
-            line-height: 1.8;
-            color: #666;
+        .card p, .item p {
+            line-height: 1.7;
             text-align: justify;
         }
 
-        /* TIMELINE SEJARAH */
-        .timeline {
-            background: rgba(255,255,255,0.96);
-            padding: 30px;
-            margin: 35px 0;
-            border-radius: 15px;
-            border-left: 5px solid #5688ad;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.12);
-        }
-
+        /* TIMELINE */
         .timeline h2 {
             text-align: center;
-            margin-bottom: 25px;
-            color: #344b68;
+            margin-bottom: 20px;
         }
 
         .item {
-            padding: 22px 15px;
+            padding: 18px 10px;
             border-bottom: 1px solid #ddd;
-            transition: 0.3s;
-        }
-
-        .item:hover {
-            background: #f4f8fc;
-            padding-left: 22px;
         }
 
         .item:last-child {
@@ -141,62 +72,18 @@
 
         .item h3 {
             color: #456b8e;
-            margin-bottom: 10px;
-            font-size: 18px;
+            font-size: 17px;
+            margin-bottom: 8px;
         }
 
         .item p {
-            color: #666;
-            line-height: 1.8;
-            text-align: justify;
             font-size: 14px;
         }
 
-        /* FOOTER */
-        footer {
-            background: #102d50;
-            color: white;
-            text-align: center;
-            padding: 30px;
-            margin-top: 40px;
-        }
-
-        footer p {
-            margin-top: 10px;
-            font-size: 14px;
-        }
-
-        /* RESPONSIVE */
-        @media(max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            nav {
-                justify-content: center;
-                gap: 15px;
-            }
-
-            .judul h1 {
-                font-size: 26px;
-            }
-
-            .timeline,
-            .card {
-                padding: 20px;
-            }
-
-            .item {
-                padding: 18px 8px;
-            }
-        }
     </style>
 </head>
 
 <body>
-
-    <!-- ================= HTML ================= -->
 
     <!-- NAVBAR -->
     <header>
@@ -212,13 +99,10 @@
         </nav>
     </header>
 
-    <!-- JUDUL HALAMAN -->
+    <!-- JUDUL -->
     <section class="judul">
         <h1>Sejarah Kota Bandung</h1>
-        <p>
-            Mengenal perjalanan dan perkembangan Kota Bandung,
-            Jawa Barat dari masa ke masa.
-        </p>
+        <p>Mengenal perjalanan dan perkembangan Kota Bandung dari masa ke masa.</p>
     </section>
 
     <main class="container">
@@ -226,82 +110,73 @@
         <!-- SEJARAH SINGKAT -->
         <section class="card">
             <h2>🏛️ Sejarah Kota Bandung</h2>
-
             <p>
                 Kota Bandung merupakan ibu kota Provinsi Jawa Barat
                 yang memiliki sejarah panjang. Kota ini dikenal dengan
-                julukan Kota Kembang karena keindahan alam dan
-                suasananya yang sejuk. Bandung berkembang menjadi
-                salah satu kota besar di Indonesia yang memiliki
-                banyak peninggalan sejarah, budaya, pendidikan,
-                dan pariwisata.
+                julukan Kota Kembang karena keindahan alam dan suasananya
+                yang sejuk. Bandung berkembang menjadi salah satu kota
+                besar di Indonesia dengan banyak peninggalan sejarah,
+                budaya, pendidikan, dan pariwisata.
             </p>
         </section>
 
-        <!-- PERJALANAN SEJARAH BANDUNG -->
+        <!-- PERJALANAN SEJARAH -->
         <section class="timeline">
-
             <h2>🏛️ Perjalanan Sejarah Bandung</h2>
 
             <div class="item">
                 <h3>📍 1810 - Awal Perkembangan Kota Bandung</h3>
                 <p>
-                    Pada 25 September 1810, pusat pemerintahan
-                    Kabupaten Bandung dipindahkan ke wilayah yang
-                    sekarang menjadi pusat Kota Bandung. Tanggal
-                    tersebut kemudian diperingati sebagai hari
-                    jadi Kota Bandung.
+                    Pada 25 September 1810, pusat pemerintahan Kabupaten
+                    Bandung dipindahkan ke wilayah yang sekarang menjadi
+                    pusat Kota Bandung. Tanggal tersebut kemudian
+                    diperingati sebagai hari jadi Kota Bandung.
                 </p>
             </div>
 
             <div class="item">
                 <h3>🏛️ 1906 - Bandung Menjadi Gemeente</h3>
                 <p>
-                    Pada tahun 1906, Bandung mendapatkan status
-                    gemeente atau kotamadya pada masa pemerintahan
-                    kolonial Belanda. Status ini membuat pengelolaan
-                    dan pembangunan kota semakin berkembang.
+                    Pada tahun 1906, Bandung mendapatkan status gemeente
+                    atau kotamadya pada masa pemerintahan kolonial Belanda.
+                    Status ini membuat pengelolaan kota semakin berkembang.
                 </p>
             </div>
 
             <div class="item">
                 <h3>🏙️ 1920-an - Perkembangan Bangunan Kota</h3>
                 <p>
-                    Bandung mengalami perkembangan dalam pembangunan
-                    gedung pemerintahan, perkantoran, sekolah, dan
-                    fasilitas umum. Banyak bangunan bergaya arsitektur
-                    kolonial mulai berkembang di berbagai wilayah kota.
+                    Bandung mengalami perkembangan pembangunan gedung
+                    pemerintahan, perkantoran, sekolah, dan fasilitas umum.
+                    Banyak bangunan bergaya arsitektur kolonial berkembang
+                    di berbagai wilayah kota.
                 </p>
             </div>
 
             <div class="item">
                 <h3>🇮🇩 1945 - Perjuangan Kemerdekaan</h3>
                 <p>
-                    Setelah Indonesia memproklamasikan kemerdekaan
-                    pada 17 Agustus 1945, masyarakat Bandung ikut
-                    mempertahankan kemerdekaan dan menjaga wilayah
-                    dari upaya penguasaan kembali oleh pihak asing.
+                    Setelah Indonesia memproklamasikan kemerdekaan pada
+                    17 Agustus 1945, masyarakat Bandung ikut mempertahankan
+                    kemerdekaan dan menjaga wilayahnya.
                 </p>
             </div>
 
             <div class="item">
-                <h3>🔥 1946 - Peristiwa Bandung Lautan Api</h3>
+                <h3>🔥 1946 - Bandung Lautan Api</h3>
                 <p>
-                    Pada 24 Maret 1946 terjadi peristiwa Bandung
-                    Lautan Api. Masyarakat dan pejuang membakar
-                    sejumlah wilayah Bandung bagian selatan sebelum
-                    meninggalkan kota untuk mencegah fasilitas
-                    dimanfaatkan oleh Sekutu dan NICA.
+                    Pada 24 Maret 1946 terjadi peristiwa Bandung Lautan Api.
+                    Masyarakat dan pejuang membakar sejumlah wilayah Bandung
+                    bagian selatan sebelum meninggalkan kota.
                 </p>
             </div>
 
             <div class="item">
                 <h3>🌏 1955 - Konferensi Asia Afrika</h3>
                 <p>
-                    Pada 18-24 April 1955, Bandung menjadi tuan
-                    rumah Konferensi Asia Afrika. Pertemuan ini
-                    dihadiri negara-negara Asia dan Afrika untuk
-                    membahas kerja sama serta perdamaian dunia.
+                    Pada 18-24 April 1955, Bandung menjadi tuan rumah
+                    Konferensi Asia Afrika. Pertemuan ini membahas kerja
+                    sama serta perdamaian dunia.
                 </p>
             </div>
 
@@ -310,17 +185,15 @@
                 <p>
                     Bandung semakin dikenal sebagai salah satu pusat
                     pendidikan di Indonesia. Berbagai perguruan tinggi
-                    dan lembaga pendidikan berkembang sehingga menarik
-                    pelajar dari berbagai daerah.
+                    dan lembaga pendidikan berkembang.
                 </p>
             </div>
 
             <div class="item">
                 <h3>🏗️ 1980-an - Perkembangan Infrastruktur</h3>
                 <p>
-                    Pembangunan fasilitas umum, jalan, kawasan
-                    permukiman, dan pusat kegiatan ekonomi semakin
-                    berkembang seiring bertambahnya kebutuhan masyarakat.
+                    Pembangunan fasilitas umum, jalan, kawasan permukiman,
+                    dan pusat kegiatan ekonomi semakin berkembang.
                 </p>
             </div>
 
@@ -329,8 +202,7 @@
                 <p>
                     Bandung semakin populer sebagai tujuan wisata.
                     Berbagai tempat kuliner, pusat perbelanjaan,
-                    wisata alam, dan tempat rekreasi mulai menarik
-                    banyak pengunjung dari luar kota.
+                    wisata alam, dan tempat rekreasi menarik banyak pengunjung.
                 </p>
             </div>
 
@@ -339,24 +211,18 @@
                 <p>
                     Saat ini Bandung berkembang sebagai kota pendidikan,
                     ekonomi kreatif, teknologi, budaya, dan pariwisata.
-                    Berbagai fasilitas publik terus dikembangkan untuk
-                    mendukung aktivitas masyarakat dan wisatawan.
                 </p>
             </div>
-
         </section>
 
         <!-- PENUTUP -->
         <section class="card">
             <h2>🌿 Melestarikan Sejarah Bandung</h2>
-
             <p>
-                Sejarah Kota Bandung mengajarkan kita tentang
-                perjuangan dan perkembangan masyarakatnya.
-                Sebagai generasi muda, kita perlu menjaga
-                peninggalan sejarah, mengenal budaya daerah,
-                dan ikut melestarikan identitas Kota Bandung
-                agar tetap dikenal oleh generasi berikutnya.
+                Sejarah Kota Bandung mengajarkan kita tentang perjuangan
+                dan perkembangan masyarakatnya. Sebagai generasi muda,
+                kita perlu menjaga peninggalan sejarah dan melestarikan
+                budaya daerah agar tetap dikenal generasi berikutnya.
             </p>
         </section>
 
@@ -368,14 +234,6 @@
         <p>Jelajah Wisata Sekitar PT INTI Bandung</p>
         <p>© 2026 Jelajah Bandung</p>
     </footer>
-
-    <!-- ================= JAVASCRIPT ================= -->
-    <script>
-        // Menampilkan pesan ketika halaman selesai dimuat
-        document.addEventListener("DOMContentLoaded", function() {
-            console.log("Halaman Sejarah Bandung berhasil dimuat!");
-        });
-    </script>
 
 </body>
 </html>
