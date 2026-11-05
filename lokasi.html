@@ -1,170 +1,314 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Peta Wisata Area PT INTI Bandung</title>
-  
-  <!-- Memuat CSS Leaflet dari CDN -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    /* Styling Dasar UI */
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f7f6;
-    }
-    .section-space { padding: 4rem 0; }
-    .bg-white { background-color: #ffffff; }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 15px;
-    }
-    .section-label {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #007bff;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .section-title { font-size: 2rem; margin-bottom: 0.5rem; }
-    .text-secondary { color: #6c757d; }
-    .mb-4 { margin-bottom: 1.5rem; }
-    .mt-2 { margin-top: 0.5rem; }
-    .p-2 { padding: 0.5rem; }
-    .small { font-size: 0.875em; }
-    
-    .panel {
-      background-color: #fff;
-      border: 1px solid #dee2e6;
-      border-radius: 0.25rem;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
+    <title>Peta Wisata Bandung</title>
 
-    /* Wajib untuk Leaflet agar peta bisa tampil */
-    #peta {
-      height: 450px;
-      width: 100%;
-      border-radius: 4px;
-      z-index: 1;
-    }
-  </style>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- CSS -->
+    <style>
+        body {
+            background-image:
+                linear-gradient(rgba(243, 246, 250, 0.88), rgba(243, 246, 250, 0.88)),
+                url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzyMlenIjLYSxYvCejnQ-YrucgI2zxVYMthr2WRwu4QA&s=10");
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+        }
+
+        .judul {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .judul h2 {
+            color: #173B61;
+            margin-bottom: 10px;
+        }
+
+        #map {
+            width: 100%;
+            height: 550px;
+            border: 2px solid #173B61;
+            border-radius: 10px;
+        }
+
+        .daftar {
+            background: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+        .daftar h3 {
+            color: #173B61;
+            margin-bottom: 15px;
+        }
+
+        #daftarLokasi {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .tombol-lokasi {
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #173B61;
+            color: white;
+            cursor: pointer;
+            text-align: left;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .tombol-lokasi:hover {
+            background: #173B61;
+        }
+
+        .tombol-lokasi.aktif {
+            background: #173B61;
+            color: #222;
+        }
+        
+    </style>
+
 </head>
+
 <body>
 
-  <header>
-    <div class="logo">📍 Jelajah Bandung</div>
+     <!-- NAVBAR -->
+<header>
 
+    <!-- LOGO KIRI -->
+    <div class="logo">
+        📍 Jelajah Bandung
+    </div>
+
+    <!-- MENU KANAN -->
     <nav>
         <a href="beranda.html">Beranda</a>
-        <a href="sejarah.html">Sejarah </a>
-        <a href="data_wisata.html">Data Wisata</a>
+        <a href="sejarah.html">Sejarah</a>
+        <a href="data_wisata.html" class="active">Data Wisata</a>
         <a href="rekomendasi.html">Rekomendasi</a>
-        <a href="lokasi.html" class="active">Lokasi</a>
+        <a href="lokasi.html">Lokasi</a>
         <a href="review.html">Review</a>
-        
     </nav>
-  </header>
-  <!-- Struktur HTML Utama -->
-  <section class="section-space bg-white" id="peta-wisata">
+
+</header>
+
     <div class="container">
-      <div class="section-label">Jelajahi lokasi</div>
-      <h2 class="section-title mt-2">Peta Wisata Interaktif</h2>
-      <p class="text-secondary mb-4">
-        Klik penanda untuk melihat nama dan lokasi destinasi.
-      </p>
-  
-      <div class="panel p-2">
-        <div id="peta"></div>
-      </div>
-      <p class="small text-secondary mt-2">
-        Peta menggunakan Leaflet dan OpenStreetMap.
-        Koordinat perlu diverifikasi sebelum perjalanan.
-      </p>
-    </div>
-  </section>
 
-  <!-- Footer -->
-  <footer>
-    <h3>📍Jelajah Bandung</h3>
-
-    <p>
-        Temukan berbagai tempat wisata menarik
-        di sekitar kampus PT INTI Bandung.
-    </p>
-
-    <div class="footer-line"></div>
-
-    <p class="copyright">
-        &copy; 2026 Jelajah Bandung. All Rights Reserved.
-    </p>
-</footer>
-
-  <!-- Memuat JavaScript Leaflet dari CDN -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  
-  <script>
-    // 1. Inisialisasi peta dan pusatkan di sekitar PT INTI Bandung
-    const peta = L.map('peta').setView([-6.9372, 107.6067], 15);
-
-    // 2. Tambahkan layer peta (Tile Layer) dari OpenStreetMap
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(peta);
-
-    // 3. Data destinasi wisata dan landmark di sekitar PT INTI
-    const lokasiWisata = [
-      { 
-        nama: "Taman Konservasi Tegalega", 
-        lat: -6.9363, 
-        lng: 107.6033, 
-        deskripsi: "Taman kota luas dengan Monumen Bandung Lautan Api di tengahnya." 
-      },
-      { 
-        nama: "Museum Sri Baduga", 
-        lat: -6.9373, 
-        lng: 107.6041, 
-        deskripsi: "Museum negara yang menyimpan berbagai koleksi sejarah dan budaya Jawa Barat." 
-      },
-      { 
-        nama: "Alun-Alun Regol", 
-        lat: -6.9426, 
-        lng: 107.6094, 
-        deskripsi: "Ruang publik terbuka yang membentang di sepanjang pinggiran Sungai Cikapundung." 
-      },
-      { 
-        nama: "Peta Park", 
-        lat: -6.9329, 
-        lng: 107.5934, 
-        deskripsi: "Taman rekreasi modern dengan fasilitas piknik dan taman bunga yang indah." 
-      },
-      { 
-        nama: "PT INTI (Persero)", 
-        lat: -6.9372, 
-        lng: 107.6067, 
-        deskripsi: "Titik referensi: Perusahaan industri telekomunikasi (BUMN) di Bandung." 
-      }
-    ];
-
-    // 4. Lakukan iterasi pada data lokasi untuk membuat penanda (marker) di peta
-    lokasiWisata.forEach(lokasi => {
-      const marker = L.marker([lokasi.lat, lokasi.lng]).addTo(peta);
-      
-      marker.bindPopup(`
-        <div style="font-family: Arial, sans-serif;">
-          <h3 style="margin: 0 0 5px 0; font-size: 16px; color: #007bff;">${lokasi.nama}</h3>
-          <p style="margin: 0; font-size: 14px; color: #333;">${lokasi.deskripsi}</p>
+        <div class="judul">
+            <h2>Lokasi Wisata Bandung</h2>
+            <p>
+                Klik salah satu marker pada peta atau pilih
+                daftar tempat wisata untuk melihat lokasinya.
+            </p>
         </div>
-      `);
-    });
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Tampilan Peta -->
+        <div id="map"></div>
+
+        <!-- Daftar Lokasi -->
+        <div class="daftar">
+            <h3>Daftar Tempat Wisata</h3>
+            <div id="daftarLokasi"></div>
+        </div>
+
+    </div>
+
+   <!-- FOOTER -->
+    <footer>
+
+        <h3>📍 Jelajah Bandung</h3>
+
+        <p>
+            Jelajah Wisata Sekitar PT INTI Bandung
+        </p>
+
+        <div class="footer-line"></div>
+
+        <p class="copyright">
+            © 2026 Jelajah Bandung
+        </p>
+
+    </footer>
+
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        // Membuat peta Kota Bandung
+        var map = L.map('map').setView([-6.9175, 107.6191], 13);
+
+
+        // Server peta ArcGIS Esri
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Tiles &copy; <a href="https://www.esri.com/">Esri</a>'
+        }).addTo(map);
+
+
+        // Data koordinat lokasi wisata
+        var lokasiWisata = [
+            {
+                nama: "Museum Sri Baduga",
+                lat: -6.93775,
+                lng: 107.60356,
+                deskripsi: "Museum sejarah dan kebudayaan Jawa Barat."
+            },
+            {
+                nama: "Alun-Alun Bandung",
+                lat: -6.92170,
+                lng: 107.60710,
+                deskripsi: "Ruang terbuka publik dan ikon Kota Bandung."
+            },
+            {
+                nama: "Museum Geologi",
+                lat: -6.90045,
+                lng: 107.62147,
+                deskripsi: "Museum edukasi dengan koleksi fosil dan batuan."
+            },
+            {
+                nama: "Museum Konferensi Asia Afrika",
+                lat: -6.92120,
+                lng: 107.60950,
+                deskripsi: "Museum sejarah Konferensi Asia Afrika tahun 1955."
+            },
+            {
+                nama: "Taman Tegalega",
+                lat: -6.934535,
+                lng: 107.604845,
+                deskripsi: "Taman kota untuk rekreasi dan olahraga."
+            },
+            {
+                nama: "Saung Angklung Udjo",
+                lat: -6.91000,
+                lng: 107.65000,
+                deskripsi: "Tempat wisata budaya dan pertunjukan angklung."
+            }
+        ];
+
+
+        // Menyimpan marker lokasi
+        var markers = [];
+
+
+        // Mengambil daftar lokasi
+        var daftar = document.getElementById("daftarLokasi");
+
+
+        // Membuat marker setiap lokasi
+        lokasiWisata.forEach(function(lokasi, index) {
+
+            var marker = L.marker([
+                lokasi.lat,
+                lokasi.lng
+            ]).addTo(map);
+
+
+            // Popup informasi lokasi
+            marker.bindPopup(`
+                <div style="width:200px">
+                    <h3>${lokasi.nama}</h3>
+
+                    <p>${lokasi.deskripsi}</p>
+
+                    <br>
+
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=${lokasi.lat},${lokasi.lng}"
+                       target="_blank">
+                       Petunjuk Arah Google Maps
+                    </a>
+                </div>
+            `);
+
+
+            // Marker bisa diklik
+            marker.on("click", function() {
+                pilihLokasi(index);
+            });
+
+
+            // Menyimpan marker
+            markers.push(marker);
+
+
+            // Membuat tombol lokasi
+            var tombol = document.createElement("button");
+
+            tombol.className = "tombol-lokasi";
+
+            tombol.innerHTML = "📍 " + lokasi.nama;
+
+
+            // Tombol bisa diklik
+            tombol.onclick = function() {
+                pilihLokasi(index);
+            };
+
+
+            daftar.appendChild(tombol);
+
+        });
+
+
+        // Fungsi memilih lokasi
+        function pilihLokasi(index) {
+
+            var lokasi = lokasiWisata[index];
+
+
+            // Mengarahkan peta ke lokasi
+            map.flyTo(
+                [lokasi.lat, lokasi.lng],
+                17,
+                {
+                    animate: true,
+                    duration: 1.5
+                }
+            );
+
+
+            // Membuka popup lokasi
+            markers[index].openPopup();
+
+
+            // Mengubah warna tombol aktif
+            var semuaTombol =
+                document.querySelectorAll(".tombol-lokasi");
+
+
+            semuaTombol.forEach(function(tombol) {
+                tombol.classList.remove("aktif");
+            });
+
+
+            semuaTombol[index].classList.add("aktif");
+
+        }
+
+    </script>
+
 </body>
 </html>
