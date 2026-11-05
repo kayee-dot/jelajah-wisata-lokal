@@ -64,8 +64,7 @@
     <!-- Banner Bandung -->
     <section class="hero" id="beranda">
         <div class="hero-text">
-            <h1 class="fs-1 mb-3">Jelajahi Bandung</h1>
-
+            <h1 class="fs-1 mb-2 text-bold">Jelajahi Bandung</h1>
             <p class="mb-0">
                 Temukan berbagai tempat wisata menarik di sekitar
                 kampus PT INTI Bandung, mulai dari wisata sejarah,
@@ -103,9 +102,9 @@
 
             <!-- Grafik Wisata -->
     <section class="card border-0 shadow-sm mt-5 p-4 text-center color-dark">
-    <h2 class="text-dark mb-3">📊 Statistik Wisata Bandung Berdasarkan Tahun</h2>
+    <h2 class="text-dark fs-4 mb-3">📊 Statistik Wisata Bandung Berdasarkan Tahun</h2>
 
-    <p class="text-secondary mb-5">
+    <p class="text-secondary small mb-5">
         Statistik tahun berdirinya beberapa tempat wisata
         di Kota Bandung.
     </p>
@@ -118,6 +117,7 @@
     <footer>
         <h3>📍Jelajah Bandung</h3>
         <p>Jelajah Wisata Sekitar PT INTI Bandung</p>
+        <div class="footer-line"></div>
         <p>© 2026 Jelajah Bandung</p>
     </footer>
 
@@ -210,7 +210,9 @@
     },
 
     tooltip: {
-        valueSuffix: ''
+        formatter: function () {
+            return this.y;
+        }
     },
 
     series: [{
