@@ -7,64 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Jelajah Bandung</title>
+    <link rel="stylesheet" href="style.css">
 
     <style>
-
-        /* RESET */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background: #F3F6FA;
-            color: #173B61;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* NAVBAR */
-        header {
-            background: #102D50;
-            color: white;
-            padding: 22px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-            white-space: nowrap;
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            gap: 20px;
-            flex-wrap: nowrap;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #DCEBFA;
-            font-size: 13px;
-            white-space: nowrap;
-            transition: 0.3s;
-            padding-bottom: 6px;
-        }
-
-        nav a:hover,
-        nav a.active {
-            color: white;
-            border-bottom: 2px solid #65B6F0;
-        }
 
         /* CONTAINER */
         .container {
@@ -74,10 +19,10 @@
             flex: 1;
         }
 
-       h1 {
-        font-size: 28px;
-        margin-bottom: 15px;
-        text-align: center;
+        h1 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            text-align: center;
         }
 
         /* KARTU SEJARAH */
@@ -128,6 +73,7 @@
             font-size: 14px;
             line-height: 1.7;
             margin-top: 15px;
+            text-align: center;
         }
 
         /* HERO / BANNER */
@@ -183,115 +129,6 @@
             transform: translateY(-2px);
         }
 
-        /* FOOTER */
-        footer {
-            background: #102D50;
-            color: white;
-            text-align: center;
-            padding: 30px 15px;
-        }
-
-        footer h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        footer p {
-            color: #DCEBFA;
-            font-size: 13px;
-            line-height: 1.7;
-        }
-
-        .footer-line {
-            width: 80%;
-            max-width: 500px;
-            height: 1px;
-            background: #49627D;
-            margin: 18px auto;
-        }
-
-        .copyright {
-            font-size: 12px;
-            color: #AFC4DB;
-        }
-
-        /* RESPONSIVE TABLET */
-        @media (max-width: 1050px) {
-
-            header {
-                flex-wrap: wrap;
-            }
-
-            nav {
-                gap: 14px;
-            }
-
-        }
-
-        /* RESPONSIVE HP */
-        @media (max-width: 600px) {
-
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 20px 5%;
-            }
-
-            .logo {
-                font-size: 20px;
-            }
-
-            nav {
-                justify-content: flex-start;
-                flex-wrap: wrap;
-                gap: 14px;
-            }
-
-            nav a {
-                font-size: 12px;
-            }
-
-            .container {
-                width: 92%;
-                margin: 30px auto;
-            }
-
-            h1 {
-                font-size: 23px;
-            }
-
-            .sejarah-card {
-                padding: 18px;
-            }
-
-        
-            .sejarah-header h2 {
-                font-size: 18px;
-            }
-
-            .sejarah-card .deskripsi {
-                font-size: 13px;
-            }
-
-            .subtitle {
-                font-size: 13px;
-            }
-
-            .hero {
-                min-height: 320px;
-                padding: 25px;
-            }
-
-            .hero h2 {
-                font-size: 27px;
-            }
-
-            .hero p {
-                font-size: 13px;
-            }
-
-        }
-
     </style>
 
 </head>
@@ -306,11 +143,11 @@
 
         <nav>
             <a href="beranda.html" class="active">Beranda</a>
-            <a href="Sejarah.html">Sejarah</a>
-            <a href="Data_Wisata.html">Data Wisata</a>
-            <a href="Rekomendasi.html">Rekomendasi</a>
-            <a href="Lokasi.html">Lokasi</a>
-            <a href="Review.html">Review</a>
+            <a href="sejarah.html">Sejarah</a>
+            <a href="data_Wisata.html">Data Wisata</a>
+            <a href="rekomendasi.html">Rekomendasi</a>
+            <a href="lokasi.html">Lokasi</a>
+            <a href="review.html">Review</a>
         </nav>
 
     </header>
@@ -318,7 +155,7 @@
     <!-- BERANDA -->
     <main class="container">
 
-        <section id="beranda">
+        <section id="beranda"> 
 
             <h1>Selamat Datang di Bandung !</h1>
 
@@ -352,13 +189,13 @@
                     Bandung sebagai salah satu tujuan wisata
                     yang menarik di Indonesia.
                 </p>
-
+ 
                 <a href="Sejarah.html" class="btn">
                         Sejarah →
                     </a>
 
             </div>
-
+ 
             <!-- BANNER UTAMA -->
             <div class="hero">
 
