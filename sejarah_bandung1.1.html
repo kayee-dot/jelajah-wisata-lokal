@@ -6,14 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sejarah Kota Bandung</title>
 
-    <!-- ================= HIGHCHARTS ================= -->
-    <!-- Memanggil library Highcharts untuk membuat grafik -->
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-
     <!-- ================= CSS ================= -->
     <style>
-
-        /* PENGATURAN DASAR */
         * {
             margin: 0;
             padding: 0;
@@ -21,16 +15,15 @@
             font-family: Arial, sans-serif;
         }
 
-        /* BACKGROUND FOTO BANDUNG */
         body {
             color: #536174;
+            background: #f1f5f9;
             background-image:
                 linear-gradient(
-                    rgba(255,255,255,0.65),
-                    rgba(255,255,255,0.65)
+                    rgba(255,255,255,0.75),
+                    rgba(255,255,255,0.75)
                 ),
-                url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIU98Fq3ElU31bE53i7eHyXg3INLSMgpdKmytPQ900ggJ_hdZLmSvvOkk&s=10");
-
+                url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzyMlenIjLYSxYvCejnQ-YrucgI2zxVYMthr2WRwu4QA&s=10");
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -51,10 +44,16 @@
             font-weight: bold;
         }
 
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
         nav a {
             color: white;
             text-decoration: none;
-            margin-left: 18px;
+            font-size: 14px;
         }
 
         nav a:hover,
@@ -64,33 +63,35 @@
             padding-bottom: 7px;
         }
 
-        /* JUDUL HALAMAN */
+        /* JUDUL */
         .judul {
             text-align: center;
-            padding: 40px 15px 20px;
+            padding: 45px 15px 20px;
         }
 
         .judul h1 {
             font-size: 32px;
             margin-bottom: 12px;
+            color: #344b68;
         }
 
         .judul p {
             color: #666;
+            line-height: 1.7;
         }
 
-        /* CONTAINER UTAMA */
+        /* CONTAINER */
         .container {
             width: 90%;
             max-width: 1200px;
             margin: auto;
         }
 
-        /* KOTAK SEJARAH SINGKAT */
+        /* CARD */
         .card {
-            background: rgba(255,255,255,0.93);
+            background: rgba(255,255,255,0.95);
             padding: 30px;
-            margin: 20px 0;
+            margin: 25px 0;
             border-radius: 15px;
             border-left: 5px solid #5688ad;
             box-shadow: 0 3px 12px rgba(0,0,0,0.12);
@@ -98,6 +99,7 @@
 
         .card h2 {
             margin-bottom: 15px;
+            color: #344b68;
         }
 
         .card p {
@@ -106,11 +108,9 @@
             text-align: justify;
         }
 
-        /* ================= PERJALANAN BANDUNG ================= */
-        /* Semua sejarah dimasukkan ke dalam satu kotak besar */
-
+        /* TIMELINE SEJARAH */
         .timeline {
-            background: rgba(255,255,255,0.95);
+            background: rgba(255,255,255,0.96);
             padding: 30px;
             margin: 35px 0;
             border-radius: 15px;
@@ -124,10 +124,15 @@
             color: #344b68;
         }
 
-        /* ISI SEJARAH */
         .item {
-            padding: 20px 10px;
+            padding: 22px 15px;
             border-bottom: 1px solid #ddd;
+            transition: 0.3s;
+        }
+
+        .item:hover {
+            background: #f4f8fc;
+            padding-left: 22px;
         }
 
         .item:last-child {
@@ -137,41 +142,14 @@
         .item h3 {
             color: #456b8e;
             margin-bottom: 10px;
+            font-size: 18px;
         }
 
         .item p {
             color: #666;
-            line-height: 1.7;
+            line-height: 1.8;
             text-align: justify;
-        }
-
-        /* ================= GRAFIK HIGHCHARTS ================= */
-
-        .grafik {
-            background: rgba(255,255,255,0.95);
-            padding: 25px;
-            margin: 35px 0;
-            border-radius: 15px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.12);
-        }
-
-        .grafik h2 {
-            text-align: center;
-            margin-bottom: 10px;
-            color: #344b68;
-        }
-
-        .grafik p {
-            text-align: center;
-            color: #888;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        /* TEMPAT GRAFIK DITAMPILKAN */
-        #grafikSejarah {
-            width: 100%;
-            height: 400px;
+            font-size: 14px;
         }
 
         /* FOOTER */
@@ -188,23 +166,16 @@
             font-size: 14px;
         }
 
-        /* RESPONSIVE UNTUK HP */
+        /* RESPONSIVE */
         @media(max-width: 768px) {
-
             header {
                 flex-direction: column;
                 gap: 20px;
             }
 
             nav {
-                display: flex;
-                flex-wrap: wrap;
                 justify-content: center;
                 gap: 15px;
-            }
-
-            nav a {
-                margin: 0;
             }
 
             .judul h1 {
@@ -212,16 +183,14 @@
             }
 
             .timeline,
-            .grafik,
             .card {
                 padding: 20px;
             }
 
-            #grafikSejarah {
-                height: 350px;
+            .item {
+                padding: 18px 8px;
             }
         }
-
     </style>
 </head>
 
@@ -231,36 +200,31 @@
 
     <!-- NAVBAR -->
     <header>
-
         <div class="logo">📍 Jelajah Bandung</div>
 
         <nav>
             <a href="beranda.html">Beranda</a>
-            <a href="sejarah_bandung.html" class="active">Sejarah</a>
+            <a href="sejarah.html" class="active">Sejarah</a>
             <a href="data-wisata.html">Data Wisata</a>
             <a href="rekomendasi.html">Rekomendasi</a>
             <a href="lokasi.html">Lokasi</a>
             <a href="review.html">Review</a>
         </nav>
-
     </header>
 
     <!-- JUDUL HALAMAN -->
     <section class="judul">
-
         <h1>Sejarah Kota Bandung</h1>
-
         <p>
-            Mengenal perjalanan dan perkembangan Kota Bandung, Jawa Barat.
+            Mengenal perjalanan dan perkembangan Kota Bandung,
+            Jawa Barat dari masa ke masa.
         </p>
-
     </section>
 
     <main class="container">
 
         <!-- SEJARAH SINGKAT -->
         <section class="card">
-
             <h2>🏛️ Sejarah Kota Bandung</h2>
 
             <p>
@@ -269,228 +233,148 @@
                 julukan Kota Kembang karena keindahan alam dan
                 suasananya yang sejuk. Bandung berkembang menjadi
                 salah satu kota besar di Indonesia yang memiliki
-                banyak peninggalan sejarah, budaya, dan bangunan
-                bersejarah.
+                banyak peninggalan sejarah, budaya, pendidikan,
+                dan pariwisata.
             </p>
-
         </section>
 
-
-        <!-- ================= PERJALANAN SEJARAH BANDUNG ================= -->
-        <!-- Semua perjalanan sejarah berada dalam SATU KOTAK -->
-
+        <!-- PERJALANAN SEJARAH BANDUNG -->
         <section class="timeline">
 
             <h2>🏛️ Perjalanan Sejarah Bandung</h2>
 
-            <!-- SEJARAH TAHUN 1810 -->
             <div class="item">
-
-                <h3>📍 1810 - Awal Kota Bandung</h3>
-
+                <h3>📍 1810 - Awal Perkembangan Kota Bandung</h3>
                 <p>
-                    Tanggal 25 September 1810 diperingati sebagai
-                    hari jadi Kota Bandung. Perkembangan kota mulai
-                    berlangsung pada masa pemerintahan kolonial.
+                    Pada 25 September 1810, pusat pemerintahan
+                    Kabupaten Bandung dipindahkan ke wilayah yang
+                    sekarang menjadi pusat Kota Bandung. Tanggal
+                    tersebut kemudian diperingati sebagai hari
+                    jadi Kota Bandung.
                 </p>
-
             </div>
 
-            <!-- SEJARAH TAHUN 1906 -->
             <div class="item">
-
-                <h3>🏛️ 1906 - Kota Bandung</h3>
-
+                <h3>🏛️ 1906 - Bandung Menjadi Gemeente</h3>
                 <p>
-                    Bandung memperoleh status gemeente atau kotamadya
-                    pada tahun 1906. Sejak saat itu pembangunan kota
-                    semakin berkembang.
+                    Pada tahun 1906, Bandung mendapatkan status
+                    gemeente atau kotamadya pada masa pemerintahan
+                    kolonial Belanda. Status ini membuat pengelolaan
+                    dan pembangunan kota semakin berkembang.
                 </p>
-
             </div>
 
-            <!-- SEJARAH TAHUN 1946 -->
             <div class="item">
+                <h3>🏙️ 1920-an - Perkembangan Bangunan Kota</h3>
+                <p>
+                    Bandung mengalami perkembangan dalam pembangunan
+                    gedung pemerintahan, perkantoran, sekolah, dan
+                    fasilitas umum. Banyak bangunan bergaya arsitektur
+                    kolonial mulai berkembang di berbagai wilayah kota.
+                </p>
+            </div>
 
-                <h3>🔥 1946 - Bandung Lautan Api</h3>
+            <div class="item">
+                <h3>🇮🇩 1945 - Perjuangan Kemerdekaan</h3>
+                <p>
+                    Setelah Indonesia memproklamasikan kemerdekaan
+                    pada 17 Agustus 1945, masyarakat Bandung ikut
+                    mempertahankan kemerdekaan dan menjaga wilayah
+                    dari upaya penguasaan kembali oleh pihak asing.
+                </p>
+            </div>
 
+            <div class="item">
+                <h3>🔥 1946 - Peristiwa Bandung Lautan Api</h3>
                 <p>
                     Pada 24 Maret 1946 terjadi peristiwa Bandung
-                    Lautan Api. Rakyat Bandung membakar sejumlah
-                    wilayah agar tidak dimanfaatkan oleh pasukan
-                    Sekutu dan NICA.
+                    Lautan Api. Masyarakat dan pejuang membakar
+                    sejumlah wilayah Bandung bagian selatan sebelum
+                    meninggalkan kota untuk mencegah fasilitas
+                    dimanfaatkan oleh Sekutu dan NICA.
                 </p>
-
             </div>
 
-            <!-- SEJARAH TAHUN 1955 -->
             <div class="item">
-
                 <h3>🌏 1955 - Konferensi Asia Afrika</h3>
-
                 <p>
-                    Pada 18 sampai 24 April 1955, Bandung menjadi
-                    tuan rumah Konferensi Asia Afrika yang dihadiri
-                    berbagai negara Asia dan Afrika.
+                    Pada 18-24 April 1955, Bandung menjadi tuan
+                    rumah Konferensi Asia Afrika. Pertemuan ini
+                    dihadiri negara-negara Asia dan Afrika untuk
+                    membahas kerja sama serta perdamaian dunia.
                 </p>
-
             </div>
 
-            <!-- SEJARAH MASA MODERN -->
             <div class="item">
-
-                <h3>🏙️ Masa Modern - Bandung Berkembang</h3>
-
+                <h3>🎓 1960-an - Perkembangan Pendidikan</h3>
                 <p>
-                    Saat ini Bandung berkembang sebagai pusat
-                    pendidikan, bisnis, teknologi, budaya,
-                    dan pariwisata di Jawa Barat.
+                    Bandung semakin dikenal sebagai salah satu pusat
+                    pendidikan di Indonesia. Berbagai perguruan tinggi
+                    dan lembaga pendidikan berkembang sehingga menarik
+                    pelajar dari berbagai daerah.
                 </p>
+            </div>
 
+            <div class="item">
+                <h3>🏗️ 1980-an - Perkembangan Infrastruktur</h3>
+                <p>
+                    Pembangunan fasilitas umum, jalan, kawasan
+                    permukiman, dan pusat kegiatan ekonomi semakin
+                    berkembang seiring bertambahnya kebutuhan masyarakat.
+                </p>
+            </div>
+
+            <div class="item">
+                <h3>🛍️ 2000-an - Bandung sebagai Kota Wisata</h3>
+                <p>
+                    Bandung semakin populer sebagai tujuan wisata.
+                    Berbagai tempat kuliner, pusat perbelanjaan,
+                    wisata alam, dan tempat rekreasi mulai menarik
+                    banyak pengunjung dari luar kota.
+                </p>
+            </div>
+
+            <div class="item">
+                <h3>🌆 2020-an - Bandung di Era Modern</h3>
+                <p>
+                    Saat ini Bandung berkembang sebagai kota pendidikan,
+                    ekonomi kreatif, teknologi, budaya, dan pariwisata.
+                    Berbagai fasilitas publik terus dikembangkan untuk
+                    mendukung aktivitas masyarakat dan wisatawan.
+                </p>
             </div>
 
         </section>
-
-
-        <!-- ================= GRAFIK WISATA BANDUNG ================= -->
-
-        <section class="grafik">
-
-            <h2>📊 Grafik Wisata Bandung Berdasarkan Tahun</h2>
-
-            <p>
-                Contoh grafik perkembangan jumlah kunjungan wisatawan
-                ke Kota Bandung berdasarkan tahun.
-                Data berikut merupakan data simulasi.
-            </p>
-
-            <!-- TEMPAT GRAFIK HIGHCHARTS -->
-            <div id="grafikSejarah"></div>
-
-        </section>
-
 
         <!-- PENUTUP -->
         <section class="card">
-
-            <h2></h2>
+            <h2>🌿 Melestarikan Sejarah Bandung</h2>
 
             <p>
                 Sejarah Kota Bandung mengajarkan kita tentang
                 perjuangan dan perkembangan masyarakatnya.
-                Sebagai generasi muda, kita harus menjaga
-                peninggalan sejarah agar tetap dikenal
-                oleh generasi berikutnya.
+                Sebagai generasi muda, kita perlu menjaga
+                peninggalan sejarah, mengenal budaya daerah,
+                dan ikut melestarikan identitas Kota Bandung
+                agar tetap dikenal oleh generasi berikutnya.
             </p>
-
         </section>
 
     </main>
 
-
     <!-- FOOTER -->
     <footer>
-
         <h3>📍 Jelajah Bandung</h3>
-
         <p>Jelajah Wisata Sekitar PT INTI Bandung</p>
-
         <p>© 2026 Jelajah Bandung</p>
-
     </footer>
-
 
     <!-- ================= JAVASCRIPT ================= -->
     <script>
-
-        // ================= HIGHCHARTS =================
-        // Membuat grafik batang wisata Kota Bandung.
-        // Angka yang digunakan adalah data contoh/simulasi,
-        // bukan data statistik resmi.
-
-        Highcharts.chart('grafikSejarah', {
-
-            // Jenis grafik yang digunakan adalah diagram batang
-            chart: {
-                type: 'column',
-                backgroundColor: 'transparent'
-            },
-
-            // Judul grafik
-            title: {
-                text: 'Jumlah Kunjungan Wisata Bandung'
-            },
-
-            // Keterangan grafik
-            subtitle: {
-                text: 'Data contoh kunjungan wisatawan per tahun'
-            },
-
-            // Tahun pada bagian bawah grafik
-            xAxis: {
-                categories: [
-                    '2020',
-                    '2021',
-                    '2022',
-                    '2023',
-                    '2024',
-                    '2025'
-                ],
-
-                title: {
-                    text: 'Tahun'
-                }
-            },
-
-            // Jumlah pengunjung pada bagian samping grafik
-            yAxis: {
-                min: 0,
-
-                title: {
-                    text: 'Jumlah Kunjungan (Ribu Orang)'
-                }
-            },
-
-            // Keterangan ketika grafik diarahkan kursor
-            tooltip: {
-                pointFormat: '<b>{point.y} ribu kunjungan</b>'
-            },
-
-            // Pengaturan tampilan diagram batang
-            plotOptions: {
-                column: {
-                    borderRadius: 5,
-
-                    dataLabels: {
-                        enabled: true,
-                        format: '{y}'
-                    }
-                }
-            },
-
-            // DATA GRAFIK
-            series: [{
-                name: 'Jumlah Wisatawan',
-
-                data: [
-                    120,
-                    150,
-                    320,
-                    410,
-                    450,
-                    480
-                ],
-
-                color: '#5688ad'
-            }],
-
-            // Menghilangkan tulisan kredit Highcharts
-            credits: {
-                enabled: false
-            }
-
+        // Menampilkan pesan ketika halaman selesai dimuat
+        document.addEventListener("DOMContentLoaded", function() {
+            console.log("Halaman Sejarah Bandung berhasil dimuat!");
         });
-
     </script>
 
 </body>
