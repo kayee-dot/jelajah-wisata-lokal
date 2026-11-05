@@ -77,56 +77,6 @@ h1 {
     line-height: 1.7;
 }
 
-/* HERO / BANNER */
-.hero {
-    background:
-        linear-gradient(90deg,
-            rgba(16, 45, 80, 0.90),
-            rgba(16, 45, 80, 0.30)),
-        url("bandung.jpg") center/cover no-repeat;
-
-    min-height: 380px;
-    border-radius: 15px;
-    margin-top: 25px;
-    padding: 50px;
-    display: flex;
-    align-items: center;
-    color: white;
-}
-
-.hero-content {
-    max-width: 550px;
-}
-
-.hero h2 {
-    font-size: 38px;
-    margin-bottom: 15px;
-}
-
-.hero p {
-    font-size: 15px;
-    line-height: 1.8;
-    color: #E5EDF6;
-}
-
-/* TOMBOL */
-.btn {
-    display: inline-block;
-    background: #2879BB;
-    color: white;
-    text-decoration: none;
-    padding: 13px 25px;
-    border-radius: 7px;
-    margin-top: 22px;
-    font-size: 14px;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background: #1B5D95;
-    transform: translateY(-2px);
-}
-
 /* FOOTER */
 footer {
     background: #102D50;
