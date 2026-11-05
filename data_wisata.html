@@ -47,6 +47,7 @@
             max-width: 1400px;
             margin: 40px auto;
             padding: 20px;
+            text-align: center;
         }
 
         main h2 {
@@ -125,7 +126,7 @@
             <p>
                 Temukan berbagai tempat wisata menarik di sekitar
                 kampus PT INTI Bandung, mulai dari wisata sejarah,
-                taman, hingga tempat rekreasi.
+                budaya, taman, hingga tempat rekreasi.
             </p>
         </div>
     </section>
@@ -147,6 +148,7 @@
                         <th>No</th>
                         <th>Nama Wisata</th>
                         <th>Kategori</th>
+                        <th>Tahun Didirikan</th>
                         <th>Harga Tiket</th>
                         <th>Lokasi</th>
                     </tr>
@@ -169,22 +171,22 @@
         // Data wisata Bandung
         const dataWisata = [
             {
-                nama: "Taman Tegalega", kategori: "Taman", harga: 0
+                nama: "Taman Tegalega", kategori: "Taman", tahun: "1933", harga: 0
             },
             {
-                nama: "Museum Konferensi Asia Afrika", kategori: "Museum", harga:0
+                nama: "Museum Konferensi Asia Afrika", kategori: "Museum", tahun: "1980", harga: 0
             },
             {
-                nama: "Alun-Alun Bandung", kategori: "Ruang Publik", harga: 0
+                nama: "Alun-Alun Bandung", kategori: "Ruang Publik", tahun: "1980", harga: 0
             },
             {
-                nama: "Saung Angklung Udjo", kategori: "Wisata Budaya", harga: "60.000 - 85.000"
+                nama: "Saung Angklung Udjo", kategori: "Wisata Budaya", tahun: "1966", harga: "60.000 - 85.000"
             },
             {
-                nama: "Museum Sri Baduga", kategori: "Museum", harga: "2000 - 3000"
+                nama: "Museum Sri Baduga", kategori: "Museum", tahun: "1974", harga: "2000 - 3000"
             },
             {
-                nama: "Museum Geologi", kategori: "Museum", harga: "3000 - 5000"
+                nama: "Museum Geologi", kategori: "Museum", tahun: "1928", harga: "3000 - 5000"
             },
         ];
 
@@ -207,6 +209,7 @@
                         <td>${index + 1}</td>
                         <td>${data.nama}</td>
                         <td>${data.kategori}</td>
+                        <td>${data.tahun}</td>
                         <td>${harga}</td>
                         <td><a href="${urlLokasi}" target="_blank" rel="noopener noreferrer">Lihat Lokasi</a></td>
                     </tr>
