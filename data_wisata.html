@@ -11,126 +11,31 @@
 
     <style>
         body {
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
-                url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzyMlenIjLYSxYvCejnQ-YrucgI2zxVYMthr2WRwu4QA&s=10");
-            background-position: center;
-            background-size: cover;
-            background-attachment: fixed;
+            background: linear-gradient(rgba(255, 255, 255, .75), rgba(255, 255, 255, .75)),
+                url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzyMlenIjLYSxYvCejnQ-YrucgI2zxVYMthr2WRwu4QA&s=10") 
+                center / cover fixed;
         }
 
-        /* Banner */
         .hero {
-            width : 100%;
             min-height: 470px;
-            background:
-                linear-gradient(
-                    rgba(0, 0, 0, 0.45),
-                    rgba(0, 0, 0, 0.45)
-                ),
-                url("bandung.jpg") center/cover no-repeat;
-
             display: flex;
             align-items: center;
             padding: 50px 7%;
-            color: white;
-
-            border-radius :0;
-            margin:0;
+            margin: 0;
+            border-radius: 0;
+            color: #fff;
+            background: linear-gradient(rgba(0, 0, 0, 0.278), rgba(0, 0, 0, 0.316)),
+                url("bandung.jpg") center / cover no-repeat;
         }
 
-        .hero-text {
-            max-width: 600px;
+        .table thead th {
+            --bs-table-bg: #102d50;
+            --bs-table-color: #fff;
         }
 
-        .hero h1 {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            font-size: 16px;
-            line-height: 1.7;
-        }
-
-        /* Daftar Wisata */
-        main {
-            width: 88%;
-            max-width: 1400px;
-            margin: 40px auto;
-            padding: 20px;
-            text-align: center;
-        }
-
-        main h2 {
-            color: #3f79c1;
-            margin-bottom: 10px;
-        }
-
-        .deskripsi {
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        /* Tabel */
-        .tabel-container {
-            overflow-x: auto;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background: #102D50;
-            color: white;
-            font-size: 14px;
-        }
-
-        td {
-            font-size: 14px;
-        }
-
-        tr:hover {
-            background: #f0f7f2;
-        }
-
-        /* Grafik Wisata */
-    .grafik {
-    width: 100%;
-    margin-top: 50px;
-    padding: 25px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-    .grafik h2 {
-    color: #3f79c1;
-    margin-bottom: 10px;
-}
-
-    .grafik p {
-    color: #666;
-    margin-bottom: 20px;
-}
-
-    #grafikSejarah {
-    width: 100%;
-    height: 400px;
-}
-
+        .hero-text { max-width: 600px; 
+        text-align: left; }
+        #grafikSejarah { height: 400px; }
     </style>
 </head>
 
@@ -158,9 +63,9 @@
     <!-- Banner Bandung -->
     <section class="hero" id="beranda">
         <div class="hero-text">
-            <h1>Jelajahi Bandung</h1>
+            <h1 class="fs-1 mb-3">Jelajahi Bandung</h1>
 
-            <p>
+            <p class="mb-0">
                 Temukan berbagai tempat wisata menarik di sekitar
                 kampus PT INTI Bandung, mulai dari wisata sejarah,
                 budaya, taman, hingga tempat rekreasi.
@@ -169,17 +74,17 @@
     </section>
 
     <!-- Daftar Wisata -->
-    <main id="wisata">
-        <h2>Daftar Wisata Bandung</h2>
+    <main class="container-xxl my-5 px-4 text-center" id="wisata">
+        <h2 class="text-primary mb-2">Daftar Wisata Bandung</h2>
 
-        <p class="deskripsi">
+        <p class="text-secondary mb-4">
             Informasi nama tempat wisata, harga tiket masuk, dan lokasi
             wisata di Bandung.
         </p>
 
         <!-- Tabel Wisata -->
-        <div class="tabel-container">
-            <table>
+        <div class="table-responsive bg-white rounded-3 shadow-sm">
+            <table class="table table-hover align-middle text-start mb-0">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -196,10 +101,10 @@
         </div>
 
             <!-- Grafik Wisata -->
-    <section class="grafik">
-    <h2>📊 Statistik Wisata Bandung Berdasarkan Tahun</h2>
+    <section class="card border-0 shadow-sm mt-5 p-4 text-start">
+    <h2 class="text-primary mb-3">📊 Statistik Wisata Bandung Berdasarkan Tahun</h2>
 
-    <p>
+    <p class="text-secondary mb-4">
         Statistik tahun berdirinya beberapa tempat wisata
         di Kota Bandung.
     </p>
