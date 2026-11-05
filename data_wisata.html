@@ -17,6 +17,8 @@
 
         .hero {
             min-height: 470px;
+            margin: 0;
+            border-radius: 0;
             background: linear-gradient(rgba(0, 0, 0, .45), rgba(0, 0, 0, .45)),
                 url("bandung.jpg") center / cover no-repeat;
         }
@@ -25,7 +27,9 @@
             --bs-table-bg: #102d50;
             --bs-table-color: #fff;
         }
+
         .hero-text { max-width: 600px; }
+        .hero-text p { font-size: 16px; }
         #grafikSejarah { height: 400px; }
     </style>
 </head>
@@ -52,11 +56,11 @@
 </header>
 
     <!-- Banner Bandung -->
-    <section class="hero m-0 rounded-0" id="beranda">
+    <section class="hero" id="beranda">
         <div class="hero-text">
             <h1 class="fs-1 mb-3">Jelajahi Bandung</h1>
 
-            <p class="fs-6 mb-0">
+            <p class="mb-0">
                 Temukan berbagai tempat wisata menarik di sekitar
                 kampus PT INTI Bandung, mulai dari wisata sejarah,
                 budaya, taman, hingga tempat rekreasi.
