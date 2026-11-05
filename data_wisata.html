@@ -4,246 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Wisata - Jelajah Bandung</title>
+    <link href="Asset/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Memanggil Library Highcharts -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
 
     <style>
-        /* Pengaturan Dasar */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
         body {
-            background: #F3F6FA;
-            color: #173B61;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            background: linear-gradient(rgba(255, 255, 255, .75), 
+            rgba(255, 255, 255, .75)),
+                url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzyMlenIjLYSxYvCejnQ-YrucgI2zxVYMthr2WRwu4QA&s=10") 
+                center / cover fixed;
         }
 
-        /* NAVBAR */
-        header {
-            background: #102D50;
-            color: white;
-            padding: 22px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            gap: 20px;
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-            white-space: nowrap;
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            gap: 20px;
-            flex-wrap: nowrap;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #DCEBFA;
-            font-size: 13px;
-            white-space: nowrap;
-            transition: 0.3s;
-            padding-bottom: 6px;
-        }
-
-        nav a:hover,
-        nav a.active {
-            color: white;
-            border-bottom: 2px solid #65B6F0;
-        }
-
-         /* CONTAINER */
-        .container {
-            width: 88%;
-            max-width: 1200px;
-            margin: 40px auto;
-            flex: 1;
-        }
-
-        h1 {
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            color: #718096;
-            font-size: 14px;
-            line-height: 1.7;
-        }
-
-        /* Banner */
         .hero {
-            min-height: 350px;
-            background:
-                linear-gradient(
-                    rgba(0, 0, 0, 0.45),
-                    rgba(0, 0, 0, 0.45)
-                ),
-                url("bandung.jpg") center/cover no-repeat;
-
+            min-height: 470px;
             display: flex;
             align-items: center;
             padding: 50px 7%;
-            color: white;
+            margin: 0;
+            border-radius: 0;
+            color: #fff;
+            background: linear-gradient(rgba(0, 0, 0, 0.278), rgba(0, 0, 0, 0.316)),
+                url("bandung.jpg") center / cover no-repeat;
         }
 
-        .hero-text {
-            max-width: 600px;
+        .table thead th {
+            --bs-table-bg: #102d50;
+            --bs-table-color: #fff;
         }
 
-        .hero h1 {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            font-size: 16px;
-            line-height: 1.7;
-        }
-
-        /* Daftar Wisata */
-        main {
-            width: 88%;
-            max-width: 1400px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        main h2 {
-            color: #3f79c1;
-            margin-bottom: 10px;
-        }
-
-        .deskripsi {
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        /* Tabel */
-        .tabel-container {
-            overflow-x: auto;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background: #102D50;
-            color: white;
-            font-size: 14px;
-        }
-
-        td {
-            font-size: 14px;
-        }
-
-        tr:hover {
-            background: #f0f7f2;
-        }
-
-        /* Footer */
-        footer {
-            background: #102D50;
-            color: white;
-            text-align: center;
-            padding: 30px 15px;
-        }
-
-        footer h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        footer p {
-            color: #DCEBFA;
-            font-size: 13px;
-            line-height: 1.7;
-        }
-
-        .footer-line {
-            width: 80%;
-            max-width: 500px;
-            height: 1px;
-            background: #49627D;
-            margin: 18px auto;
-        }
-
-        .copyright {
-            font-size: 12px;
-            color: #AFC4DB;
-        }
-
-        /* Tampilan Tablet */
-        @media (max-width: 1050px) {
-            header {
-                flex-wrap: wrap;
-            }
-
-            nav {
-                gap: 14px;
-            }
-        }
-
-        /* RESPONSIVE HP */
-        @media (max-width: 600px) {
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 20px 5%;
-            }
-
-            .logo {
-                font-size: 20px;
-            }
-
-            nav {
-                justify-content: flex-start;
-                flex-wrap: wrap;
-                gap: 14px;
-            }
-
-            nav a {
-                font-size: 12px;
-            }
-
-            .container {
-                width: 92%;
-                margin: 30px auto;
-            }
-
-            h1 {
-                font-size: 23px;
-            }
-
-            table {
-                min-width: 700px;
-            }
-        }
-            
+        .hero-text { max-width: 600px; 
+        text-align: left; }
+        #grafikSejarah { height: 400px; }
     </style>
 </head>
 
@@ -259,11 +52,11 @@
     <!-- MENU KANAN -->
     <nav>
         <a href="beranda.html">Beranda</a>
+        <a href="sejarah.html">Sejarah</a>
         <a href="data_wisata.html" class="active">Data Wisata</a>
         <a href="rekomendasi.html">Rekomendasi</a>
         <a href="lokasi.html">Lokasi</a>
-        <a href="kontak.html">Kontak</a>
-        <a href="tentang-kami.html">Tentang Kami</a>
+        <a href="review.html">Review</a>
     </nav>
 
 </header>
@@ -271,41 +64,54 @@
     <!-- Banner Bandung -->
     <section class="hero" id="beranda">
         <div class="hero-text">
-            <h1>Jelajahi Bandung</h1>
+            <h1 class="fs-1 mb-3">Jelajahi Bandung</h1>
 
-            <p>
+            <p class="mb-0">
                 Temukan berbagai tempat wisata menarik di sekitar
                 kampus PT INTI Bandung, mulai dari wisata sejarah,
-                taman, hingga tempat rekreasi.
+                budaya, taman, hingga tempat rekreasi.
             </p>
         </div>
     </section>
 
     <!-- Daftar Wisata -->
-    <main id="wisata">
-        <h2>Daftar Wisata Bandung</h2>
+    <main class="container-xxl my-5 px-4 text-center" id="wisata">
+        <h2 class="text-primary mb-2">Daftar Wisata Bandung</h2>
 
-        <p class="deskripsi">
-            Informasi nama tempat wisata, harga tiket masuk, dan jarak
-            dari kampus PT INTI Bandung.
+        <p class="text-secondary mb-4">
+            Informasi nama tempat wisata, harga tiket masuk, dan lokasi
+            wisata di Bandung.
         </p>
 
         <!-- Tabel Wisata -->
-        <div class="tabel-container">
-            <table>
+        <div class="table-responsive bg-white rounded-3 shadow-sm">
+            <table class="table table-hover align-middle text-start mb-0">
                 <thead>
                     <tr>
                         <th>No</th>
                         <th>Nama Wisata</th>
                         <th>Kategori</th>
+                        <th>Tahun Didirikan</th>
                         <th>Harga Tiket</th>
-                        <th>Jarak dari PT INTI</th>
+                        <th>Lokasi</th>
                     </tr>
                 </thead>
 
                 <tbody id="tabelWisata"></tbody>
             </table>
         </div>
+
+            <!-- Grafik Wisata -->
+    <section class="card border-0 shadow-sm mt-5 p-4 text-start">
+    <h2 class="text-primary mb-3">📊 Statistik Wisata Bandung Berdasarkan Tahun</h2>
+
+    <p class="text-secondary mb-4">
+        Statistik tahun berdirinya beberapa tempat wisata
+        di Kota Bandung.
+    </p>
+
+    <div id="grafikSejarah"></div>
+</section>
     </main>
 
     <!-- Footer -->
@@ -316,21 +122,28 @@
     </footer>
 
     <!-- JavaScript -->
+    <script src="Asset/js/bootstrap.bundle.min.js"></script>
     <script>
         // Data wisata Bandung
         const dataWisata = [
             {
-                nama: "Taman Tegalega", kategori: "Taman", harga: 0, jarak: "±1,5 km"
+                nama: "Taman Tegalega", kategori: "Taman", tahun: "1933", harga: 0
             },
             {
-                nama: "Museum Sri Baduga", kategori: "Museum", harga: 15000, jarak: "±2,2 km"
+                nama: "Museum Konferensi Asia Afrika", kategori: "Museum", tahun: "1980", harga: 0
             },
             {
-                nama: "Alun-Alun Bandung", kategori: "Ruang Publik", harga: 0, jarak: "±4,5 km"
+                nama: "Alun-Alun Bandung", kategori: "Ruang Publik", tahun: "1980", harga: 0
             },
             {
-                nama: "Jalan Braga", kategori: "Wisata Sejarah", harga: 0, jarak: "±5,5 km"
-            }
+                nama: "Saung Angklung Udjo", kategori: "Wisata Budaya", tahun: "1966", harga: "60.000 - 85.000"
+            },
+            {
+                nama: "Museum Sri Baduga", kategori: "Museum", tahun: "1974", harga: "2000 - 3000"
+            },
+            {
+                nama: "Museum Geologi", kategori: "Museum", tahun: "1928", harga: "3000 - 5000"
+            },
         ];
 
         // Menampilkan data ke tabel
@@ -344,21 +157,71 @@
                 const harga = data.harga === 0
                     ? "Gratis"
                     : "Rp " + data.harga.toLocaleString("id-ID");
+                const urlLokasi = "https://www.google.com/maps/search/?api=1&query="
+                    + encodeURIComponent(data.nama + ", Bandung");
 
                 tabel.innerHTML += `
                     <tr>
                         <td>${index + 1}</td>
                         <td>${data.nama}</td>
                         <td>${data.kategori}</td>
+                        <td>${data.tahun}</td>
                         <td>${harga}</td>
-                        <td>${data.jarak}</td>
+                        <td><a href="${urlLokasi}" target="_blank" rel="noopener noreferrer">Lihat Lokasi</a></td>
                     </tr>
                 `;
             });
         }
-
         // Menampilkan data pertama kali
         tampilkanData();
+
+       // Menampilkan Grafik Wisata
+    Highcharts.chart('grafikSejarah', {
+    chart: {
+        type: 'column'
+    },
+
+    title: {
+        text: null
+    },
+
+    xAxis: {
+        categories: [
+            'Taman Tegalega',
+            'Museum KAA',
+            'Alun-Alun Bandung',
+            'Saung Angklung Udjo',
+            'Museum Sri Baduga',
+            'Museum Geologi'
+        ],
+    },
+
+    yAxis: {
+        min: 1900,
+        max: 2020,
+        tickInterval: 20,
+        title: {
+            text: null
+        }
+    },
+
+    legend: {
+        enabled: false
+    },
+
+    tooltip: {
+        valueSuffix: ''
+    },
+
+    series: [{
+        data: [1933, 1980, 1980, 1966, 1974, 1928]
+    }],
+
+    credits: {
+        enabled: false
+    }
+});
+
     </script>
 
 </body>
