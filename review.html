@@ -84,6 +84,35 @@
             resize: vertical;
         }
 
+        .btn-contact {
+            margin-top: 18px;
+            background: #102D50;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+        }
+
+        .btn-contact:hover {
+            background: #173B61;
+            color: #fff;
+        }
+
+        .review-success {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 18px;
+            padding: 14px 16px;
+            border-radius: 10px;
+            background: #ecfdf5;
+            border: 1px solid #9fe3bb;
+        }
+
+        .review-success[hidden] {
+            display: none;
+        }
+
         @media (max-width: 600px) {
             .contact-form {
                 padding: 16px;
@@ -265,11 +294,11 @@
                                         Ulasan
                                     </label>
                                     <textarea id="pesan" class="form-control" rows="5"
-                                        placeholder="Tuliskan pesan atau saran Anda..." required></textarea>
+                                        placeholder="Tuliskan ulasan atau saran Anda..." required></textarea>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-contact w-100">
-                                Kirim Pesan
+                                Kirim Ulasan
                             </button>
                         </form>
                         <div id="hasilPesan" class="review-success" role="status" aria-live="polite" hidden>
@@ -290,18 +319,20 @@
         </div>
     </section>
     <!-- FOOTER -->
-    <footer class="py-4">
-        <div class="container text-center">
-            <h5 class="fw-bold">
-                📍Jelajah Bandung
-            </h5>
-            <p class="small mb-2">
-                Jelajah Wisata Sekitar PT INTI Bandung
-            </p>
-            <small>
-                © 2026 Jelajah Bandung
-            </small>
-        </div>
+   <footer>
+
+        <h3>📍 Jelajah Bandung</h3>
+
+        <p>
+            Jelajah Wisata Sekitar PT INTI Bandung
+        </p>
+
+        <div class="footer-line"></div>
+
+        <p class="copyright">
+            © 2026 Jelajah Bandung
+        </p>
+
     </footer>
     <!-- BOOTSTRAP JS -->
     <script src="Asset/js/bootstrap.bundle.min.js"></script>
