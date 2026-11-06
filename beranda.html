@@ -1,144 +1,45 @@
-
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Jelajah Bandung</title>
     <link href="Asset/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
     <style>
-
         body {
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
-                url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzyMlenIjLYSxYvCejnQ-YrucgI2zxVYMthr2WRwu4QA&s=10");
-            background-position: center;
-            background-size: cover;
-            background-attachment: fixed;
+            background: linear-gradient(rgba(255, 255, 255, .75), rgba(255, 255, 255, .75)),
+                url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzyMlenIjLYSxYvCejnQ-YrucgI2zxVYMthr2WRwu4QA&s=10") center / cover fixed;
         }
 
-        /* CONTAINER */
-        .container {
-            width: 88%;
-            max-width: 1200px; 
-            margin: 40px auto;
-            flex: 1;
+        main.container {
+            width: 92%;
         }
 
-        h1 {
-            font-size: 28px;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        /* KARTU SEJARAH */
-        .sejarah-card {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            margin: 20px 0;
-            box-shadow: 0 4px 15px rgba(16, 45, 80, 0.08);
-            border-left: 5px solid #2879BB;
-        }
-
-        .sejarah-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 15px;
-        }
-
-        .sejarah-icon {
-            background: #E5EDF6;
-            padding: 12px;
-            border-radius: 10px;
-            font-size: 25px;
-        }
-
-        .sejarah-header h2 {
-            font-size: 20px;
+        .history-title {
             color: #173B61;
-            margin-bottom: 5px;
         }
 
-        .sejarah-header p {
-            font-size: 13px;
-            color: #718096;
-        }
-
-        .sejarah-card .deskripsi {
-            font-size: 14px;
-            color: #718096;
-            line-height: 1.8;
+        .history-description {
             text-align: justify;
         }
 
-        /* SUBTITLE */
-        .subtitle {
-            color: #718096;
-            font-size: 14px;
-            line-height: 1.7;
-            margin-top: 15px;
-            text-align: center;
-        }
-
-        /* HERO / BANNER */
         .hero {
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(16, 45, 80, 0.65),
-                    rgba(16, 45, 80, 0.05)
-                ),
-                url("https://metrum.co.id/kanal/uploads/2023/08/Bandung.jpg")
-                center/cover no-repeat;
-
+            background: linear-gradient(90deg, rgba(16, 45, 80, .65), rgba(16, 45, 80, .05)),
+                url("https://metrum.co.id/kanal/uploads/2023/08/Bandung.jpg") center / cover no-repeat;
             min-height: 380px;
-            border-radius: 15px;
-            margin-top: 25px;
-            padding: 50px;
-            display: flex;
-            align-items: center;
-            color: white;
         }
 
         .hero-content {
             max-width: 550px;
         }
 
-        .hero h2 {
-            font-size: 38px;
-            margin-bottom: 15px;
+        @media (max-width: 600px) {
+            .hero {
+                min-height: 320px;
+            }
         }
-
-        .hero p {
-            font-size: 15px;
-            line-height: 1.8;
-            color: #E5EDF6;
-        }
-
-        /* TOMBOL */
-        .btn {
-            display: inline-block;
-            background: #2879BB;
-            color: white;
-            text-decoration: none;
-            padding: 13px 25px;
-            border-radius: 7px;
-            margin-top: 22px;
-            font-size: 14px;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: #1B5D95;
-            transform: translateY(-2px);
-        }
-
     </style>
 
 </head>
@@ -167,31 +68,31 @@
 
         <section id="beranda"> 
 
-            <h1>Selamat Datang di Bandung !</h1>
+            <h1 class="text-center mb-3">Selamat Datang di Bandung !</h1>
 
              <!-- SUBTITLE -->
-            <p class="subtitle">
+            <p class="subtitle text-center mt-3">
                 Website informasi wisata di sekitar PT INTI,
                 Kota Bandung, Jawa Barat.
             </p>
 
             <!-- KARTU SEJARAH KOTA BANDUNG -->
-            <div class="sejarah-card">
+            <div class="card border-0 border-start border-5 border-primary shadow-sm rounded-4 p-4 my-3">
 
-                <div class="sejarah-header">
+                <div class="d-flex align-items-center gap-3 mb-3">
 
-                    <div class="sejarah-icon">
+                    <div class="bg-primary-subtle p-3 rounded-3 fs-4">
                         🏛️
                     </div>
 
                     <div>
-                        <h2>Sejarah Kota Bandung</h2>
-                        <p>Mengenal perjalanan Kota Kembang</p>
+                        <h2 class="fs-5 history-title mb-1">Sejarah Kota Bandung</h2>
+                        <p class="small text-secondary mb-0">Mengenal perjalanan Kota Kembang</p>
                     </div>
 
                 </div>
 
-                <p class="deskripsi">
+                <p class="small text-secondary lh-lg history-description">
                     Kota Bandung memiliki sejarah panjang sebagai
                     kota yang berkembang menjadi pusat pemerintahan,
                     pendidikan, budaya, dan pariwisata. Keindahan
@@ -200,28 +101,28 @@
                     yang menarik di Indonesia.
                 </p>
  
-                <a href="Sejarah.html" class="btn">
+                <a href="Sejarah.html" class="btn btn-primary mt-2 px-2 align-self-start">
                         Sejarah →
                     </a>
 
             </div>
  
             <!-- BANNER UTAMA -->
-            <div class="hero">
+            <div class="hero d-flex align-items-center text-white rounded-3 mt-4 p-4 p-md-5">
 
                 <div class="hero-content">
 
-                    <h2>
+                    <h2 class="fs-1 mb-3">
                         Jelajahi Keindahan Kota Bandung
                     </h2>
 
-                    <p>
+                    <p class="text-light lh-lg">
                         Temukan berbagai destinasi wisata menarik,
                         mulai dari wisata sejarah, budaya, hingga
                         tempat rekreasi di sekitar PT INTI Bandung.
                     </p>
 
-                    <a href="Rekomendasi.html" class="btn">
+                    <a href="Rekomendasi.html" class="btn btn-primary mt-2">
                         Rekomendasi →
                     </a>
 
@@ -270,9 +171,9 @@
 
         });
 
-        console.log("Bandung Tourism berhasil dijalankan!");
+        console.log("Jelajah Bandung berhasil dijalankan!");
 
     </script>
 
 </body>
-</html>
+</html
