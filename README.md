@@ -1,4 +1,4 @@
-## Pembagian Tugas Kelompok
+## Kelompok 3 Jelajah Wisata Lokal
 
 | No. | Nama | Username GitHub | File yang Dikerjakan |
 |---|---|---|---|
