@@ -118,7 +118,7 @@
     <div class="container">
 
         <div class="judul">
-            <h2>Lokasi Wisata Bandung</h2>
+            <h2 class="fw-bold">Lokasi Wisata Bandung</h2>
             <p>
                 Klik salah satu marker pada peta atau pilih
                 daftar tempat wisata untuk melihat lokasinya.
@@ -208,8 +208,8 @@
             },
             {
                 nama: "Saung Angklung Udjo",
-                lat: -6.91000,
-                lng: 107.65000,
+                lat: -6.897879887553465,
+                lng: 107.65528083341646,
                 deskripsi: "Tempat wisata budaya dan pertunjukan angklung."
             }
         ];
@@ -241,8 +241,8 @@
 
                     <br>
 
-                    <a href="https://www.google.com/maps/dir/?api=1&destination=${lokasi.lat},${lokasi.lng}"
-                       target="_blank">
+                   <a href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(lokasi.nama + ", Bandung, Indonesia")}"
+                       target="_blank" rel="noopener noreferrer">
                        Petunjuk Arah Google Maps
                     </a>
                 </div>
