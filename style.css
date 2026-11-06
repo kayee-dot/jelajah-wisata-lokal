@@ -58,25 +58,6 @@ nav a.active {
     border-bottom: 2px solid #65B6F0;
 }
 
-/* CONTAINER */
-.container {
-    width: 88%;
-    max-width: 1200px;
-    margin: 40px auto;
-    flex: 1;
-}
-
-h1 {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-.subtitle {
-    color: #718096;
-    font-size: 14px;
-    line-height: 1.7;
-}
-
 /* FOOTER */
 footer {
     background: #102D50;
