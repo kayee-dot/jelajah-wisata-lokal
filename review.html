@@ -10,29 +10,11 @@
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
     <style>
-        .contact-panel {
-            overflow: hidden;
-            border-radius: 12px;
-            background: white;
-            box-shadow: 0 4px 16px rgba(16, 45, 80, 0.12);
-        }
-
         .contact-panel-heading {
-            padding: 16px 20px;
             background: #102D50;
-            color: white;
-        }
-
-        .contact-info-type {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            font-weight: 700;
         }
 
         .contact-table {
-            width: 100%;
             table-layout: fixed;
         }
 
@@ -61,36 +43,10 @@
             stroke-width: 1.8;
         }
 
-        .contact-form {
-            padding: 24px;
-        }
-
-        .contact-form .row {
-            margin-right: 0;
-            margin-left: 0;
-        }
-
-        .contact-form .row > * {
-            min-width: 0;
-        }
-
-        .contact-form .form-control {
-            width: 100%;
-            max-width: 100%;
-            box-sizing: border-box;
-        }
-
-        .contact-form textarea.form-control {
-            resize: vertical;
-        }
-
         .btn-contact {
-            margin-top: 18px;
             background: #102D50;
             color: #fff;
-            border: none;
             border-radius: 10px;
-            font-weight: 700;
         }
 
         .btn-contact:hover {
@@ -98,19 +54,8 @@
             color: #fff;
         }
 
-        .review-success {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-top: 18px;
-            padding: 14px 16px;
-            border-radius: 10px;
-            background: #ecfdf5;
-            border: 1px solid #9fe3bb;
-        }
-
         .review-success[hidden] {
-            display: none;
+            display: none !important;
         }
 
         @media (max-width: 600px) {
@@ -157,17 +102,17 @@
             <div class="row g-4">
                 <!-- INFORMASI KONTAK -->
                 <div class="col-lg-5">
-                    <div class="contact-panel">
-                        <div class="contact-panel-heading">
+                    <div class="contact-panel overflow-hidden rounded-4 bg-white shadow">
+                        <div class="contact-panel-heading py-3 px-4 text-white">
                             <h4 class="fw-bold mb-0">
                                 Informasi Kontak
                             </h4>
                         </div>
-                        <table class="contact-table">
+                        <table class="contact-table w-100 mb-0">
                             <tbody>
                                 <tr>
                                     <td>
-                                        <span class="contact-info-type">
+                                        <span class="d-flex align-items-center flex-wrap gap-2 fw-bold">
                                             <span class="contact-info-icon">
                                                 <svg viewBox="0 0 24 24" aria-hidden="true">
                                                     <rect x="3" y="5" width="18" height="14" rx="2"></rect>
@@ -181,7 +126,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="contact-info-type">
+                                        <span class="d-flex align-items-center flex-wrap gap-2 fw-bold">
                                             <span class="contact-info-icon">
                                                 <svg viewBox="0 0 24 24" aria-hidden="true">
                                                     <circle cx="18" cy="5" r="3"></circle>
@@ -239,33 +184,33 @@
                 </div>
                 <!-- FORMULIR PESAN -->
                 <div class="col-lg-7">
-                    <div class="contact-panel">
-                        <div class="contact-panel-heading">
+                    <div class="contact-panel overflow-hidden rounded-4 bg-white shadow">
+                        <div class="contact-panel-heading py-3 px-4 text-white">
                             <h4 class="fw-bold mb-0">
                                 Kirim Review dan Saran
                             </h4>
                         </div>
-                        <form id="formKontak" class="contact-form">
-                            <div class="row g-3">
+                        <form id="formKontak" class="contact-form p-4">
+                            <div class="row g-3 mx-0">
                                 <div class="col-md-6">
                                     <label for="nama" class="form-label fw-bold">
                                         Nama Lengkap
                                     </label>
-                                    <input type="text" id="nama" class="form-control" autocomplete="name"
+                                    <input type="text" id="nama" name="nama" class="form-control" autocomplete="name"
                                         placeholder="Masukkan nama lengkap" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="email" class="form-label fw-bold">
                                         Email
                                     </label>
-                                    <input type="email" id="email" class="form-control" autocomplete="email"
+                                    <input type="email" id="email" name="email" class="form-control" autocomplete="email"
                                         placeholder="contoh@gmail.com" required>
                                 </div>
                                 <div class="col-12">
                                     <label for="subjek" class="form-label fw-bold">
                                         Wisata yang Dikunjungi
                                     </label>
-                                    <select id="subjek" class="form-control" required>
+                                    <select id="subjek" name="subjek" class="form-select" required>
                                         <option value="" selected disabled>Pilih wisata yang dikunjungi</option>
                                         <option value="Museum Konferensi Asia Afrika">Museum Konferensi Asia Afrika
                                         </option>
@@ -280,7 +225,7 @@
                                     <label for="rating" class="form-label fw-bold">
                                         Rating
                                     </label>
-                                    <select id="rating" class="form-control" required>
+                                    <select id="rating" name="rating" class="form-select" required>
                                         <option value="" selected disabled>Pilih rating</option>
                                         <option value="5">★★★★★ (5/5)</option>
                                         <option value="4">★★★★☆ (4/5)</option>
@@ -293,15 +238,17 @@
                                     <label for="pesan" class="form-label fw-bold">
                                         Ulasan
                                     </label>
-                                    <textarea id="pesan" class="form-control" rows="5"
+                                    <textarea id="pesan" name="pesan" class="form-control" rows="5"
                                         placeholder="Tuliskan ulasan atau saran Anda..." required></textarea>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-contact w-100">
+                            <button type="submit" class="btn btn-contact border-0 fw-bold w-100 mt-3">
                                 Kirim Ulasan
                             </button>
                         </form>
-                        <div id="hasilPesan" class="review-success" role="status" aria-live="polite" hidden>
+                        <div id="hasilPesan"
+                            class="review-success alert alert-success d-flex align-items-center gap-3 mt-3 mb-0"
+                            role="status" aria-live="polite" hidden>
                             <span class="review-success-icon" aria-hidden="true">
                                 <svg viewBox="0 0 24 24">
                                     <path d="m5 12 4 4L19 6"></path>
@@ -334,38 +281,31 @@
         </p>
 
     </footer>
-    <!-- BOOTSTRAP JS -->
-    <script src="Asset/js/bootstrap.bundle.min.js"></script>
-    <!-- JAVASCRIPT -->
     <script>
-        document.getElementById("formKontak").addEventListener("submit", function (event) {
+        const form = document.getElementById("formKontak");
+        const hasilPesan = document.getElementById("hasilPesan");
+        const detailHasilPesan = document.getElementById("detailHasilPesan");
+        const ratingHasilPesan = document.getElementById("ratingHasilPesan");
+
+        form.addEventListener("submit", (event) => {
             event.preventDefault();
-            // Mengambil data formulir
-            var nama = document.getElementById("nama").value.trim();
-            var email = document.getElementById("email").value.trim();
-            var subjek = document.getElementById("subjek").value.trim();
-            var rating = document.getElementById("rating").value;
-            var pesan = document.getElementById("pesan").value.trim();
-            // Memeriksa kolom kosong
-            if (nama == "" || email == "" || subjek == "" || rating == "" || pesan == "") {
+
+            const data = new FormData(form);
+            const nama = data.get("nama").trim();
+            const pesan = data.get("pesan").trim();
+
+            if (!nama || !pesan) {
                 alert("Semua kolom wajib diisi!");
                 return;
             }
-            // Memeriksa format email
-            var polaEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!polaEmail.test(email)) {
-                alert("Format email tidak valid!");
-                return;
-            }
-            // Menampilkan notifikasi
-            document.getElementById("detailHasilPesan").textContent =
-                "Terima kasih, " + nama + "! Ulasan Anda untuk " + subjek + " sudah kami terima.";
-            document.getElementById("ratingHasilPesan").textContent =
-                "Rating Anda: " + "★".repeat(Number(rating)) + "☆".repeat(5 - Number(rating)) +
-                " (" + rating + "/5)";
-            document.getElementById("hasilPesan").hidden = false;
-            // Mengosongkan formulir
-            document.getElementById("formKontak").reset();
+
+            const wisata = data.get("subjek");
+            const rating = Number(data.get("rating"));
+            detailHasilPesan.textContent = `Terima kasih, ${nama}! Ulasan Anda untuk ${wisata} sudah kami terima.`;
+            ratingHasilPesan.textContent =
+                `Rating Anda: ${"★".repeat(rating)}${"☆".repeat(5 - rating)} (${rating}/5)`;
+            hasilPesan.hidden = false;
+            form.reset();
         });
     </script>
 </body>
