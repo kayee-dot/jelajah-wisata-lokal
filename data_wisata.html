@@ -19,14 +19,9 @@
 
         .hero {
             min-height: 470px;
-            display: flex;
-            align-items: center;
             padding: 50px 7%;
-            margin: 0;
-            border-radius: 0;
-            color: #fff;
-            background: linear-gradient(rgba(0, 0, 0, 0.278), rgba(0, 0, 0, 0.316)),
-                url("bandung.jpg") center / cover no-repeat;
+            background: linear-gradient(90deg, rgba(21, 41, 65, 0.92), rgba(108, 110, 113, 0.12)),
+                url("https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1295,h_863/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/jsk0lmcdjrgw2qj59jpg/BandungCityTourwithHigh-SpeedRail(Whoosh)fromJakarta.jpg") center / cover no-repeat;
         }
 
         .table thead th {
@@ -34,8 +29,24 @@
             --bs-table-color: #fff;
         }
 
-        .hero-text { max-width: 600px; 
-        text-align: left; }
+        .destination-title {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-text h1 {
+            display: inline-block;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+            font-weight: 500;
+            line-height: 1.1;
+            letter-spacing: 0.02em;
+            text-shadow: 0 3px 18px rgba(0, 0, 0, 0.35);
+        }
+
         #grafikSejarah { height: 400px; }
     </style>
 </head>
@@ -62,9 +73,9 @@
 </header>
 
     <!-- Banner Bandung -->
-    <section class="hero" id="beranda">
+    <section class="hero d-flex align-items-center m-0 rounded-0 text-white" id="beranda">
         <div class="hero-text">
-            <h1 class="fs-1 mb-3">Jelajahi Bandung</h1>
+            <h1 class="mb-3">Jelajahi Bandung</h1>
 
             <p class="mb-0">
                 Temukan berbagai tempat wisata menarik di sekitar
@@ -76,8 +87,7 @@
 
     <!-- Daftar Wisata -->
     <main class="container-xxl my-5 px-4 text-center" id="wisata">
-        <h2 class="text-dark mb-1">Daftar Wisata Bandung</h2>
-
+        <h2 class="destination-title text-dark mb-1">Daftar Wisata Bandung</h2>
         <p class="text-secondary mb-4">
             Informasi nama tempat wisata, harga tiket masuk, dan lokasi
             wisata di Bandung.
@@ -102,8 +112,8 @@
         </div>
 
             <!-- Grafik Wisata -->
-    <section class="card border-0 shadow-sm mt-5 p-4 text-center color-dark">
-    <h2 class="text-dark mb-3">📊 Statistik Wisata Bandung Berdasarkan Tahun</h2>
+        <section class="card border-0 shadow-sm mt-5 p-4 text-center color-dark">
+         <h2 class="destination-title text-dark mb-1"> Tahun Berdirinya Destinasi Wisata Bandung</h2>
 
     <p class="text-secondary mb-5">
         Statistik tahun berdirinya beberapa tempat wisata
@@ -118,6 +128,7 @@
     <footer>
         <h3>📍Jelajah Bandung</h3>
         <p>Jelajah Wisata Sekitar PT INTI Bandung</p>
+        <div class="footer-line"></div>
         <p>© 2026 Jelajah Bandung</p>
     </footer>
 
@@ -187,12 +198,7 @@
 
     xAxis: {
         categories: [
-            'Taman Tegalega',
-            'Museum KAA',
-            'Alun-Alun Bandung',
-            'Saung Angklung Udjo',
-            'Museum Sri Baduga',
-            'Museum Geologi'
+            'Taman Tegalega','Museum KAA','Alun-Alun Bandung','Saung Angklung Udjo','Museum Sri Baduga','Museum Geologi'
         ],
     },
 
@@ -204,13 +210,14 @@
             text: null
         }
     },
-
     legend: {
         enabled: false
     },
 
     tooltip: {
-        valueSuffix: ''
+         formatter: function () {
+            return this.y;
+        }
     },
 
     series: [{
@@ -221,8 +228,6 @@
         enabled: false
     }
 });
-
     </script>
-
 </body>
 </html>
